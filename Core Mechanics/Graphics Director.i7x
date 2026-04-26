@@ -4,7 +4,7 @@ Version 2 of Graphics Director by Core Mechanics begins here.
 
 "Provides functions that link the new window based graphics."
 
-Section - Special commands (for use with Simple Graphical Window by Emily Short)
+Chapter 0 - Special commands (for use with Simple Graphical Window by Emily Short)
 
 To close the/-- graphics window:
 	(- if (gg_picwin) glk_window_close(gg_picwin, 0); gg_picwin = 0; -)
@@ -16,7 +16,7 @@ To reconstruct the/-- graphics window:
 	close the graphics window;
 	build graphics window;
 
-Section 1 - Declarations and variables
+Chapter 1 - Declarations and variables
 
 [New Graphics modifier]
 The graphics window position is g-right. The graphics window proportion is 30.
@@ -24,7 +24,7 @@ ngraphics_currentartist is a text that varies.[@Tag:NotSaved] ngraphics_currenta
 TempClearBypass is a number that varies.[@Tag:NotSaved] TempClearBypass is usually 0.
 [Because of new system, setting this to 1 is needed for making projections work when applied in a 'look' order]
 
-Section 2 - Rules and Functions
+Chapter 2 - Rules and Functions
 
 After looking:
 	follow the ngraphics_clearcheck rule;
@@ -57,13 +57,13 @@ This is the ngraphics_phone rule:
 	if graphics is true and NewGraphics is true:
 		follow the current graphics drawing rule;
 
-Section 2.1 - Combat Runtime rules
+Section 1 - Combat Runtime rules
 
 To ngraphics_combat_statusoverride:
 	follow the ngraphics_statusprocess rule;
 	[fill status bar with table of art status;]
 
-Section 3 - Tables
+Chapter 3 - Tables
 
 [Graphics Color Table]
 [NOTICE: To add new values, please take notice that these values are REVERSE of normal hex/html. Therefore 'AA0000' should be '0000AA'... Except for non-primary colors... I dunno, try it out, no idea how inform handles colors. Different for each interpreter too. Best to stick to simple web colors.]
@@ -77,22 +77,22 @@ g-white	16777215		[== $FFFFFF]
 g-yellow-orange	15645627		[== $EEBBBB]
 g-ice-blue	39423		[== $0099FF]
 
-Section 3.1 - Artist Status
+Section 1 - Artist Status
 
 This is the ngraphics_statusprocess rule:
 	[let CurrentGraphic be the currently shown picture;]
 	if currently shown picture is a icon listed in Table of Game Art:
 		now ngraphics_currentartist is artist entry;
 
-Section 4 - User Commands
+Chapter 4 - User Commands
 
 graphicmoding is an action applying to nothing.
 understand "graphics" as graphicmoding.
 
 carry out graphicmoding:
 	follow the ngraphics_blank rule;
-	let Trixieexit be 0;
-	while Trixieexit is 0:
+	let Trixieexit be false;
+	while Trixieexit is false:
 		clear the screen;
 		say "[bold type]Graphics Settings:[roman type][line break]";
 		say "(1) [link]Graphics[as]1[end link] - [bold type][if NewGraphicsInteger is 2]Side-Window Graphics[else if NewGraphicsInteger is 1]Inline Mode[else if NewGraphicsInteger is 0]Disabled[else]ERROR[end if][roman type][line break]";
@@ -108,7 +108,7 @@ carry out graphicmoding:
 		if calcnumber is 0:
 			say "Exit graphics menu?";
 			if Player consents:
-				now Trixieexit is 1;
+				now Trixieexit is true;
 			if NewGraphicsInteger is 2:
 				reconstruct graphics window;
 				follow the ngraphics_blank rule;
@@ -153,7 +153,7 @@ carry out graphicmoding:
 				-- 2: now graphics window position is g-above;
 				-- 3: now graphics window position is g-below;
 
-Section 5 - Debug Commands - Not for release
+Chapter 5 - Debug Commands - Not for release
 
 [DEBUG Commands]
 [Cheat for enabling inline debug stuff]
@@ -200,7 +200,6 @@ carry out graphicsdebugreport:
 		say "NewGraphicsInteger = STATE_ERROR";
 
 [
-
 ---- DOCUMENTATION ----
 
 [Now the graphics window proportion is NewGraphicsRatio.]
@@ -224,7 +223,6 @@ The roomview-canvas is a g-canvas. The associated canvas of the graphics-window 
 	try looking;]
 
 Legacy code -
-
 ]
 
 Graphics Director ends here.

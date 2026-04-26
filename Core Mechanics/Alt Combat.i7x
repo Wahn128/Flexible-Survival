@@ -6,7 +6,7 @@ Version 2 of Alt Combat by Core Mechanics begins here.
 
 Book 1 - Player Combat
 
-Part 1 - Basic Variables
+Part 0 - Basic Variables
 
 Dam is a number that varies.
 monstercom is a number that varies.		[ This represents the row on the table of Critter Combat to be used in this fight. ]
@@ -92,7 +92,7 @@ title	subtable	description	toggle
 "Submit"	--	"Maybe it isn't so bad?"	submit rule
 "Throw Fight"	--	"Let them think they won."	throw combat rule
 
-Part 2 - Prepping for Combat
+Part 1 - Prepping for Combat
 
 when play begins:
 	if "Human" is not listed in EncounteredEnemies of Player:
@@ -215,9 +215,9 @@ to prepforfight:		[Do all the pre-fight setup, reset values, and then display th
 	if inasituation is false: [regular creature pre and postcombat, might include artwork being shown]
 		say "[bold type]You run into [if enemy type entry is 2][enemy Name entry][else]a [EnemyNameOrTitle][end if].[roman type][line break][desc entry][line break]";
 
-Part 3 - Combat
+Part 2 - Combat
 
-Chapter 0 - Combat Menu
+Chapter 1 - Combat Menu
 
 To Combat Menu:
 	say "[run paragraph on]";
@@ -304,7 +304,7 @@ To Combat Menu:
 this is the monster combat mode rule:
 	choose row MonsterID from Table of Random Critters;
 	let searchparam be "default";
-	let foundcom be 0;
+	let foundcom be false;
 	if there is no altcombat entry or altcombat entry is empty:
 		now searchparam is "default"; [no change]
 	else:
@@ -313,9 +313,9 @@ this is the monster combat mode rule:
 		choose row y in table of Critter Combat;
 		if Name entry exactly matches the text searchparam, case insensitively:
 			now monstercom is y;
-			now foundcom is 1;
+			now foundcom is true;
 			break;
-	if foundcom is 0:			[if that combat mode cannot be found, it reverts to default]
+	if foundcom is false:			[if that combat mode cannot be found, it reverts to default]
 		say "Error: Combat mode '[searchparam]' could not be found. Reverting to default.";
 		wait for any key;
 		repeat with y running from 1 to number of filled rows in table of Critter Combat:
@@ -327,7 +327,7 @@ this is the monster combat mode rule:
 to say combat abort:
 	now combat abort is 1;
 
-Chapter 1 - Player Attack
+Chapter 2 - Player Attack
 
 This is the player attack rule:
 	choose row MonsterID from the Table of Random Critters;
@@ -377,7 +377,7 @@ This is the player attack rule:
 	let the roll be a random number from 1 to 50;
 	say "You roll 1d50([roll])[if combat bonus >= 0]+[end if][combat bonus] = [roll plus combat bonus]: ";
 	if the roll plus the combat bonus > 20:
-		let wmstrike be 0;
+		let wmstrike be false;
 		let z be 0;
 		now dam is ( weapon damage of Player times a random number from 80 to ( 120 + level of Player ) ) divided by 100;
 		if weapon object of Player is journal:		[unarmed combat]
@@ -406,7 +406,7 @@ This is the player attack rule:
 			if "Black Belt" is listed in feats of Player and a random chance of 2 in 3 succeeds:
 				now dam is ( dam times a random number from 105 to 125 ) divided by 100;
 		if "Weaponsmaster" is listed in feats of Player and weapon object of Player is not journal:	[Weaponsmaster and armed]
-			now wmstrike is 1;
+			now wmstrike is true;
 			let numnum be level of Player + ( ( intelligence of Player - 10 ) / 2 ) + 105;
 			now dam is ( dam times a random number from 105 to numnum ) divided by 100;
 		if "Powerful" is listed in feats of Player:
@@ -415,15 +415,13 @@ This is the player attack rule:
 			let numnum be ( ( level of Player * 5 ) / 2 ) + 100;
 			now dam is ( dam times a random number from 105 to numnum ) divided by 100;
 		if weapon type of Player is "Melee":
-			increase dam by ( Strength of Player minus 10 ) divided by 2;
-			increase dam by pldamagebonus;
+			increase dam by ( ( Strength of Player minus 10 ) divided by 2 ) + pldamagebonus;
 		else if weapon type of Player is "Ranged":
-			increase dam by ( Perception of Player minus 10 ) divided by 2;
-			increase dam by pldamagebonus;
+			increase dam by ( ( Perception of Player minus 10 ) divided by 2 ) + pldamagebonus;
 		if a random chance of Morale of Player in 200 succeeds:
 			say "Filled with sudden motivation, your attack scores particularly well! ";
 			increase dam by dam;
-		if wmstrike is 1:			[Weaponsmaster used]
+		if wmstrike is true:			[Weaponsmaster used]
 			say "[one of]You skillfully use[or]You attack precisely with[or]Using your weapons knowledge, you attack with[or]Like the veteran fighter you are, you strike with[or]You strike with[or]You attack with[at random] [weapon of Player], hitting [if enemy type entry is not 2]the [end if][EnemyNameOrTitle] for [special-style-2][dam][roman type] damage!";
 		else if weapon object of Player is journal:
 			if z is not 0:	[Natural Armaments used]
@@ -583,7 +581,7 @@ to say EnemyCapNameOrTitle:
 	else:
 		say "[enemy title entry]";
 
-Chapter 2 - Seduce
+Chapter 3 - Seduce
 
 This is the player seduce rule:
 	choose row MonsterID from the Table of Random Critters;
@@ -700,7 +698,7 @@ This is the player seduce rule:
 				follow the continuous entry;
 			if combat abort is 0 and skipretaliate is false, follow the combat entry;
 
-Chapter 3 - Item Use
+Chapter 4 - Item Use
 
 This is the combat item rule:
 	now battleitem is 0;
@@ -763,7 +761,7 @@ object	holding (number)	objname (indexed text)	description (indexed text)
 journal	1	"journal"	"nothing"
 with 24 blank rows.
 
-Chapter 4 - Combat Pass
+Chapter 5 - Combat Pass
 
 This is the combat pass rule:
 	choose row monstercom from table of Critter Combat;
@@ -772,7 +770,7 @@ This is the combat pass rule:
 		follow the continuous entry;
 	if combat abort is 0, follow the combat entry;
 
-Chapter 5 - Submit
+Chapter 6 - Submit
 
 This is the submit rule:
 	choose row MonsterID from the Table of Random Critters;
@@ -781,7 +779,7 @@ This is the submit rule:
 	if Player is submissive, increase XP of Player by ( 2 + lev entry ) / 5;
 	if Player is kinky, increase Morale of Player by 6;
 
-Chapter 6 - Flee
+Chapter 7 - Flee
 
 This is the flee rule:
 	choose row MonsterID from the Table of Random Critters;
@@ -845,7 +843,7 @@ This is the flee rule:
 	if combat abort is 1:
 		follow the ngraphics_blank rule;
 
-Chapter 7 - Throw the Fight
+Chapter 8 - Throw the Fight
 
 This is the throw combat rule:
 	now fightoutcome is 20;
@@ -853,7 +851,7 @@ This is the throw combat rule:
 	say "You allow yourself to be subdued while putting up a token struggle.";
 	Lose;
 
-Chapter 8 - Poison
+Chapter 9 - Poison
 
 this is the playerpoisoned rule:
 	if Playerpoison > 0:
@@ -934,17 +932,17 @@ to retaliate:
 	else:
 		standardstrike;
 	if monsterhit is true:
-		let altattackmade be 0;
+		let altattackmade be false;
 		choose row monstercom from table of Critter Combat;
 		if there is a altattack1 entry and there is a alt1chance entry:
 			if a random chance of alt1chance entry in 100 succeeds:
-				now altattackmade is 1;
+				now altattackmade is true;
 				follow the altattack1 entry; [use altattack1, if rolled successfully and exists]
 			else if there is a altattack2 entry and there is a alt2chance entry:
 				if a random chance of alt2chance entry in 100 succeeds:
-					now altattackmade is 1;
+					now altattackmade is true;
 					follow the altattack2 entry; [use altattack1, if rolled successfully and exists]
-		if altattackmade is 0:
+		if altattackmade is false:
 			standardhit; [use a normal hit, if no alternate was used]
 		choose row monstercom from table of Critter Combat;
 		if there is a postattack entry:
@@ -1041,7 +1039,7 @@ to standardhit:
 	now dam is ( wdam entry times a random number from ( 80 - ( peppereyes * 4 ) ) to 120 ) / 100;
 	if HardMode is true and a random chance of 1 in ( 10 + peppereyes ) succeeds:
 		now dam is (dam * 150) divided by 100;
-		say "The enemy finds a particular vulnerability in your defense - [italic type]Critical Hit![roman type][line break]";
+		say "The enemy finds a particular vulnerability in your defense - Critical Hit!";
 	say "[Attack entry] You take [special-style-2][dam][roman type] damage!";
 	now damagein is dam;
 	say "[normalabsorbancy]";
@@ -1265,145 +1263,141 @@ to win:
 	follow the cunt descr rule;
 	follow the breast descr rule;
 	now lastfightround is turns;
-	let ok be 1;
-	let voreprompted be false;
-	let ubprompted be false;
-	[Unbirthing and Vore]
-	if Player can vore and inasituation is false and scalevalue of Player >= scale entry and fightoutcome is 10 and vorechoice is not 2:
-		let vorechance be 25 + ( hunger of Player * 2 );
-		if "Automatic Survival" is listed in feats of Player, now vorechance is 75;
-		if vorecount > 20:
-			increase vorechance by 40;
-		else:
-			increase vorechance by vorecount * 2;
-		increase vorechance by ( 100 - humanity of Player ) / 4;
-		increase vorechance by ( scalevalue of Player - scale entry ) * 5;
-		if a random chance of vorechance in 300 succeeds or hunger of Player > 80:					[chance for vore]
-			if Name entry is not listed in infections of VoreExclusion and enemy type entry is 0: [not on the exclude list and non-unique infection]
-				now voreprompted is true; [player will be prompted for vore]
-	if Player can UB and inasituation is false and scalevalue of Player >= scale entry and fightoutcome is 10 and ubchoice is not 2 and gestation of Child is 0 and larvaegg is not 2 and Player is female:
-		let vorechance be 25 + ( Cunt Tightness of Player * 5 );
-		if vorechance > 125, now vorechance is 125;
-		if "Fertile" is listed in feats of Player, increase vorechance by 25;
-		if "Maternal" is listed in feats of Player, increase vorechance by 15;
-		if "Sterile" is listed in feats of Player, increase vorechance by 40;
-		if inheat is true, increase vorechance by 20;
-		if ubcount > 20:
-			increase vorechance by 40;
-		else:
-			increase vorechance by ubcount * 2;
-		increase vorechance by ( 100 - humanity of Player ) / 4;
-		increase vorechance by ( scalevalue of Player - scale entry ) * 5;
-		if a random chance of vorechance in 300 succeeds:					[chance for ub]
-			if Name entry is not listed in infections of VoreExclusion and enemy type entry is 0: [not on the exclude list and non-unique infection]
-				now ubprompted is true; [player will be prompted for ub]
-	if Carnivorous Plant is listed in companionList of Player and hunger of Voria > 7 and Name entry is not listed in infections of VoreExclusion and inasituation is false and enemy type entry is 0:
-		now ok is 0;
-		VoriaPostCombat; [Carnivorous Plant vore scene. Scenes in Voria file]
-		now fightoutcome is 15; [Voria vored foe]
-	else if voreprompted is true and ubprompted is true and inasituation is false: [both vore and ub are possible]
-		if vorechoice is 0 and ubchoice is 0: [player has full choice]
-			say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself, tempted to fill that emptiness you're feeling inside with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to your desire to [link]consume (1)[as]1[end link] them, [link]unbirth (2)[as]2[end link] them or [link]suppress (0)[as]0[end link] the urge?";
-			now calcnumber is -1;
-			while calcnumber < 0 or calcnumber > 2:
-				say "Choice? (0-2)> [run paragraph on]";
-				get a number;
-			LineBreak;
-			if calcnumber is 1:
-				now ok is 0;
-				vorebyplayer; [See Alt Vore file]
-				now fightoutcome is 13; [player vored foe]
-			else if calcnumber is 2:
-				now ok is 0;
-				ubbyplayer; [See Alt Vore file]
-				now fightoutcome is 14; [player ub'ed foe]
-			else:
-				now ok is 1;
-		else if vorechoice is 1 and ubchoice is 1: [player has choice ub/vore]
-			say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. You don't hold back the urge to be filled, but are torn between which emptiness you're feeling to fill with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to your desire to [link]consume (1)[as]1[end link] them or to [link]unbirth (2)[as]2[end link] them?";
-			now calcnumber is -1;
-			while calcnumber < 1 or calcnumber > 2:
-				say "Choice? (1 or 2)> [run paragraph on]";
-				get a number;
-			LineBreak;
-			if calcnumber is 1:
-				now ok is 0;
-				vorebyplayer; [See Alt Vore file]
-				now fightoutcome is 13; [player vored foe]
-			else:
-				now ok is 0;
-				ubbyplayer; [See Alt Vore file]
-				now fightoutcome is 14; [player ub'ed foe]
-		else if vorechoice is 1 and ubchoice is 0: [hunger overrides ub]
-			say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. In the end, it is the emptiness in your stomach that wins out and you don't hold it back. You advance on them with the intent to sate your stomach's call with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle].";
-			now ok is 0;
-			vorebyplayer; [See Alt Vore file]
-			now fightoutcome is 13; [player vored foe]
-		else if vorechoice is 0 and ubchoice is 1: [ub overrides hunger]
-			say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. In the end, it is the hollowness in your uterus that wins out and you don't hold it back. You advance on them with the intent to use [if enemy type entry is not 2]the [end if][EnemyNameOrTitle] to fill the emptiness you feel in your womb.";
-			now ok is 0;
-			ubbyplayer; [See Alt Vore file]
-			now fightoutcome is 14; [player ub'ed foe]
-	else if voreprompted is true:
-		if vorechoice is 0:
-			say "     As your battle is coming to a close, you feel a primal rumbling in your belly, your hunger welling up inside you. Looking down at your fallen foe, you lick your lips, tempted to sate your body's hunger with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to this desire to consume them?";
-			if Player consents:
-				LineBreak;
-				now ok is 0;
-				vorebyplayer; [See Alt Vore file]
-				now fightoutcome is 13; [player vored foe]
-			else:
-				LineBreak;
-				now ok is 1;
-		else if vorechoice is 1:
-			say "     As your battle is coming to a close, you feel that primal rumbling in your belly, your hunger welling up inside you. Looking down at your fallen foe, you lick your lips and don't hold it back, advancing on them with the intent to sate your stomach's call with them.";
-			now ok is 0;
-			vorebyplayer; [See Alt Vore file]
-			now fightoutcome is 13; [player vored foe]
-	else if ubprompted is true:
-		if ubchoice is 0:
-			say "     As your battle is coming to a close, you become intensely aware of the emptiness of your womb. Looking down at your foe, you finger yourself, longing to use [if enemy type entry is not 2]the [end if][EnemyNameOrTitle] to fill it right away. Shall you give in to this desire and unbirth them?";
-			if Player consents:
-				LineBreak;
-				now ok is 0;
-				ubbyplayer; [See Alt Vore file]
-				now fightoutcome is 14; [player ub'ed foe]
-			else:
-				LineBreak;
-				now ok is 1;
-		else if ubchoice is 1:
-			say "     As your battle is coming to a close, you become intensely aware of the emptiness of your womb. Looking down at your foe, you finger yourself and don't hold it back, advancing on them with the intent to fill your uterus right away with them.";
-			now ok is 0;
-			ubbyplayer; [See Alt Vore file]
-			now fightoutcome is 14; [player ub'ed foe]
-	[Vampirism]
-	if ok is 1 and vampiric is true and inasituation is false:
-		if NoHealMode is true:
-			increase HP of Player by ( 2 * lev entry ) / 3;
-		else:
-			increase HP of Player by lev entry;
-		PlayerDrink 3;
-		PlayerEat 1;
-		if HP of Player > MaxHP of Player, now HP of Player is MaxHP of Player;
-	[Trophies and Looting]
 	if inasituation is false:
+		let ok be true;
+		let voreprompted be false;
+		let ubprompted be false;
+		[Unbirthing and Vore]
+		if Player can vore and scalevalue of Player >= scale entry and fightoutcome is 10 and vorechoice is not 2:
+			let vorechance be 25 + ( hunger of Player * 2 );
+			if "Automatic Survival" is listed in feats of Player, now vorechance is 75;
+			if vorecount > 20:
+				increase vorechance by 40;
+			else:
+				increase vorechance by vorecount * 2;
+			increase vorechance by ( 100 - humanity of Player ) / 4;
+			increase vorechance by ( scalevalue of Player - scale entry ) * 5;
+			if a random chance of vorechance in 300 succeeds or hunger of Player > 80:					[chance for vore]
+				if Name entry is not listed in infections of VoreExclusion and enemy type entry is 0: [not on the exclude list and non-unique infection]
+					now voreprompted is true; [player will be prompted for vore]
+		if Player can UB and scalevalue of Player >= scale entry and fightoutcome is 10 and ubchoice is not 2 and gestation of Child is 0 and larvaegg is not 2 and Player is female:
+			let vorechance be 25 + ( Cunt Tightness of Player * 5 );
+			if vorechance > 125, now vorechance is 125;
+			if "Fertile" is listed in feats of Player, increase vorechance by 25;
+			if "Maternal" is listed in feats of Player, increase vorechance by 15;
+			if "Sterile" is listed in feats of Player, increase vorechance by 40;
+			if inheat is true, increase vorechance by 20;
+			if ubcount > 20:
+				increase vorechance by 40;
+			else:
+				increase vorechance by ubcount * 2;
+			increase vorechance by ( 100 - humanity of Player ) / 4;
+			increase vorechance by ( scalevalue of Player - scale entry ) * 5;
+			if a random chance of vorechance in 300 succeeds:					[chance for ub]
+				if Name entry is not listed in infections of VoreExclusion and enemy type entry is 0: [not on the exclude list and non-unique infection]
+					now ubprompted is true; [player will be prompted for ub]
+		if Carnivorous Plant is listed in companionList of Player and hunger of Voria > 7 and Name entry is not listed in infections of VoreExclusion and enemy type entry is 0:
+			now ok is false;
+			VoriaPostCombat; [Carnivorous Plant vore scene. Scenes in Voria file]
+			now fightoutcome is 15; [Voria vored foe]
+		else if voreprompted is true and ubprompted is true: [both vore and ub are possible]
+			if vorechoice is 0 and ubchoice is 0: [player has full choice]
+				say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself, tempted to fill that emptiness you're feeling inside with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to your desire to [link]consume (1)[as]1[end link] them, [link]unbirth (2)[as]2[end link] them or [link]suppress (0)[as]0[end link] the urge?";
+				now calcnumber is -1;
+				while calcnumber < 0 or calcnumber > 2:
+					say "Choice? (0-2)> [run paragraph on]";
+					get a number;
+				LineBreak;
+				if calcnumber is 1:
+					now ok is false;
+					vorebyplayer; [See Alt Vore file]
+					now fightoutcome is 13; [player vored foe]
+				else if calcnumber is 2:
+					now ok is false;
+					ubbyplayer; [See Alt Vore file]
+					now fightoutcome is 14; [player ub'ed foe]
+			else if vorechoice is 1 and ubchoice is 1: [player has choice ub/vore]
+				say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. You don't hold back the urge to be filled, but are torn between which emptiness you're feeling to fill with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to your desire to [link]consume (1)[as]1[end link] them or to [link]unbirth (2)[as]2[end link] them?";
+				now calcnumber is -1;
+				while calcnumber < 1 or calcnumber > 2:
+					say "Choice? (1 or 2)> [run paragraph on]";
+					get a number;
+				LineBreak;
+				if calcnumber is 1:
+					now ok is false;
+					vorebyplayer; [See Alt Vore file]
+					now fightoutcome is 13; [player vored foe]
+				else:
+					now ok is false;
+					ubbyplayer; [See Alt Vore file]
+					now fightoutcome is 14; [player ub'ed foe]
+			else if vorechoice is 1 and ubchoice is 0: [hunger overrides ub]
+				say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. In the end, it is the emptiness in your stomach that wins out and you don't hold it back. You advance on them with the intent to sate your stomach's call with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle].";
+				now ok is false;
+				vorebyplayer; [See Alt Vore file]
+				now fightoutcome is 13; [player vored foe]
+			else if vorechoice is 0 and ubchoice is 1: [ub overrides hunger]
+				say "     As your battle is coming to a close, you feel a primal rumbling in your belly and in your womb, your twin hungers welling up inside you. Looking down at your fallen foe, you lick your lips and finger yourself. In the end, it is the hollowness in your uterus that wins out and you don't hold it back. You advance on them with the intent to use [if enemy type entry is not 2]the [end if][EnemyNameOrTitle] to fill the emptiness you feel in your womb.";
+				now ok is false;
+				ubbyplayer; [See Alt Vore file]
+				now fightoutcome is 14; [player ub'ed foe]
+		else if voreprompted is true:
+			if vorechoice is 0:
+				say "     As your battle is coming to a close, you feel a primal rumbling in your belly, your hunger welling up inside you. Looking down at your fallen foe, you lick your lips, tempted to sate your body's hunger with [if enemy type entry is not 2]the [end if][EnemyNameOrTitle]. Shall you give in to this desire to consume them?";
+				if Player consents:
+					LineBreak;
+					now ok is false;
+					vorebyplayer; [See Alt Vore file]
+					now fightoutcome is 13; [player vored foe]
+				else:
+					LineBreak;
+			else if vorechoice is 1:
+				say "     As your battle is coming to a close, you feel that primal rumbling in your belly, your hunger welling up inside you. Looking down at your fallen foe, you lick your lips and don't hold it back, advancing on them with the intent to sate your stomach's call with them.";
+				now ok is false;
+				vorebyplayer; [See Alt Vore file]
+				now fightoutcome is 13; [player vored foe]
+		else if ubprompted is true:
+			if ubchoice is 0:
+				say "     As your battle is coming to a close, you become intensely aware of the emptiness of your womb. Looking down at your foe, you finger yourself, longing to use [if enemy type entry is not 2]the [end if][EnemyNameOrTitle] to fill it right away. Shall you give in to this desire and unbirth them?";
+				if Player consents:
+					LineBreak;
+					now ok is false;
+					ubbyplayer; [See Alt Vore file]
+					now fightoutcome is 14; [player ub'ed foe]
+				else:
+					LineBreak;
+			else if ubchoice is 1:
+				say "     As your battle is coming to a close, you become intensely aware of the emptiness of your womb. Looking down at your foe, you finger yourself and don't hold it back, advancing on them with the intent to fill your uterus right away with them.";
+				now ok is false;
+				ubbyplayer; [See Alt Vore file]
+				now fightoutcome is 14; [player ub'ed foe]
+		[Vampirism]
+		if ok is true and vampiric is true:
+			if NoHealMode is true:
+				increase HP of Player by ( 2 * lev entry ) / 3;
+			else:
+				increase HP of Player by lev entry;
+			PlayerDrink 3;
+			PlayerEat 1;
+			if HP of Player > MaxHP of Player, now HP of Player is MaxHP of Player;
+		[Trophies and Looting]
 		TrophyLootFunction;
-	[Postcombat Scene]
-	if ok is 1 and "Control Freak" is listed in feats of Player and inasituation is false:
-		say "Do you want to perform after-combat scene?";
-		if Player consents:
-			now ok is 1;
-		else:
-			now ok is 0;
-		LineBreak;
-	if ok is 1 and inasituation is false:
-		say "[defeated entry]";
-		[
-		if fightoutcome is 10:
+		[Postcombat Scene]
+		if ok is true and "Control Freak" is listed in feats of Player:
+			say "Do you want to perform after-combat scene?";
+			if Player consents:
+				LineBreak;
+			else:
+				LineBreak;
+				now ok is false;
+		if ok is true:
 			say "[defeated entry]";
-		else if fightoutcome is 11:
-			say "[seduced entry]";
-		]
+			[
+			if fightoutcome is 10:
+				say "[defeated entry]";
+			else if fightoutcome is 11:
+				say "[seduced entry]";
+			]
 	[XP Earnings]
 	increase XP of Player by lev entry times two;
 	if ssxpa is true:
@@ -1544,6 +1538,7 @@ to TrophyLootFunction: [generates either a trophy prompt or loot for the player]
 					say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
 			wait for any key;
 			clear the screen and hyperlink list;
+			LineBreak;
 	else: [Defaulting back to the old Loot System]
 		if Debug is at level 10:
 			say "Debug: Loot Fork activated.";
@@ -1673,8 +1668,8 @@ this is the bearhug rule:
 		say "The [one of][EnemyNameOrTitle][or]large serpent[purely at random] manages to wrap its powerful tail around you, holding you in its vice-like constriction! You will need to break free before it squeezes the fight right out of you.";
 	else:									[crushing arms]
 		say "[if enemy type entry is not 2]The [end if][EnemyNameOrTitle] manages to grab you in its powerful arms and holds you in a vice-like bear hug! You will need to break free before it squeezes the fight right out of you.";
-	let freedom be 0;
-	while HP of Player > 0 and freedom is 0:
+	let freedom be false;
+	while HP of Player > 0 and freedom is false:
 		let dam be ( wdam entry times a random number from 80 to 120 ) divided by 125; [80% dmg / round]
 		now damagein is dam;
 		say "[noarmorabsorbancy]"; [ignores armor]
@@ -1693,7 +1688,7 @@ this is the bearhug rule:
 				say "As your opponent continues to crush you with its powerful arms, you struggle to break free: ";
 			if num1 > num2:
 				say "You manage to fight your way out of your opponent's grip.";
-				now freedom is 1;
+				now freedom is true;
 			else:
 				say "You struggle, but cannot break free and the creature keeps it up.";
 
@@ -1788,7 +1783,7 @@ this is the humping rule:
 		let dam be ( wdam entry times xyz ) / 100;
 		if HardMode is true and a random chance of 1 in ( 10 + peppereyes ) succeeds:
 			now dam is (dam * 150) divided by 100;
-			say "The enemy finds a particular vulnerability in your defense - [italic type]Critical Hit![roman type][line break]";
+			say "The enemy finds a particular vulnerability in your defense - Critical Hit!";
 		say "You are grabbed by [if enemy type entry is not 2]the [end if][EnemyNameOrTitle], which grinds its throbbing cock against your [bodytype of Player] body. Precum dribbles from it onto you, the scent of which momentarily entices your infected body, making you press back against their [body descriptor entry] form as the [cock entry] shaft is humped against you. It takes an effort of will to resist giving into the alluring creature, but you manage to push it away. Your drive to continue resisting has waned somewhat after the arousing attack. You take [special-style-2][dam][roman type] damage!";
 		increase Libido of Player by a random number from 2 to 6;
 		if "Horny Bastard" is listed in feats of Player, increase Libido of Player by 1;
@@ -1806,7 +1801,7 @@ this is the ftaurpounce rule:		[double-damage pouncing]
 	let dam be ( wdam entry times a random number from ( 80 - ( peppereyes * 4 ) ) to 120 ) / 50; [Double damage]
 	if HardMode is true and a random chance of 1 in ( 10 + peppereyes ) succeeds:
 		now dam is (dam * 150) divided by 100;
-		say "The enemy finds a particular vulnerability in your defense - [italic type]Critical Hit![roman type][line break]";
+		say "The enemy finds a particular vulnerability in your defense - Critical Hit!";
 	say "The [one of][EnemyNameOrTitle][or]feline[or]feline taur[or]large cat[purely at random] growls and pounces playfully atop you, [one of]knocking[or]pushing[or]slamming[purely at random] you down briefly. Its many paws knead and claw at you while the feline rumbles and purrs at having caught its [one of]toy[or]prey[or]plaything[purely at random], rubbing its body against yours. This [one of]powerful[or]strong[or]devastating[purely at random] assault does [special-style-2][dam][roman type] damage!";
 	now damagein is dam;
 	say "[noshieldabsorbancy]"; [unable to use shield while pinned]
@@ -1930,8 +1925,8 @@ this is the latexhug rule:
 	else:
 		say "[if enemy type entry is not 2]The [end if][EnemyNameOrTitle] rushes forward and wraps itself tight around you.";
 	say "As you struggle to escape, the latex [one of]flows and expands around[or]oozes across and squeezes at[at random] your body. You will need to slip free before you're smothered!";
-	let freedom be 0;
-	while HP of Player > 0 and freedom is 0:
+	let freedom be false;
+	while HP of Player > 0 and freedom is false:
 		let dam be ( wdam entry times a random number from 80 to 120 ) divided by 125; [80% dmg / round]
 		now damagein is dam;
 		say "[noarmorabsorbancy]"; [ignores armor]
@@ -1944,7 +1939,7 @@ this is the latexhug rule:
 			say "You struggle to slip free as the latex [one of]continues to expand over your body[or]envelops your body[at random]: ";
 			if num1 > num2:
 				say "You manage to find a hole in the latex and squeeze out before it closes completely around you.";
-				now freedom is 1;
+				now freedom is true;
 			else:
 				say "You struggle to find a way out of the latex, but feel weaker as it continues to surround and engulf you.";
 

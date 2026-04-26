@@ -24,6 +24,7 @@ to say dryad milk use:
 Section 2 - Creature Insertion
 
 To say dryad defeat:
+	setmonster "Dryad";
 	if Libido of Player > 25 and Player is male:
 		say "     The dryad staggers back and stumbles into a tree. Trapped between you and it, she moans weakly. With her nude form on display, you can't help but run your eyes over her slender body, going from her lovely bosom and down to her syrupy pussy. You find her quite tantalizing to look at, and you're tempted to do much more than look. [bold type]Shall you try to have your way with her?[roman type][line break]";
 		say "     ([link]Y[as]y[end link]) - Have some fun with the dryad.";
@@ -33,9 +34,8 @@ To say dryad defeat:
 			say "     You move closer to the dryad and thrust your [Cock of Player] cock into her. To your surprise, you are able to push yourself balls deep inside of the dryad without any effort, and you begin to suspect something is wrong when you start to feel vines creeping along her inner walls. You try to pull out, but they grab hold and draw you all the way in. The dryad murmurs, 'Silly mortal, thinking you could rape me. Well, let me teach you a thing or two.' She leans into you, the vines along her internal walls stroking and milking at your cock insistently.";
 			let bonus be ( Strength of Player minus 10 ) divided by 2;
 			let diceroll be a random number from 1 to 20;
-			say "[line break]You roll 1d20([diceroll])[if bonus >= 0]+[end if][bonus] = [special-style-1][diceroll + bonus][roman type] vs [special-style-2]16[roman type] (Strength Check):[line break]";
 			if diceroll + bonus >= 16:
-				say "     Due to your high level of strength, you are certain you could regain control again over the situation. Only if you truly wanted to, of course.";
+				say "[line break]     You roll 1d20([diceroll])[if bonus >= 0]+[end if][bonus] = [special-style-1][diceroll + bonus][roman type] vs [special-style-2]16[roman type] (Strength Check): Due to your high level of strength, you are certain you could regain control again over the situation. Only if you truly wanted to, of course.";
 				say "     ([link]Y[as]y[end link]) - Turn the tables back in your favor, and dominate the dryad.";
 				say "     ([link]N[as]n[end link]) - Don't resist the dryad, letting her dominate you.";
 				if Player consents:
@@ -50,13 +50,14 @@ To say dryad defeat:
 					say "     The warm milk soothes some of the pain from the rough session, and you are almost disappointed when the dryad pushes you away. As you collapse onto the ground, the dryad walks away, the tree disguise forming once more. As you clean yourself off, you manage to collect some of the dryad's cum, placing it in an empty water bottle.";
 					CreatureSexAftermath "Dryad" receives "PussyFuck" from "Player";
 					ItemGain dryad cum by 1;
-					if "Iron Stomach" is not listed in feats of Player, infect "Dryad";
+					if "Iron Stomach" is not listed in feats of Player, infect;
 			else:
+				say "[line break]You roll 1d20([diceroll])[if bonus >= 0]+[end if][bonus] = [special-style-1][diceroll + bonus][roman type] vs [special-style-2]16[roman type] (Strength Check):[line break]";
 				say "     The dryad's vines rendering you unmovable in their grasp, you are forced to sit and helplessly take whatever she has in store for you. The dryad, eagerly making use of her recently caught 'prize' sees to it that every inch of your [Cock of Player] cock is played with, and it doesn't take long before you are spraying your load inside of her. When you finish, she places the nipple of one of her large breasts at your mouth, and with a dulled mind, you begin to suckle as she says, 'That's good, have a drink.'";
 				say "     The warm milk soothes some of the pain from the rough session, and you are almost disappointed when the dryad pushes you away. As you collapse onto the ground, the dryad walks away, the tree disguise forming once more. As you clean yourself off, you manage to collect some of the dryad's cum, placing it in an empty water bottle.";
 				CreatureSexAftermath "Dryad" receives "PussyFuck" from "Player";
 				ItemGain dryad cum by 1;
-				if "Iron Stomach" is not listed in feats of Player, infect "Dryad";
+				if "Iron Stomach" is not listed in feats of Player, infect;
 		else:
 			LineBreak;
 			say "     Shaking your head to clear your mind, you grab the wood nymph by the shoulders and shove her roughly to the side. She gives an angry hiss like cracking bark and slips away into the trees.";
@@ -64,20 +65,21 @@ To say dryad defeat:
 		say "     The dryad [if Libido of Player < 25]stumbles back from the fight, and rather than give her a chance to recover, you throw a final blow. This manages to break off [one of]an arm[or]a leg[or]a limb[at random] with a sharp snap, like a tree limb with ragged splinters of wood. The skin around it goes rough and turns brown as it morphs into bark. She shouts at you that she will return, her unbroken remains setting down roots into the ground as she transforms back into a tree, and a visibly damaged one at that[else]screams in rage and her skin turns bark-like. In an instant, she becomes a true tree, unmoving and covered in vines[end if].";
 
 To say dryad attack:
+	setmonster "Dryad";
 	if Player is female:
 		say "     As you go limp from the beating, greenish vines wrap around your [bodydesc of Player] body, spreading your legs and lifting you off of the ground. The dryad steps forward and rubs her clit, grinning evilly. You watch in horror as it turns a wooden-brown with a bark-like texture and grows longer and thicker, becoming a small, six inch cock.";
 		say "     The vines bend, and your entire body tilts backward, placing your [cunt size desc of Player] cunt right in front of her cock. 'Sweet carryings.' She smirks as she pushes inside, causing you to scream in pain from the rough bark. The dryad pumps in and out of you, and you soon realize that her cock is absorbing the lubrication. Despite that, you eventually get used to the rough treatment, and pleasure starts to mix in with the pain. You are eventually brought to a climax, but as you descend from your orgasm, you quickly notice that the dryad has not slowed down at all. She keeps using your weary body, and soon, the overwhelming sensations make you lose consciousness.";
-		CreatureSexAftermath "Player" receives "PussyFuck" from "Dryad";
 		WaitLineBreak;
 		say "     You wake to find thick, steaming cum mixed with blood running from your cunt, and a feeling of weakness all over. It must be the blood loss, you realize, as the size of the puddle under you becomes apparent. As you clean yourself off, you manage to collect some of the dryad's cum, placing it in an empty water bottle.";
+		CreatureSexAftermath "Player" receives "PussyFuck" from "Dryad";
 		ItemGain dryad cum by 1;
-		infect "Dryad";
+		infect;
 	else if Player is male:
 		say "     You collapse under the pain of your beating, and the dryad approaches. Suddenly, many green tendrils grow out of a hole above her clit that you had missed, twining around your cock and body, immobilizing you. You watch as she strokes her clit, which slowly turns into a 6 inch long wooden cock. Her hands move toward her cock, and you watch with growing lust and horror as it spasms, and white, thick, reeking spunk sprays all over your [bodydesc of Player] body and face. She breathes out in a long sigh, and the tendrils bring you closer as she waits for the changes.";
 		MultiInfect "Dryad" repeats 3;
 		WaitLineBreak;
 		say "     After you finish, she shoves one of her breasts into your face. 'Still not had a drink, eh?' she quips as one of the green tendrils twining around her body squeezes the tit, milk spraying into your face and down your throat.";
-		if "Iron Stomach" is not listed in feats of Player, infect "Dryad";
+		if "Iron Stomach" is not listed in feats of Player, infect;
 		WaitLineBreak;
 		say "     The dryad unceremoniously drops your cum- and milk-covered form to the ground and leaves. As you clean yourself off, you collect the cum on you and place it into an empty water bottle. Maybe there is a use for it?";
 		ItemGain dryad cum by 1;
@@ -113,7 +115,7 @@ When Play begins:
 	now victory entry is "[dryad attack]";
 	now desc entry is "     Walking through the urban forest, you pass along a road filled with trees. You can see the signs of many having had sex nearby. One tree seems normal enough, despite the enormous amounts of cum around its base, but you note the twisted shape of its branches and the pinkish tinge to its bark. As you walk closer, the tree fades, and a dryad jumps in front of you.[line break]"; [ Description of the creature when you encounter it.]
 	now face entry is "cute, with green hair and branches growing behind your ears"; [ Face description, format as "Your face is [Face of Player]." ]
-	now body entry is "vine-wrapped and very feminine, milk leaking from shapely breasts"; [ Body Description, format as "Your Body is [Body of Player]." ]
+	now body entry is "vine-wrapped and very feminine[if Breast Size of Player > 0], milk leaking from shapely breasts[end if]"; [ Body Description, format as "Your Body is [Body of Player]." ]
 	now skin entry is "unblemished"; [ Skin Description, format as "Looking at yourself, your body is covered in [Skin of Player] skin." ]
 	now tail entry is ""; [ Tail description, write a whole Sentence or leave blank. ]
 	now cock entry is "wooden, cum-reeking"; [ Cock Description, format as you have a 'size' (your text) cock]
@@ -144,7 +146,7 @@ When Play begins:
 	now Cunt Tightness entry is 4; [ Width of female sex infection will try and give you ]
 	now SeductionImmune entry is false;
 	now libido entry is 40; [ As part of infection, the Player will be gradually moved towards this value; also used for the creature's seduce defense as a penalty ]
-	now loot entry is "dryad cum";
+	now loot entry is "dryad milk";
 	now lootchance entry is 50; [ Chance of loot dropping 0-100 ]
 	now MilkItem entry is "dryad milk"; [ Item to be given to the player if they have this infection and milk themselves. ]
 	now CumItem entry is "dryad cum";

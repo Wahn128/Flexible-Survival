@@ -3,6 +3,7 @@ Version 1 of Ironscale Items by Taelyn begins here.
 Section 1 - Gear
 
 [Gambeson, Plague Doctor Mask, Horseshoes, Scalemail]
+
 Part 1 - Scalemail
 
 Table of Game Objects (continued)
@@ -77,11 +78,7 @@ name	desc	weight	object
 "cloth scrap"	"A scrap of cloth that you picked up. It's ragged, but at least clean from cum and other stains... You might be able to find a use for it at some point."	0	cloth scrap
 
 cloth scrap is a grab object. It is not temporary.
-
-Usedesc of cloth scrap is "[cloth scrap use]".
-
-to say cloth scrap use:
-	say "     What would you even use a pile of cloth scraps for? Maybe if you find a suitably resourceful person, they could craft something from it.";
+Usedesc of cloth scrap is "     What would you even use a pile of cloth scraps for? Maybe if you find a suitably resourceful person, they could craft something from it.[line break]".
 
 Part 1 - Leather Scrap
 
@@ -90,10 +87,6 @@ name	desc	weight	object
 "leather scrap"	"A scrap of Leather that you picked up. It's ragged, but at least clean from cum and other stains... You might be able to find a use for it at some point."	0	leather scrap
 
 leather scrap is a grab object. It is not temporary.
-
-Usedesc of leather scrap is "[leather scrap use]".
-
-to say leather scrap use:
-	say "     What would you even use a pile of leather scraps for? Maybe if you find a suitably resourceful person, they could craft something from it.";
+Usedesc of leather scrap is "     What would you even use a pile of leather scraps for? Maybe if you find a suitably resourceful person, they could craft something from it.[line break]".
 
 Ironscale Items ends here.

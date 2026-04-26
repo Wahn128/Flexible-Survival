@@ -54,13 +54,13 @@ to say lizgirl attack:
 
 to say lizgirl defeat:
 	if lizgirlimpreg is 0:
-		say "     [if lizgirlangry is 0]She looks up at you mournfully. 'Oh the things I could've done with you...' she says softly before collapsing[else]Looking at you one last time, she sheds a tear. 'Such a wonderful fighter. How can such a flawed creature be so grand?' before collapsing on the ground[end if].";
+		say "     [if lizgirlangry is 0]She looks up at you mournfully. 'Oh, the things I could've done with you...' she says softly before collapsing[else]Looking at you one last time, she sheds a tear. 'Such a wonderful fighter. How can such a flawed creature be so grand?' before collapsing on the ground[end if].";
 	else:
 		say "     [if lizgirlmarked is 1]'Did you not want this? Was the canvas too flawed?' she murmurs before collapsing on the ground[else]With a whine she says, 'I only wanted what was best for you, now another artist must finish my work,' before collapsing[end if].";
-	if HP of Ronda is 4:
+	if HP of Ronda Mallrat is 4:
 		say "     Remembering that the lizard girl has part of the cure for Ronda, you run your hands over her body and slip a finger into her wet pussy. You start to rub and finger her cunt, making her moan and squirm in pleasure. She grips your shoulders firmly and bucks her hips as you pump a pair of fingers into her again and again. As her excitement builds and her vaginal walls quiver around your digits, she moans and bucks her hips almost as if thrusting before finally climaxing loudly. She sags against you, panting for breath after her orgasm. Still holding her up with one arm, you place a small vial under her pussy to gather the leaking juices, a little surprised to find them a thick and creamy white instead of clear juices. Sealing up the unusual sample, you resist the urge to lick your fingers clean and instead wipe them off after taking a moment to enjoy her thick, musky scent.";
 		ItemGain lizard juice by 1;
-		now HP of ronda is 5;
+		now HP of Ronda Mallrat is 5;
 	else if Libido of Player > 33:
 		if Player is male:
 			say "     You look down upon the defeated lizard girl's body, your arousal growing as you decide to sate your lust on this creature. You stride over to her[if Player is not naked] and undress[end if], your cock growing erect with thoughts of what you're about to do to her. You kneel down beside her and push her onto her stomach, causing her to groan. You position yourself behind her, taking hold of her hips with one hand while the other lifts up her reptilian tail to reveal her wet folds. You grin and lick your lips, pulling her up to meet you as you press the tip of your [Cock of Player] length against her sex and slide it in. You moan out in pleasure, her reptilian cunt instinctively gripping and pulling on your shaft, urging you to fuck her. Not wasting any time, you begin to buck into her tight depths, both arms wrapped around her tail for support. The lizard girl beneath you gasps and groans at this treatment, her tail wrapping around you as much as it can, trying to pull you closer to her.";
@@ -69,9 +69,9 @@ to say lizgirl defeat:
 		else if Player is female:
 			say "     You look down upon the defeated lizard girl's body, your arousal growing as you decide to sate your lusts on this creature. You stride over to her[if Player is not naked] and undress[end if], your pussy getting nice and wet thinking about what you're going to do to her. You kneel down beside her and roll her onto her back, taking hold of her legs and spreading them open to show her sexy cunt. You grin, licking your lips and move yourself between her legs and slide your folds up against her own. She moans, involuntarily pressing back against you as you begin to grind your sex against her[if Breast Size of Player > 0]. Holding one leg of hers up with a hand, you take hold of one of your breasts with the other and gently begin groping it and playing with the nipple[end if]. You look down at the female beneath you and notice that she's begun fondling her own breasts too, tweaking her nipples, and rubbing them together.";
 			say "     You smile and laugh, getting even more turned on by her wanton display of need. You gasp, eyes going wide as you feel a long scaly shape sliding between your cunt and hers. You glance down and moan as you see her tail pressing and grinding against both of your sexes, the end pressing up against yours and slipping in. You arch your back and groan in pleasure as she stimulates your insides with her tail, pressing up against the walls of your pussy and flicking the tip of her tail up and down your depths. Your body shakes and shivers at this, quickly bringing you to orgasm as your cunt clamps down on her tail, your fem juices squirting out around the sides. You collapse in a heap, panting hard and groaning in the aftermath. Not one to be ungrateful though, you roll yourself onto your stomach and move to press your mouth against her folds, gently kissing and licking at them.";
-			CreatureSexAftermath "Player" receives "PussyDildoFuck" from "Lizard Girl";
 			WaitLineBreak;
 			say "     Taking hold of the end of her tail, still slick with your juices, you press it against her sex and slide it in, using it like a living dildo. She gasps and squirms in response as you pump the end of her tail in and out of her while you lick and nibble at her clitoris. Soon enough she is crying out in orgasm, spraying your face with her juices. You eagerly lap them up and slip her tail out of her cunt. Once she lets out one last shiver of orgasmic pleasure, she collapses in an exhausted heap. Grinning all the while, you get up and grab your equipment and quietly sneak away, the taste of the lizard girl still on your lips.";
+			CreatureSexAftermath "Player" receives "PussyDildoFuck" from "Lizard Girl";
 			CreatureSexAftermath "Player" receives "OralPussy" from "Lizard Girl";
 		else:
 			say "     You look down upon the defeated lizard girl's body, your arousal growing as you decide to sate your lusts on this creature. However, you stop and look down at yourself, realizing that you lack the proper equipment. Growling at yourself, you turn around and storm off in a huff.";
@@ -144,8 +144,8 @@ When Play begins:
 	now victory entry is "[lizgirl attack]";
 	now desc entry is "[lizgirl desc]"; [ Description of the creature when you encounter it.]
 	now face entry is "longer and thinner as soft dark-colored scales cover your short muzzle, lending your ear-less features a very reptilian air"; [ Face description, format as "Your face is [Face of Player]." ]
-	now body entry is "compact and solid, yet showing off every curve to perfection, heavy compact muscles belay strength despite their small representation"; [ Body Description, format as "Your Body is [Body of Player]." ]
-	now skin entry is "beautiful reptilian scaled"; [ skin Description, format as "Your body is covered in (your text) skin."]
+	now body entry is "compact and solid, yet showing off every curve to perfection. Heavy compact muscles belay strength despite their small representation"; [ Body Description, format as "Your Body is [Body of Player]." ]
+	now skin entry is "beautiful reptilian-scaled"; [ skin Description, format as "Your body is covered in (your text) skin."]
 	now tail entry is "Long and plump, your lizard-like tail is a solid mass of muscle."; [ Tail description, write a whole Sentence or leave blank. ]
 	now cock entry is "human-shaped"; [ Cock Description, format as you have a 'size' (your text) cock.]
 	now face change entry is "it draws forward a little, a reptilian muzzle forming as your teeth reshape into delicate sharp points"; [ Face change text, format as "Your face feels funny as [face change entry]." ]
@@ -304,8 +304,8 @@ When Play begins:
 	now infect Name entry is "Lizard Girl";
 	now heat cycle entry is 2;
 	now heat duration entry is 2;
-	now heat start entry is "You feel a warming in your belly, the same tingling as when the lizard gave you her seed seems to begin and intensify, leaving you almost panting for breath.[toggle heat flag]";
-	now heat end entry is "The heat, the ache, all fades slowly, leaving you relieved.[toggle heat flag]";
+	now heat start entry is "[toggle heat flag]You feel a warming in your belly, the same tingling as when the lizard gave you her seed seems to begin and intensify, leaving you almost panting for breath.[line break]";
+	now heat end entry is "[toggle heat flag]The heat, the ache, all fades slowly, leaving you relieved.[line break]";
 	now trigger text entry is "";
 	now description text entry is "";
 	now inheat entry is "[liz impreg]"; [The lizard girl's seed effectively internalized the male organs, leaving the poor character impregnating themselves every heat cycle. This will be much more 'fun' once repeated births are in :3 ]
@@ -315,7 +315,7 @@ When Play begins:
 
 to say liz impreg:
 	if lizgirlimpreg is 1:
-		say "With a gasp you feel [if Player is not male]something you thought long lost to you, a male orgasm, but it feels odd, as it should since you have no[else]a male orgasm, but it feels odd, you cannot see any of your seed leaking out of your[end if] member, but it feels like you are still ejaculating. A growing fullness in your feminine depths reveals the true purpose of the lizard girl's earlier actions, she has reworked your reproductive system quite amazingly. As you look down in wonder, the glow of release still holding you immobile, you notice a small trail of cum leaking from your pussy lips.";
+		say "With a gasp you feel [if Player is not male]something you thought long lost to you, a male orgasm, but it feels odd - as it should since you have no member -[else]a male orgasm, but it feels odd. You cannot see any of your seed leaking out of your member,[end if] but it feels like you are still ejaculating. A growing fullness in your feminine depths reveals the true purpose of the lizard girl's earlier actions, she has reworked your reproductive system quite amazingly. As you look down in wonder, the glow of release still holding you immobile, you notice a small trail of cum leaking from your pussy lips.";
 		CreatureSexAftermath "Player" receives "PussyFuck" from "Lizard Girl";
 
 to say toggle heat flag:

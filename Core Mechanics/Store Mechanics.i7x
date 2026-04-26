@@ -11,7 +11,7 @@ The medicine case is a backdrop. It is in Zephyr Storeroom. Description of the m
 Scent of the medicine case is "     The medicine case has little in the way of a scent of its own.".
 
 to say medicine case list:
-	say "[line break]To buy an item, type [bold type]buy <name>[roman type]. ";
+	say "To buy an item, type [bold type]buy <name>[roman type]. ";
 	repeat through table of Zephyr Black Market Medicine Case:
 		follow allowed entry;
 		if rule failed:
@@ -52,7 +52,7 @@ The outfitters rack is a backdrop. It is in Zephyr Storeroom. Description of the
 Scent of the outfitters rack is "     The outfitters rack has little in the way of a scent of its own.".
 
 to say outfitters rack list:
-	say "[line break]To buy an item, type [bold type]buy <name>[roman type]. ";
+	say "To buy an item, type [bold type]buy <name>[roman type]. ";
 	repeat through table of Zephyr Black Market Outfitters Rack:
 		follow allowed entry;
 		if rule failed:
@@ -97,7 +97,7 @@ BrowseTPKMaleClothing is an action applying to nothing.
 understand "browse TPK/-- male clothing selection/--" as BrowseTPKMaleClothing.
 
 check BrowseTPKMaleClothing:
-	If TPK male clothing section is not visible, say "What is it you want to browse?" instead;
+	if TPK male clothing section is not visible, say "What is it you want to browse?" instead;
 
 carry out BrowseTPKMaleClothing:
 	say "[TPC male clothing selector]";
@@ -815,7 +815,7 @@ BrowseTPKFemaleClothing is an action applying to nothing.
 understand "browse TPK/-- female clothing selection/--" as BrowseTPKFemaleClothing.
 
 check BrowseTPKFemaleClothing:
-	If TPK female clothing section is not visible, say "What is it you want to browse?" instead;
+	if TPK female clothing section is not visible, say "What is it you want to browse?" instead;
 
 carry out BrowseTPKFemaleClothing:
 	say "[TPC female clothing selector]";
@@ -1950,7 +1950,7 @@ BrowseRDCostumeClothing is an action applying to nothing.
 understand "browse RD/-- costume clothing selection/--" as BrowseRDCostumeClothing.
 
 check BrowseRDCostumeClothing:
-	If RD costume clothing section is not visible, say "What is it you want to browse?" instead;
+	if RD costume clothing section is not visible, say "What is it you want to browse?" instead;
 
 carry out BrowseRDCostumeClothing:
 	say "[RD costume clothing selector]";
@@ -2200,7 +2200,7 @@ to say IncubusMotorcycleHelmetTalk: [item selection (level 4)]
 		say "     You put the item back and look over the selection again.";
 		say "[RD_Biker_HelmetsMenu]"; [return to level 3 sub-submenu]
 
-Chapter 2 - Underwear Section
+Chapter 3 - Underwear Section
 
 to say browse_RD_underwear_section: [costume clothing category submenu (level 2 under the costume clothing selector)]
 	say "[line break]     Which type of underwear would you like to check out?";
@@ -2296,7 +2296,7 @@ to say BlackMeshBriefsTalk: [item selection (level 4)]
 		say "     You put the item back and look over the selection again.";
 		say "[RD_BriefsMenu]"; [return to level 3 sub-submenu]
 
-Chapter 3 - Wild West Section
+Chapter 4 - Wild West Section
 
 to say browse_RD_wildwest_section: [costume clothing category submenu (level 2 under the costume clothing selector)]
 	say "[line break]     Which type of wild west would you like to check out?";
@@ -2458,9 +2458,9 @@ to say Cow-printCowgirlBootsTalk: [item selection (level 4)]
 		say "     You put the item back and look over the selection again.";
 		say "[RD_CowboyBootsMenu]"; [return to level 3 sub-submenu]
 
-[
-Chapter 4 - BDSM Section
+Chapter 5 - BDSM Section
 
+[
 to say browse_RD_BDSM_section: [costume clothing category submenu (level 2 under the costume clothing selector)]
 	say "     Which type of BDSM gear would you like to check out?";
 	LineBreak;
@@ -2568,7 +2568,7 @@ to say LatexMouseMaskTalk: [item selection (level 4)]
 		say "[RD_MasksMenu]"; [return to level 3 sub-submenu]
 ]
 
-Chapter 5 - Night Walker Section
+Chapter 6 - Night Walker Section
 
 Book 4 - The Painted Dragon [Store found through Harolds quests]
 

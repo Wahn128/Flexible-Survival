@@ -14,97 +14,95 @@ ResolveFunction of Strange Serpent is "[ResolveEvent Strange Serpent]". The mins
 Sarea of Strange Serpent is "Mall".
 
 to say ResolveEvent Strange Serpent:
-	if HP of Velos is 0 or HP of Velos is 1:
-		say "     As you explore the sewers, you're suddenly jolted to attention when you hear something nearby call for your attention.";
-		say "     'Psst, over here!' it remarks, compelling you - once it becomes clear there's no immediate danger - to a nearby wall. Dimly lit against a service light, you can see the silhouette of what appears to be some manner of snake. Sickly pale in its complexion and looking to be in the six foot length range, its surface appears slick as it reflects the light, its clear level of mental articulation betraying its otherwise ordinary appearance.";
+	say "     As you explore the sewers, you're suddenly jolted to attention when you hear something nearby call for your attention.";
+	say "     'Psst, over here!' it remarks, compelling you - once it becomes clear there's no immediate danger - to a nearby wall. Dimly lit against a service light, you can see the silhouette of what appears to be some manner of snake. Sickly pale in its complexion and looking to be in the six foot length range, its surface appears slick as it reflects the light, its clear level of mental articulation betraying its otherwise ordinary appearance.";
+	WaitLineBreak;
+	if Player is not male_vacant and (insectlarva is false or (insectlarva is true and larvaegg is 2)):
+		say "     '...Ah, looking at you clearly now, it'd probably be wise to ignore me for now. Come back in a [if gestation of child > 4]couple of days[else]day[end if] or so. You already look like you've got your hands full.' A little confused, he might be referring to your unconventional pregnancy, though how that has anything to do with anything right now is beyond you. Urging you away, you depart, back from whence you came.";
+		now HP of Velos is 1;
+		now Resolution of Strange Serpent is 1; [talked to Velos, already full]
+	else:
+		say "     'Right, great, you don't look nearly as mentally deranged as the general fare you see down and about this place - though I suppose I could be wrong...' A little ill at ease with this creature, you greet it before it continues. 'I'm really in need of help here; I'm wholly unequipped to depart from this rather unsettling environment, and I need someone to carry me off.'";
+		say "     You're not rightfully sure if you can trust the serpent, but for the sake of argument you infer that you might be up to the task, simple as it seems.";
 		WaitLineBreak;
-		if Player is not male_vacant and (insectlarva is false or (insectlarva is true and larvaegg is 2)):
-			say "     '...Ah, looking at you clearly now, it'd probably be wise to ignore me for now. Come back in a [if gestation of child > 4]couple of days[else]day[end if] or so. You already look like you've got your hands full.' A little confused, he might be referring to your unconventional pregnancy, though how that has anything to do with anything right now is beyond you. Urging you away, you depart, back from whence you came.";
-			now HP of Velos is 1;
-			now Resolution of Strange Serpent is 1; [talked to Velos, already full]
+		say "     'Er, right, there's a catch - and before you roll your eyes and silently pat yourself on the back for your clever assumption, it's not as bad as you think... Depending on how you look at it.' Sighing, you decide to let him continue, for now.";
+		say "     'Thank you. Sadly, I can't really expose myself to light for more than a number of minutes at a time; hell, even this dim light here tests me. No, I require a means of... Er... Obfuscation, shall we say?' You're not rightly sure what he's suggesting so you, reasonably enough, ask him to elaborate.";
+		WaitLineBreak;
+		if anallevel is 1:
+			say "     'Hm... Right...' He seems to stop briefly for a moment. 'There's something about you that suggests I'd get into all sorts of trouble if I beat around the bush with this... Alright, no games, then. I need your ass, in just about the worst way imaginable.'";
+			say "     His particular request is clearly incongruous with your general desires. Make him the [link]exception (Y)[as]y[end link] or rightfully [link]decline (N)[as]n[end link]?";
 		else:
-			say "     'Right, great, you don't look nearly as mentally deranged as the general fare you see down and about this place - though I suppose I could be wrong...' A little ill at ease with this creature, you greet it before it continues. 'I'm really in need of help here; I'm wholly unequipped to depart from this rather unsettling environment, and I need someone to carry me off.'";
-			say "     You're not rightfully sure if you can trust the serpent, but for the sake of argument you infer that you might be up to the task, simple as it seems.";
+			say "     'Oh, but what would be the fun in that, I really must ask?' He's clearly intent on dancing around the topic, coaxing you to try and get a more appropriate answer. You ask if he means your pack, or under your clothing. 'Oh, something like that wouldn't nearly be as uncomfortable as what I require, but what I require more than that is your consent; I am nothing if not polite.'";
+			say "     You're not going to get a straight answer out of this creature, you could [link]agree (Y)[as]y[end link] to his request or [link]decline (N)[as]n[end link] it outright.";
+		if Player consents:
+			LineBreak;
+			now lastfuck of Velos is turns;
+			say "     Deciding to agree in taking him with you, he seems a little taken off guard by this.";
+			say "     'Oh, huh, what a pleasant surprise! Well then, your job is quite simple; could you turn around for me? Yeah, like that, facing the other wall...' A bit unsure of what he exactly plans to do, but you slowly oblige. You're not sure what you're supposed to be waiting for before his plans are made blatantly obvious.";
 			WaitLineBreak;
-			say "     'Er, right, there's a catch - and before you roll your eyes and silently pat yourself on the back for your clever assumption, it's not as bad as you think... Depending on how you look at it.' Sighing, you decide to let him continue, for now.";
-			say "     'Thank you. Sadly, I can't really expose myself to light for more than a number of minutes at a time; hell, even this dim light here tests me. No, I require a means of... Er... Obfuscation, shall we say?' You're not rightly sure what he's suggesting so you, reasonably enough, ask him to elaborate.";
-			WaitLineBreak;
-			if anallevel is 1:
-				say "     'Hm... Right...' He seems to stop briefly for a moment. 'There's something about you that suggests I'd get into all sorts of trouble if I beat around the bush with this... Alright, no games, then. I need your ass, in just about the worst way imaginable.'";
-				say "     His particular request is clearly incongruous with your general desires. Make him the [link]exception (Y)[as]y[end link] or rightfully [link]decline (N)[as]n[end link]?";
+			if scalevalue of Player < 3:
+				say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Your bowels, on the other hand, are another matter altogether regarding these turn of events. There's quite a lot of him, especially when you consider your diminutive size, and your belly bloats almost immediately to abide his slippery frame.";
+				if insectlarva is true:
+					say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
+					WaitLineBreak;
+					say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
+				else:
+					say "     Driven to your knees by this wracking sensation, its raising intensity inevitably relents when he's forcibly trapped the whole of himself inside you. You can barely contain all of him, distended torso strained under such a considerable holding. In due time, you can compel yourself to your feet, your infection twisting these circumstances in such a way that you can move reasonably in spite these circumstances.";
+					WaitLineBreak;
+					say "     Bulge twitching as you must contend with his irreverent movements, you're forced to elicit a weakened moan as you feel his head retreat from the hole it once invaded, pulling just enough of itself out that you might see him before you.";
+				say "     'Quite the tight fit, if I do say so myself! But I like to think that cozy is often an attribute falsely regarded as poor.' He seems rather pleased with himself, try pulling him out?";
+			else if scalevalue of Player > 3:
+				say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Struck with twisted pleasure as his form floods your bowels, and though you're more than large enough to handle him that doesn't quite change the fact that he's got a fair amount of himself to put into you, forcing you onto your knees and, inevitably, to roll over onto your back.";
+				if insectlarva is true:
+					say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
+					WaitLineBreak;
+					say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
+				else:
+					say "     Weakly prodding your slightly bloated belly, now having fully engulfed the serpent, you're met with the strong pangs of his irreverent movement. He would only hide in his dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
+				say "     'Oh, quite the roomy fare, I'm surprised if I even phase you in the slightest! I certainly hope I don't get lost in here...' He seems rather pleased with himself, try pulling him out?";
 			else:
-				say "     'Oh, but what would be the fun in that, I really must ask?' He's clearly intent on dancing around the topic, coaxing you to try and get a more appropriate answer. You ask if he means your pack, or under your clothing. 'Oh, something like that wouldn't nearly be as uncomfortable as what I require, but what I require more than that is your consent; I am nothing if not polite.'";
-				say "     You're not going to get a straight answer out of this creature, you could [link]agree (Y)[as]y[end link] to his request or [link]decline (N)[as]n[end link] it outright.";
+				say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Taken aback by these sudden turn of events, you can find that you can tolerate him flooding your bowels only momentarily. There's quite a lot of him, and you're forced to watch as your belly bloats further and further to abide his slippery frame.";
+				if insectlarva is true:
+					say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
+					WaitLineBreak;
+					say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
+				else:
+					say "     Driven to your knees by this wracking sensation, its raising intensity inevitably relents when he's forcibly trapped the whole of himself inside you. Even finished as he is now it's a struggle for clarity, weighty and distended torso strained to abide its occupancy. In due time, you can compel yourself to your feet, your infection twisting these circumstances in such a way that you can move reasonably in spite of these circumstances.";
+					WaitLineBreak;
+					say "     Bulge twitching with his irreverent movements, you're forced to elicit a weakened moan as you feel his head retreat from the hole it once invaded, pulling just enough of itself out that you might see him once more before you.";
+				say "     'Doubtlessly you play victim to this praise all the time, but it'd be rude of me to not highlight the quality of this dwelling! What's your secret?' He seems rather pleased with himself; try pulling him out?";
+			if insectlarva is true:			[freed from parasite]
+				now insectlarva is false;
+				now larvacounter is 0;
+				now larvaegg is 0;
+				SanBoost 10;
+				now Libido of Player is Libido of Player / 2;
+				now preghijack is false;
+				if "Black Wasp" is a Name listed in Table of Random Critters:
+					now area entry is "Nowhere";
+					now non-infectious entry is true; [Wasps locked again]
 			if Player consents:
 				LineBreak;
-				now lastfuck of Velos is turns;
-				say "     Deciding to agree in taking him with you, he seems a little taken off guard by this.";
-				say "     'Oh, huh, what a pleasant surprise! Well then, your job is quite simple; could you turn around for me? Yeah, like that, facing the other wall...' A bit unsure of what he exactly plans to do, but you slowly oblige. You're not sure what you're supposed to be waiting for before his plans are made blatantly obvious.";
-				WaitLineBreak;
-				If scalevalue of Player < 3:
-					say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Your bowels, on the other hand, are another matter altogether regarding these turn of events. There's quite a lot of him, especially when you consider your diminutive size, and your belly bloats almost immediately to abide his slippery frame.";
-					if insectlarva is true:
-						say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
-						WaitLineBreak;
-						say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
-					else:
-						say "     Driven to your knees by this wracking sensation, its raising intensity inevitably relents when he's forcibly trapped the whole of himself inside you. You can barely contain all of him, distended torso strained under such a considerable holding. In due time, you can compel yourself to your feet, your infection twisting these circumstances in such a way that you can move reasonably in spite these circumstances.";
-						WaitLineBreak;
-						say "     Bulge twitching as you must contend with his irreverent movements, you're forced to elicit a weakened moan as you feel his head retreat from the hole it once invaded, pulling just enough of itself out that you might see him before you.";
-					say "     'Quite the tight fit, if I do say so myself! But I like to think that cozy is often an attribute falsely regarded as poor.' He seems rather pleased with himself, try pulling him out?";
-				else if scalevalue of Player > 3:
-					say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Struck with twisted pleasure as his form floods your bowels, and though you're more than large enough to handle him that doesn't quite change the fact that he's got a fair amount of himself to put into you, forcing you onto your knees and, inevitably, to roll over onto your back.";
-					if insectlarva is true:
-						say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
-						WaitLineBreak;
-						say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
-					else:
-						say "     Weakly prodding your slightly bloated belly, now having fully engulfed the serpent, you're met with the strong pangs of his irreverent movement. He would only hide in his dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
-					say "     'Oh, quite the roomy fare, I'm surprised if I even phase you in the slightest! I certainly hope I don't get lost in here...' He seems rather pleased with himself, try pulling him out?";
-				else:
-					say "     Like a bolt of lightning, you're struck with the blindingly intense sensation of the serpentine creature worming its way past any attire that might obstruct him, his strangely slicked head driving past your anal ring with surprisingly little resistance, the rest of him soon following. Taken aback by these sudden turn of events, you can find that you can tolerate him flooding your bowels only momentarily. There's quite a lot of him, and you're forced to watch as your belly bloats further and further to abide his slippery frame.";
-					if insectlarva is true:
-						say "     Even as you fully engulf the serpent, his endeavors fail to relent, as it's made apparent that some manner of conflict is waged within you. Soon, you're wracked with the sensation of another mass passing through your anal ring, soon made apparent to be your previous parasite, who - after leaving your body - is relegated to rolling around in a confused daze before retreating from the sewers. It is a pale creature, looking much like a bloated, insect larva with several tiny legs and phallic back end[if larvaegg is 1]. Its expulsion is followed by that of the unfertilized insect eggs[end if]. You'd imagine that its kin will find and retrieve the thing, no doubt to be inflicted upon another.";
-						WaitLineBreak;
-						say "     Your new resident would only revel in this now-liberated dwelling briefly before you can see the outline of his head emerge from your hole, exposing him just enough to continue the dialogue.";
-					else:
-						say "     Driven to your knees by this wracking sensation, its raising intensity inevitably relents when he's forcibly trapped the whole of himself inside you. Even finished as he is now it's a struggle for clarity, weighty and distended torso strained to abide its occupancy. In due time, you can compel yourself to your feet, your infection twisting these circumstances in such a way that you can move reasonably in spite of these circumstances.";
-						WaitLineBreak;
-						say "     Bulge twitching with his irreverent movements, you're forced to elicit a weakened moan as you feel his head retreat from the hole it once invaded, pulling just enough of itself out that you might see him once more before you.";
-					say "     'Doubtlessly you play victim to this praise all the time, but it'd be rude of me to not highlight the quality of this dwelling! What's your secret?' He seems rather pleased with himself; try pulling him out?";
-				if insectlarva is true:			[freed from parasite]
-					now insectlarva is false;
-					now larvacounter is 0;
-					now larvaegg is 0;
-					SanBoost 10;
-					now Libido of Player is Libido of Player / 2;
-					now preghijack is false;
-					if there is a Name of "Black Wasp" in Table of Random Critters:
-						choose row with Name of "Black Wasp" from Table of Random Critters;
-						now area entry is "Nowhere";
-						now non-infectious entry is true; [Wasps locked again]
-				if Player consents:
-					LineBreak;
-					say "     Quickly, you grab a hold of him, much to his surprise, and start trying to pull him free of you. Sadly, his form is too slick for you to get a good grip, and even when it seems you might even have some grip he doesn't budge, instead eliciting jolts of twisted pleasure across your form, until you inevitably relent.";
-					say "     'Ach, don't do that! I don't like this arrangement any more than you do, so let's please refrain from such ill-treatment. Maybe we should start on better footing, my name is Velos. Think of this as a great opportunity to make a new friend! ...Else I fear this arrangement might end up less comfortable than it could be.'";
-					raise Player Libido by 15;
-				else:
-					LineBreak;
-					say "     'My apologies for the deception, it was quite necessary, I'm afraid.' You can determine a subtle frown from him under this faint light. 'My name is Velos, and I do hope you don't take this too personally, I'm as much a prisoner here as you are.' There's a slight sour tinge to that last statement, though at this point you're not sure if that's just another ruse on his part.";
-					raise Player Libido by 10;
-				say "     'I doubt I will prove as much a burden as you would worry yourself over, but while you're running around it only seems fair to show me some of the sights. If you run into others, perhaps you should let me [link]muse[as]muselist[end link] over them? But otherwise, I'll mind my own business in here. And with that...' He retreats once more into your bowels, leaving you to your own devices and the occasional irreverent twitching of your occupant. You slowly gather your thoughts as you return from whence you came.";
-				now level of Velos is 1;
-				now HP of Velos is 3;
-				now mpreghijack is true;
-				TraitGain "Inside Player" for Velos;
-				now Resolution of Strange Serpent is 2; [Velos taken in]
+				say "     Quickly, you grab a hold of him, much to his surprise, and start trying to pull him free of you. Sadly, his form is too slick for you to get a good grip, and even when it seems you might even have some grip he doesn't budge, instead eliciting jolts of twisted pleasure across your form, until you inevitably relent.";
+				say "     'Ach, don't do that! I don't like this arrangement any more than you do, so let's please refrain from such ill-treatment. Maybe we should start on better footing, my name is Velos. Think of this as a great opportunity to make a new friend! ...Else I fear this arrangement might end up less comfortable than it could be.'";
+				raise Player Libido by 15;
 			else:
 				LineBreak;
-				say "     You decide not to help the bizarre creature, stepping away. Thankfully, annoyed as he may appear, he doesn't seem to challenge you for the gesture.";
-				say "     'Right, very well, I'm sure you have more pressing matters to attend to; places to go, eldritch monstrosities to be buggered by, all that sort.' You turn to depart, leaving the serpent in your wake.";
-				now HP of Velos is 2;
-				now Resolution of Strange Serpent is 3; [Velos rejected]
-			now Strange Serpent is resolved;
+				say "     'My apologies for the deception, it was quite necessary, I'm afraid.' You can determine a subtle frown from him under this faint light. 'My name is Velos, and I do hope you don't take this too personally, I'm as much a prisoner here as you are.' There's a slight sour tinge to that last statement, though at this point you're not sure if that's just another ruse on his part.";
+				raise Player Libido by 10;
+			say "     'I doubt I will prove as much a burden as you would worry yourself over, but while you're running around it only seems fair to show me some of the sights. If you run into others, perhaps you should let me [link]muse[as]muselist[end link] over them? But otherwise, I'll mind my own business in here. And with that...' He retreats once more into your bowels, leaving you to your own devices and the occasional irreverent twitching of your occupant. You slowly gather your thoughts as you return from whence you came.";
+			now level of Velos is 1;
+			now HP of Velos is 3;
+			now mpreghijack is true;
+			TraitGain "Inside Player" for Velos;
+			now Resolution of Strange Serpent is 2; [Velos taken in]
+		else:
+			LineBreak;
+			say "     You decide not to help the bizarre creature, stepping away. Thankfully, annoyed as he may appear, he doesn't seem to challenge you for the gesture.";
+			say "     'Right, very well, I'm sure you have more pressing matters to attend to; places to go, eldritch monstrosities to be buggered by, all that sort.' You turn to depart, leaving the serpent in your wake.";
+			now HP of Velos is 2;
+			now Resolution of Strange Serpent is 3; [Velos rejected]
+		now Strange Serpent is resolved;
 
 Part 2 - Velos the AssSSSSssserpent
 
@@ -166,7 +164,7 @@ to say velosdesc:
 	say "     A pure, pearl white in color, his form seems scaled, though you're not sure if the scales are false, as you've never seen him shed them, to say nothing of the difficulty in determining its proper texture, given his perpetually slick frame. Thankfully, the odorless lubricant is not overly abundant, and only becomes a slight mess around where it accumulates - particularly, your anal ring.";
 	say "     He generally doesn't like being touched all that much, but your occasional prodding does seem to offer a reciprocal sensation onto you, inferring that your senses are tied - at least at the base level. This would also infer that any harm done to him would be received in kind, and it's unclear if it works both ways; that he feels what you feel.";
 	if level of Velos > 0:
-		say "[line break][italic type]Demeanor-wise, he [if level of Velos < 2]doesn't seem to regard you all that well, and is otherwise a little belligerent towards you[else if level of Velos is 2]seems to regard you fairly well, and is a bit less perturbed by having himself be summoned before you[else]seems to put you in high regard, more than happy to be on the receiving end of your attention[end if].[roman type][line break]";
+		say "[line break]     [italic type]Demeanor-wise, he [if level of Velos < 2]doesn't seem to regard you all that well, and is otherwise a little belligerent towards you[else if level of Velos is 2]seems to regard you fairly well, and is a bit less perturbed by having himself be summoned before you[else]seems to put you in high regard, more than happy to be on the receiving end of your attention[end if].[roman type][line break]";
 
 Instead of conversing the Velos:
 	if Odd Green Patches is not resolved and Odd Green Patches is inactive:
@@ -261,11 +259,11 @@ an everyturn rule:
 					else:							[large player]
 						say "[one of]You tense slightly as your occupant makes a rather sudden jolt within your confines, though it's not enough to be a substantial distraction[or]You're briefly forced to grit your teeth in a wave of tense, twisted pleasure, the serpent readjusting himself a fair bit. A little embarrassed afterwards, you hope nobody saw that, as his occupancy isn't made outwardly apparent[or]You're lightly assaulted with some rather erratic movement by your resident. Aimless as it is, you get the impression he's lost track of his orientation[cycling].";
 	else if velosfleepenalty is true:
-		now velosfleepenalty is false; [reset velos's flee penalty notice]
+		now velosfleepenalty is false; [reset velos's flee penalty notification]
 	if level of velos > 2 and velossaved is true:
 		now velossaved is false; [reset velos's fight saving feature]
 
-Section 3-1 - Leaving him behind temporarily
+Chapter 1 - Leaving him behind temporarily
 
 Table of GameEventIDs (continued)
 Object	Name
@@ -284,7 +282,7 @@ to say ResolveEvent Odd Green Patches:
 	WaitLineBreak;
 	say "     'Now, back to the task at hand. You try to place your hands around this odd trunk, for the lack of a better name for it. Its texture is mossy, as expected, but more than that, it feels warm and alive, a sensation that creeps you out at first. Its surface is also slightly slimy, slippery even, and to pull it off the ground, you need to have a good grip on it. To your surprise, it comes off without any resistance, as it does not seem to have roots. A new problem presents itself, however, as you realize this is also somewhat heavy. You could simply carry this over back to the Library immediately, but before you consider it, you hear the voice again. 'Just do it now, you don't want to risk leaving it here at the mercy of the elements, do you?' says Velos almost imperatively, and given that he is, essentially, in your ass, you feel inclined to oblige him.";
 	say "     Without any further ado, you do your best to carry the organic mass back to Grey Abbey Library, with its new destination in mind...";
-	AttemptToWait;
+	WaitLineBreak;
 	move player to Grey Abbey Garden;
 	say "     After a harduous way back to the Library, and fortunately without any other issues, you rush to the garden in order to... plant, you guess, this weird thing. You find it some soil and get some moisture on it, which does not take much out of your personal supplies. As you place it down, it seems to throb lively... a slightly disturbing sight that you are wary of. Velos perks up as soon as you finish the job. 'Yeah, that should do it. Let me into it again,' he asks, and once more, you let him exit your butt and reach for the odd trunk. You wait... and, eventually, Velos returns, popping his head out. 'Works. I guess you can enjoy your lonely time for a while, but make sure to keep coming back for me for at least a chat. I wouldn't mind a walk on occasion, either. Unless you miss me so much you want me back in you indefinitely...' For some reason, you feel like he really would not mind the latter.";
 	say "[line break]     [bold type]You suppose you could always just let him in before you go, unless you would rather have him stay in there.[roman type][line break]";
@@ -305,7 +303,7 @@ to say ResolveEvent Odd Green Patches:
 
 Part 4 - Musing w/Velos
 
-Chapter 0 - Mechanics of Musing
+Chapter 1 - Mechanics of Musing
 
 to veloslevelcheck:
 	if XP of Velos < 8:
@@ -339,7 +337,7 @@ carry out muselisting:
 	repeat with Q running through visible people:
 		if q is not mused and vmusings of q is not empty:
 			add q to L;
-	if the number of entries in L is 0:
+	if L is empty:
 		say "There is no one Velos is interested in talking with here.";
 	else:
 		say "The following individuals can be mused upon here:[line break]";
@@ -363,7 +361,7 @@ carry out musing someone (called x):
 	now vmusedone of x is true;
 	increase XP of Velos by 1;
 
-Chapter 1 - Musings
+Chapter 2 - Musings
 
 Section 1 - Sgt Alexander
 
@@ -473,8 +471,8 @@ to say brianmusing:
 	say "     'But, I don't drink coffee.' By this point Brian looks right confused.";
 	say "     'And what makes you think the guards haven't noticed the growing crack from the other side of the wall, and the constant thumping of your thick head?'";
 	say "     'I wish my head was a bit thicker...' Velos could probably revel in that statement, but he's just too fixated on illuminating the ludicrousness of his endeavors.";
-	say "     'What I'm trying to say is that you have no plan and no goals, you're just hitting a wall and hoping that resolves all your problems for you.' This finally does sink into the rhino, who stops and is stricken with a rare instance of contemplation. His increasingly troubled expression seems to infer that he's on the cusp of an existential breakdown before he yells out in blind rage, charging the wall once more, so hard that he bounces back a few feet and falls right over. Possibly blacking out for a few seconds, he eventually does crawl back up on his feet, before looking at Velos with abject confusion.";
 	WaitLineBreak;
+	say "     'What I'm trying to say is that you have no plan and no goals, you're just hitting a wall and hoping that resolves all your problems for you.' This finally does sink into the rhino, who stops and is stricken with a rare instance of contemplation. His increasingly troubled expression seems to infer that he's on the cusp of an existential breakdown before he yells out in blind rage, charging the wall once more, so hard that he bounces back a few feet and falls right over. Possibly blacking out for a few seconds, he eventually does crawl back up on his feet, before looking at Velos with abject confusion.";
 	say "     'What... What are you doing in... there?' It would seem Brian completely lost his memory of the last minute, doubtlessly annoying the serpent to no end.";
 	say "     'Ugh, you know what? Never mind me, that wall isn't going to topple itself.' The rhino slowly nods in agreement before he returns to charging the wall, Velos mumbling to himself, 'Sometimes I wonder why I even bother...' before retreating once more inside you.";
 
@@ -578,15 +576,15 @@ to say fangmusing:
 	else if HP of Fang is 3 or HP of Fang is 4: [Alpha Fang]
 		say "     [if fangvelos1 is true]Once more[else]Reluctantly[end if], you conjure up Velos from his confines, Fang snorting a little at his appearance[if fangvelos1 is false]. You find it strange that he would be so fine with his presence but decide that perhaps he already knew the snake was in there, or maybe he was just keeping his composure[end if].[paragraph break]";
 		say "     'Oh, hello[if fangvelos1 is true] again[end if], little doggie. Who's a cute pooch? You are!' Velos's attempt at condescension is met with a low growl in discontent.";
-		say "     '[if fangvelos1 is true]Oh, what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]Oh, you're just scared I might bite you when you're having your fun, is that it[end if]?'";
+		say "     'Oh, [if fangvelos1 is true]what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]you're just scared I might bite you when you're having your fun, is that it[end if]?'";
 		say "     'Talk too much.' Velos is a bit at odds with the wolf's curt response, but ultimately attempts to coax more out of him.";
 		say "     'Oh, that's right rude! Surely you could offer me a more elaborate response? I wouldn't want to make you too uncomfortable, and we're all frie- what is that you're doing? Cut it out!' By this point Fang has chosen to make a whining sort of howl-noise, head bouncing slightly in faux discussion, his tone a clear illustration that he seeks to parody Velos's voice in a rather juvenile fashion. When the lupine is done, Velos looks a bit cross.";
 		say "     '...You won't get the luxury of knowing when I'll strike.' Fang makes a sound akin to what you assume is a chuckle as Velos retreats. You're not rightly sure if Velos is actually offended by your lupine companion's mocking or if he's just playing the part, though the wolf seems plenty happy with himself, letting you go off to your own matters.";
 	else if HP of Fang is 5: [Beta Fang]
-		say "     [if fangvelos1 is true]Once more[else]Reluctantly[end if], you conjure up Velos from his confines, Fang raising an eyebrow at his appearance[if fangvelos1 is false]. You find it strange that he would be so fine with his presence but decide that perhaps he already knew the snake was in there, or maybe he was just keeping his composure[end if]. 'Oh, hello[if fangvelos1 is true] again[end if], little doggie. Who's a cute pooch? You are!' Velos's attempt at condescension is met with a disinterested glance. '[if fangvelos1 is true]Oh, what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]Oh, you're a lot braver than I thought you would be, or perhaps you lack the cognitive capacity to understand what I could do to you while you're having your [']fun['][end if]?'";
+		say "     [if fangvelos1 is true]Once more[else]Reluctantly[end if], you conjure up Velos from his confines, Fang raising an eyebrow at his appearance[if fangvelos1 is false]. You find it strange that he would be so fine with his presence but decide that perhaps he already knew the snake was in there, or maybe he was just keeping his composure[end if]. 'Oh, hello[if fangvelos1 is true] again[end if], little doggie. Who's a cute pooch? You are!' Velos's attempt at condescension is met with a disinterested glance. 'Oh, [if fangvelos1 is true]what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]you're a lot braver than I thought you would be, or perhaps you lack the cognitive capacity to understand what I could do to you while you're having your [']fun['][end if]?'";
 		say "     'You talk a lot but say little.' Velos is a bit at odds with the wolf's curt response, but ultimately attempts to coax more out of him. 'Oh, that's right rude! Surely you could offer me a more elaborate response? I wouldn't want to make you too uncomfortable, and we're all friends here.' The wolf looks skeptical at this. 'At best you just take up space, at worst a parasite. Nor do you seem to remember how vulnerable you are outside like this. Especially when you are using someone I care about as a host.' Fang emphasizes this last comment with a brief glimpse of his teeth before walking away. Velos remains silent for a moment before speaking again. 'He seemed nice. I'll try not to give him any more reason to dislike me. As well as try to prove him wrong about my usefulness.'";
 	else: [Gentle Alpha Fang]
-		say "     [if fangvelos1 is true]Once more[else]Reluctantly[end if], you conjure up Velos from his confines, Fang raising an eyebrow at his appearance[if fangvelos1 is false]. You find it strange that he would be so fine with his presence but decide that perhaps he already knew the snake was in there, or maybe he was just keeping his composure[end if]. 'Oh, hello[if fangvelos1 is true] again[end if], little doggie. Who's a cute pooch? You are!' Velos's attempt at condescension is met with a disinterested glance. '[if fangvelos1 is true]Oh, what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]Oh, you're a lot braver than I thought you would be, or perhaps you lack the cognitive capacity to understand what I could do to you while you're having your [']fun['][end if]?'";
+		say "     [if fangvelos1 is true]Once more[else]Reluctantly[end if], you conjure up Velos from his confines, Fang raising an eyebrow at his appearance[if fangvelos1 is false]. You find it strange that he would be so fine with his presence but decide that perhaps he already knew the snake was in there, or maybe he was just keeping his composure[end if]. 'Oh, hello[if fangvelos1 is true] again[end if], little doggie. Who's a cute pooch? You are!' Velos's attempt at condescension is met with a disinterested glance. 'Oh, [if fangvelos1 is true]what's this? You were frightened by me a while ago. Have you undergone some manner of change when I wasn't looking[else]you're a lot braver than I thought you would be, or perhaps you lack the cognitive capacity to understand what I could do to you while you're having your [']fun['][end if]?'";
 		say "     'You talk a lot but say little.' Velos is a bit at odds with the wolf's curt response, but ultimately attempts to coax more out of him. 'Oh, that's right rude! Surely you could offer me a more elaborate response? I wouldn't want to make you too uncomfortable, and we're all friends here.' The wolf looks skeptical at this. 'You earn friendship, not take it. Some might call you a parasite. I'll reserve judgment for now, but if you hurt [ObjectPro of Player]...' Fang emphasizes this last comment with a brief glimpse of his teeth before walking away. Velos remains silent for a moment before speaking again. 'He seemed nice. I'll try not to give him any more reason to dislike me. As well as try to prove him wrong about my usefulness.'";
 
 Section 10 - Harold
@@ -681,21 +679,22 @@ to say diegomusing:
 	say "     'Ha, that's quite the impressive trick!'";
 	say "     'That's nothing, you'd be surprised how many things my friend can fit in their pockets!'";
 	say "     'I'm talking to you, actually.' [if Diegochanged > 0]She[else]He[end if] points to the serpent. 'How did you manage to get your friend to carry you around like this?'";
-	say "     'Good sir! Frankly, I'm quite offended you would assume deception on my part.' He feigns insult, no doubt a little bit amused by the coyote's cordial composure.";
+	say "     'Good sir! Frankly, I'm quite offended you would assume deception on my part,' he feigns insult, no doubt a little bit amused by the coyote's cordial composure.";
 	say "     'Well, it's either that or your host is a massive weirdo.' [if Diegochanged > 0]She[else]He[end if] briefly grins directly at you before returning his focus to the center of attention here.";
 	say "     'Fair enough. I guess you could say I wasn't... explicit... in describing our arrangement.'";
 	say "     'And I bet that means you can't be removed?'";
 	say "     'More or less.'";
 	say "     'Ha, that's amazing! I could really use someone like you. Though not for me, of course.'";
+	WaitLineBreak;
 	say "     'I don't catch your drift.' Velos's previous jovial regard is tinged with slight confusion at the coyote's claim. 'I mean, I'm glad you're not completely weirded out by me, but I think you're inferring I'm some weapon you can thrust on people.'";
 	say "     'It's not like that, but it pays to be a bit pragmatic in my line of work.'";
 	say "     'Which is?'";
 	say "     'Causing all sorts of trouble, it's in my nature! Oh boy, I can't wait to see your face when you see what I have planned for the military.' The snake is struck silent, his expression now wholly baffled, and he apparently requires a moment to really take in that statement. With a jolt, however, he suddenly reverts to normal.";
-	WaitLineBreak;
 	say "     'I see. So, I assume you're what's giving the military trouble around here, yes?'";
 	say "     'Of course. You must have seen some of my work, then?'";
 	say "     'Maybe; might have heard about it.'";
 	say "     'Well, what do you think?'";
+	WaitLineBreak;
 	say "     'Sir...' Velos's expression turns darker than anything you've seen up to this point. 'If I were to suggest that you [']go fuck yourself['], I'm afraid it would be quite redundant. Your head's already so far up your own ass that you give yourself a rimjob every time you talk.'";
 	say "     'Heh... What?'";
 	say "     'What gives you the bright idea to think that harming the people trying to help our sorry lot is even a remotely smart thing to do?'";
@@ -703,9 +702,8 @@ to say diegomusing:
 	say "     'You've got men, leaving their wives and children to protect the people they love, only to succumb to a fate worse than death. I feel sorry for the poor sap who has to walk up to that same wife and tell her that - no - she's not a widow, but instead her husband is now a sex-craved monstrosity with no memory of her or his kin, and if he were to encounter them again he would attempt to inflict the same fate as his own.'";
 	say "     'Don't you start preaching to me, you tricked a person into carrying you around like that!' By this point Diego is beginning to fume, Velos not relenting for a second.";
 	say "     'I did what I had to survive. You, on the other hand? You had a choice. And if you - for a second - even begin to repeat that it's in your nature then you only prove you're no better than an animal; a mangy dog.'";
-	say "     'Come out here and say that to my face you-' By this point the both of them look like they're about to fight, with you stuck in the middle. You're ultimately forced to end the conversation, splitting the two of them, and they do eventually recede back to their opposing corners, both visibly livid with the circumstances that just played out.";
-	WaitLineBreak;
-	say "     With Velos, grumbling to himself all along the way, returning back inside you, you find yourself not quite sure what had just transpired here - given how rapidly things descended into the way they became.";
+	say "     'Come out here and say that to my face you-' By this point the both of them look like they're about to fight, with you stuck in the middle. You're ultimately forced to end the conversation, splitting the two of them, and they do eventually recede back to their opposing corners, both visibly livid with the circumstances that just played out.[paragraph break]";
+	say "     With Velos, grumbling to himself all along the way, returning back inside you, you find yourself not quite sure what had just transpired here given how rapidly things descended into the way they became.";
 	add 14 to velospostmusings, if absent;
 
 Section 15 - Leonard
@@ -719,7 +717,7 @@ to say Leonardmusing:
 	say "     'I see...' Velos's appeal to him seems to put the feline at some ease. 'I suppose anything's possible here, though you can imagine that your portrayal conjures... What is the word? A measure of cognitive dissonance, I think is right.'";
 	say "     'And right you are. We don't all have the luxury of fates well-suited to our better tastes.' By now Leonard would - at least outwardly - appear fine with this peculiar revelation, a doubtless product of the serpent's eloquence, of which he seems to have ramped up for some reason.";
 	if HP of Leonard >= 4:
-		say "     'Regardless, I'm not sure this will do for me. What might it take to have you vacate my [if HP of Leonard >= 16]mate's[else if HP of Leonard >= 9]precious lover's[else]lover's[end if], er... [']premises[']?' This request is enough to elicit a slight frown from Velos.";
+		say "     'Regardless, I'm not sure this will do for me. What might it take to have you vacate my [if HP of Leonard >= 16]mate[else if HP of Leonard >= 9]precious lover[else]lover[end if][']s, er... [']premises[']?' This request is enough to elicit a slight frown from Velos.";
 	else:
 		say "     'Ultimately, I don't think this will benefit me in the long run... Might I request that you vacate your host's, er... [']Premises[']?' This request is enough to elicit a slight frown from Velos.";
 	say "     'Sadly, I can't be removed.' Velos's response, oddly enough, elicits a brief streak of confusion from the lion, before this expression is promptly obfuscated and he goes on.";
@@ -791,7 +789,7 @@ the vmusings of Sven is "[svenmusing]".
 
 to say svenmusing:
 	say "     Clearing any obtrusive attire that might bar him, Velos emerges before Sven, who's undoubtedly quite uncomfortable with this revelation.[paragraph break]";
-	say "     [if HP of Sven >= 6 and HP of Sven < 30]'W-what are you going to do to me with that[else]'W-what is that[end if]?' He seems to shift away a bit, perhaps afraid that Velos might pounce on him at any moment, a fear the serpent is quick to try quelling.";
+	say "     'W-what [if HP of Sven >= 6 and HP of Sven < 30]are you going to do to me with[else]is[end if] that?' He seems to shift away a bit, perhaps afraid that Velos might pounce on him at any moment, a fear the serpent is quick to try quelling.";
 	say "     'Oh, I'm not here to do anything to you, that'd be rather rude of me, now wouldn't it?' Thankfully, the snow leopard does seem to calm - if only by a little bit. 'You don't sound like you're from here, would you elucidate on it for me?'";
 	say "     'Well...' He takes a deep, calming breath, 'I was born in Norway, and I came down here as part of an international scholarship.'";
 	say "     'Huh. I bet you wish you stayed home now.'";
@@ -825,7 +823,7 @@ the vmusings of Christy is "[Christymusing]".
 
 to say Christymusing:
 	say "     Calling Velos out, Christy is immediately taken aback by your now-apparent resident, though her large scale likely prevents her from being really all that intimidated by its presence, soon moving closer to investigate.[paragraph break]";
-	If dragontype > 0:
+	if dragontype > 0:
 		say "     'Oh, you naughty little thing, you wanted to see what it was like from my perspective, didn't you?' The dragoness's query eliciting a curious look from the serpent.";
 		say "     'I'm sorry, you lost me there, madam. If our friend here's predicament were yours then you'd not be able to remove them.'";
 		say "     'Oh, well, sometimes I think of finding some way to do something like - Wait, no, naughty thoughts, bad!' The serpent can't help but furrow his brow at the dragoness's presently conflicted state.";
@@ -963,7 +961,7 @@ to say drmattmusing:
 	say "     'Now, could you stay very still? I'm going to bombard you with a stream of microwaves here. Shouldn't hurt a bit.'";
 	say "     'Nope; no. I'm gone. It's been fun, bye!' He, rather urgently, retreats back from whence he came, much to your fidgeting discontent given the fervor at which he does this. Matt seems a little disappointed by this, but inevitably concedes to leaving you to your own matters once more.";
 
-Chapter 2 - Post-Musings
+Chapter 3 - Post-Musings
 
 to postmuse (x - a number):
 	if x is:

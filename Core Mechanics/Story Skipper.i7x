@@ -3,7 +3,7 @@ Version 224 of Story Skipper by Core Mechanics begins here.
 [ Version 223.1 - Updated w/Enhanced Chimera material ]
 [ Version 224 - Completely rewritten - Wahn]
 
-Part 0 - Variables
+Chapter 0 - Variables
 
 postimport rules is a rulebook.
 
@@ -33,8 +33,10 @@ The File of NoteSave (owned by another project) is called "FSNoteSave".
 The File of StorageSave (owned by another project) is called "FSStorageSave".
 The File of VialData (owned by another project) is called "FSVialDataSave".
 
-[PetList is a list of text that varies.[@Tag:NotSaved] [for stashing the pet objects in the Character Nexus]
-PetList is { "Nullpet", "Latex Vixen", "strange doll", "pink raccoon", "demon brute", "wukong", "human dog", "Retriever Girl", "Rubber Tigress companion", "frost giantess", "Little fox", "skunk kit", "equinoid warrior", "Felinoid Companion", "Cute Crab", "house cat", "Exotic Bird", "helper dog", "Gryphoness", "bee girl", "gshep", "mouse girl", "royal tiger companion", "doberman companion", "demonologist", "Carnivorous Plant", "orc supersized breeder", "Best Wolf", "submissive demonic prince", "White Wolf Zero", "White Wolf One", "White Wolf Two", "White Wolf Three", "White Wolf Four", "White Wolf Five", "White Wolf Six", "White Wolf Seven", "White Wolf Eight", "White Wolf Nine", "White Wolf Ten"}.]
+[
+PetList is a list of text that varies.[@Tag:NotSaved] [for stashing the pet objects in the Character Nexus]
+PetList is { "Nullpet", "Latex Vixen", "strange doll", "pink raccoon", "demon brute", "wukong", "human dog", "Retriever Girl", "Rubber Tigress companion", "frost giantess", "Little fox", "skunk kit", "equinoid warrior", "Felinoid Companion", "Cute Crab", "house cat", "Exotic Bird", "helper dog", "Gryphoness", "bee girl", "gshep", "mouse girl", "royal tiger companion", "doberman companion", "demonologist", "Carnivorous Plant", "orc supersized breeder", "Best Wolf", "submissive demonic prince", "White Wolf Zero", "White Wolf One", "White Wolf Two", "White Wolf Three", "White Wolf Four", "White Wolf Five", "White Wolf Six", "White Wolf Seven", "White Wolf Eight", "White Wolf Nine", "White Wolf Ten"}.
+]
 
 an everyturn rule:
 	if Player is in NPC Nexus:
@@ -255,7 +257,7 @@ to RoomSave:
 			now RestSafety entry is "Safe";
 		else:
 			now RestSafety entry is "Unsafe";
-		if the number of entries in Invent of x is not 0:
+		if Invent of x is not empty:
 			repeat with y running from 1 to the number of entries in Invent of x: [rebuilds the table of RoomInventory with current data]
 				choose a blank row in the table of GameRoomInventories;
 				if RoomID of x is "Room": [no specific differing RoomID set -> default to printed name]
@@ -512,7 +514,7 @@ to CharacterSave:
 			now SexuallyExperienced entry is SexuallyExperienced of x;
 			now TwistedCapacity entry is TwistedCapacity of x;
 			now Sterile entry is Sterile of x;
-			if the number of entries in Traits of x is not 0:
+			if Traits of x is not empty:
 				repeat with y running from 1 to the number of entries in Traits of x: [rebuilds the table of GameTraits with current data]
 					choose a blank row in the table of GameTraits;
 					now OwnerName entry is CharacterName;
@@ -1031,62 +1033,62 @@ to PlayerSave:
 	now Short Breast Size Desc entry is Short Breast Size Desc of Player;
 	now bodydesc entry is bodydesc of Player;
 	now bodytype entry is bodytype of Player;
-	if the number of entries in Tapes of Player is not 0:
+	if Tapes of Player is not empty:
 		repeat with y running from 1 to the number of entries in Tapes of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "Tape";
 			now EntryText entry is entry y of Tapes of Player;
-	if the number of entries in Feats of Player is not 0:
+	if Feats of Player is not empty:
 		repeat with y running from 1 to the number of entries in Feats of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "Feat";
 			now EntryText entry is entry y of Feats of Player;
-	if the number of entries in OpenQuests of Player is not 0:
+	if OpenQuests of Player is not empty:
 		repeat with y running from 1 to the number of entries in OpenQuests of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "OpenQuest";
 			now EntryText entry is entry y of OpenQuests of Player;
-	if the number of entries in CompletedQuests of Player is not 0:
+	if CompletedQuests of Player is not empty:
 		repeat with y running from 1 to the number of entries in CompletedQuests of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "CompletedQuest";
 			now EntryText entry is entry y of CompletedQuests of Player;
-	if the number of entries in EncounteredEnemies of Player is not 0:
+	if EncounteredEnemies of Player is not empty:
 		repeat with y running from 1 to the number of entries in EncounteredEnemies of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "EncounteredEnemy";
 			now EntryText entry is entry y of EncounteredEnemies of Player;
-	if the number of entries in VirginitiesTaken of Player is not 0:
+	if VirginitiesTaken of Player is not empty:
 		repeat with y running from 1 to the number of entries in VirginitiesTaken of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "VirginitiesTaken";
 			now EntryText entry is entry y of VirginitiesTaken of Player;
-	if the number of entries in AnalVirginitiesTaken of Player is not 0:
+	if AnalVirginitiesTaken of Player is not empty:
 		repeat with y running from 1 to the number of entries in AnalVirginitiesTaken of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "AnalVirginitiesTaken";
 			now EntryText entry is entry y of AnalVirginitiesTaken of Player;
-	if the number of entries in OralVirginitiesTaken of Player is not 0:
+	if OralVirginitiesTaken of Player is not empty:
 		repeat with y running from 1 to the number of entries in OralVirginitiesTaken of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "OralVirginitiesTaken";
 			now EntryText entry is entry y of OralVirginitiesTaken of Player;
-	if the number of entries in PenileVirginitiesTaken of Player is not 0:
+	if PenileVirginitiesTaken of Player is not empty:
 		repeat with y running from 1 to the number of entries in PenileVirginitiesTaken of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "PenileVirginitiesTaken";
 			now EntryText entry is entry y of PenileVirginitiesTaken of Player;
-	if the number of entries in BlockList of Player is not 0:
+	if BlockList of Player is not empty:
 		repeat with y running from 1 to the number of entries in BlockList of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "BlockList";
 			now EntryText entry is entry y of BlockList of Player;
-	if the number of entries in WardList of Player is not 0:
+	if WardList of Player is not empty:
 		repeat with y running from 1 to the number of entries in WardList of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "WardList";
 			now EntryText entry is entry y of WardList of Player;
-	if the number of entries in BanList of Player is not 0:
+	if BanList of Player is not empty:
 		repeat with y running from 1 to the number of entries in BanList of Player:
 			choose a blank row in the table of PlayerLists;
 			now ListName entry is "BanList";
@@ -1554,8 +1556,7 @@ to BeastRestore:
 				-- "football gorilla": now Beastname is "Football Gorilla Male";
 				-- "feral wolf": now Beastname is "Feral Wolf Male";
 				-- "skunk": now Beastname is "Skunk Female";
-			if there is a Name of BeastName in the Table of Random Critters:
-				choose row with Name of BeastName in Table of Random Critters;
+			if BeastName is a Name listed in Table of Random Critters:
 				if Area entry is not BeastArea, now Area entry is BeastArea;
 				if Area entry is:
 					-- "Midway": [bugfix code after re-naming Midway to Fair]
@@ -1581,8 +1582,7 @@ to BeastRestore:
 			let BeastArea be Area entry;
 			let BeastNonInfect be non-infectious entry;
 			let BeastSex be sex entry;
-			if there is a Name of BeastName in the Table of Random Critters:
-				choose row with Name of BeastName in Table of Random Critters;
+			if BeastName is a Name listed in Table of Random Critters:
 				if Area entry is not BeastArea, now Area entry is BeastArea;
 				[bugfix code after re-naming Midway to Fair]
 				if Area entry is "Midway":
@@ -1642,10 +1642,10 @@ to BanListRestore:
 	else: [exported from current or later version]
 		remove "Imported" from WardList of Player;
 		remove "Imported" from BanList of Player;
-		if number of entries in WardList of Player > 0:
+		if WardList of Player is not empty:
 			repeat with x running from 1 to number of entries in WardList of Player:
 				oldflagward entry x of WardList of Player; [ward flags/tags that player chose before export]
-		if number of entries in BanList of Player > 0:
+		if BanList of Player is not empty:
 			repeat with x running from 1 to number of entries in BanList of Player:
 				oldflagban entry x of BanList of Player; [ban flags/tags that player chose before export]
 	if number of warded flags > 0 or number of banned flags > 0 or number of warded tags > 0 or number of banned tags > 0:

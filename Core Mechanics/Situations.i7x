@@ -108,6 +108,9 @@ to say EventConditions_ExampleEvent:
 	if 1 > 0: [list of conditions here]
 		now CurrentWalkinEvent_ConditionsMet is true;
 
+to say EventConditions_True:
+	now CurrentWalkinEvent_ConditionsMet is true;
+
 Table of GameEventIDs (continued)
 Object	Name
 ExampleEvent	"ExampleEvent"
@@ -238,7 +241,6 @@ ResolveFunction of ExampleEvent is "[ResolveEvent ExampleEvent]".
 Sarea of ExampleEvent is "Nowhere". [standard walkins that cannot be hunted for are Nowhere, but walkin events can also be made huntable as an alternate access way]
 
 to say ResolveEvent ExampleEvent:
-
 ]
 
 Situations ends here.

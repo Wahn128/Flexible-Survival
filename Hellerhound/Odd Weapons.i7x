@@ -57,12 +57,11 @@ to say ResolveEvent Sword Nest:
 				weakrandominfect; [most of first set don't affect researcher]
 				if remainder after dividing T by 3 is 0:
 					randominfect;
-					wait for any key;
+					if T is 3, wait for any key;
 			say "...";
 			WaitLineBreak;
 			say "     The sludge covering you releases that desire, as you orgasm intensely in the muck.";
-			say "     You feel another desire rear its head, to drink from the giant puddle.";
-			say "     Do you submit?";
+			say "     You feel another desire rear its head, to drink from the giant puddle. Do you submit?";
 			if Player consents:
 				LineBreak;
 				SanLoss 15;
@@ -87,7 +86,9 @@ to say ResolveEvent Sword Nest:
 						say "     You take your slime-filled hands and shove them up your waiting cunt[sfn], filling [itthemf] with the sludge.[randomfimpreg][randomfimpreg][randomfimpreg]";
 						if anallevel > 1:
 							say "     You then shove them up your rear, filling it as well.[randommimpreg][randommimpreg][randommimpreg]";
-					else if Player is mpreg_ok:
+						else:
+							say "     You then try to drink all of the slime you can, tasting its deliciously dirty flavor.";
+					else if "MPreg" is listed in feats of Player:
 						say "     You take your slime-filled hands and shove them up your waiting rear, filling it with the sludge.[randommimpreg][randommimpreg][randommimpreg]";
 						say "     You then try to drink all of the slime you can, tasting its deliciously dirty flavor.";
 					else:
@@ -95,7 +96,7 @@ to say ResolveEvent Sword Nest:
 					say "     After a short while, you collapse, corrupt pleasure roaring through your body.";
 					repeat with T running from one to 15:
 						randominfect;
-						if remainder after dividing T by 3 is 0:
+						if remainder after dividing T by 5 is 0:
 							wait for any key;
 					now Humanity of Player is 0;
 					end the story saying "Your humanity submits to the sludge nanites, and you go feral.";
@@ -168,8 +169,8 @@ to say ResolveEvent Destroyed Bushes:
 			raise Player Libido by 10;
 		else:
 			LineBreak;
-			say "You leave them alone.";
-	say "     Do you wish to look around?";
+			say "     You leave them alone.";
+	say "[line break]     Do you wish to look around?";
 	if Player consents:
 		LineBreak;
 		say "     In a nearby bush you find a riding saddle and riding boots, both women's. It seems as if a woman went riding in the park when the infection broke out. Her horse changed, and raped her. Since the clearing is larger than if the horse just fucked her, you assume she changed and submitted as well.";

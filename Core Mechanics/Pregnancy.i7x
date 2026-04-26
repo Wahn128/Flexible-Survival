@@ -223,7 +223,7 @@ to pregprotocol:
 						say "Your breasts feel especially tender and you are surprised to find them swelling larger despite being [if Player is male]male[else]a neuter[end if], now [breast size desc of Player] breasts.";
 					else:
 						say "Your breasts feel especially tender, swollen with your condition, now [breast size desc of Player], the mammary flesh stretched lightly.";
-			if gestation of child < 1 and ( Player is female or Player is mpreg_ok ) and skipturnblocker is 0:
+			if gestation of child < 1 and Player is impreg_ok and skipturnblocker is 0:
 				if pregtype is 1 and Player is not female:
 					now pregtype is 2;
 				say "[detailbirth]";
@@ -247,8 +247,8 @@ to pregprotocol:
 					if z > 4, now z is 4; [extra chance, still limited to 4]
 					if ubpreg is not "false":
 						now z is 1;
-					if "Chase's Breeder" is listed in feats of Player and ChaseOffspring is 0: [override for Chase's first kids]
-						now z is 2;
+					[if "Chase's Breeder" is listed in feats of Player and ChaseOffspring is 0: [override for Chase's first kids]
+						now z is 2;]
 					if "Fang's Mate" is listed in feats of Player and hunger of Fang is 0:
 						if hunger of Fang is 0:
 							now z is 2;
@@ -384,22 +384,22 @@ to detailbirth:
 				now HP of Player is 1;
 				decrease morale of Player by 10;
 		else:
-			let ubpreggers be 0;
-			if Player can UB and ubpreg is not "false", now ubpreggers is 1;
+			let ubpreggers be false;
+			if Player can UB and ubpreg is not "false", now ubpreggers is true;
 			if "All-Mother's Blessing" is listed in feats of Player:
-				say "     A radiant glow starts to spread over your belly, settling into the shape of a five-pointed star. Any sense of discomfort brought on by the impending birth vanishes without a trace as pleasant warmth suffuses your whole being. All on their own, your arms come up in a holding pose, and as they do, the large egg[if ubpreggers is 1] now encapsulating the engulfed [ubpreg][end if] that had been inside you suddenly appears in your grasp. After such an effortless birth, you joyfully hug your offspring in a caring embrace.";
+				say "     A radiant glow starts to spread over your belly, settling into the shape of a five-pointed star. Any sense of discomfort brought on by the impending birth vanishes without a trace as pleasant warmth suffuses your whole being. All on their own, your arms come up in a holding pose, and as they do, the large egg[if ubpreggers is true] now encapsulating the engulfed [ubpreg][end if] that had been inside you suddenly appears in your grasp. After such an effortless birth, you joyfully hug your offspring in a caring embrace.";
 				increase mpregcount by 1;
 			else if mpregcount < 3:			[First few times, painful]
-				say "     Shifting the large mass through your lower colon sends horrible pain through your body as it struggles to adapt to this method of birthing. You claw at the ground and moan as your tight asshole is stretched and forced to open for the large egg[if ubpreggers is 1] now encapsulating the engulfed [ubpreg][end if]. Your body squeezes and pushes as your [bodydesc of Player] body is covered in sweat and you have a grimace of pain on your [FaceSpeciesName of Player in lower case] face with each painful shifting inside you. By the time you manage to push it free, you are left exhausted and winded, but have somehow managed to lay the noticeably big oval of your egg from your ass. Collapsed on your side, you gently caress the rocking egg as the shell which protected your child through this difficult passage starts to crack.";
+				say "     Shifting the large mass through your lower colon sends horrible pain through your body as it struggles to adapt to this method of birthing. You claw at the ground and moan as your tight asshole is stretched and forced to open for the large egg[if ubpreggers is true] now encapsulating the engulfed [ubpreg][end if]. Your body squeezes and pushes as your [bodydesc of Player] body is covered in sweat and you have a grimace of pain on your [FaceSpeciesName of Player in lower case] face with each painful shifting inside you. By the time you manage to push it free, you are left exhausted and winded, but have somehow managed to lay the noticeably big oval of your egg from your ass. Collapsed on your side, you gently caress the rocking egg as the shell which protected your child through this difficult passage starts to crack.";
 				now HP of Player is 1;
 				decrease morale of Player by 10;
 				increase mpregcount by 1;
 			else if mpregcount < 6:		[Next few times, struggle]
-				say "     As you struggle with your unusual birthing, you huff and push as best you can during your unnatural labor, working to nudge the large egg onwards, working to expel it from your anus. It is not nearly as painful as your first few were, your [bodytype of Player] body having become more adjusted to the process. After about twenty minutes of pushing and grunting, the egg is pushed free with a little discomfort and even some pleasure as your [if Player is male]male[else]neuter[end if] body feels a rush of pride at having [if ubpreggers is 1]turned the captured [ubpreg] into your newest offspring[else]created a new life[end if]. You hold the big egg in your arms, cradling it as the shell starts to crack.";
+				say "     As you struggle with your unusual birthing, you huff and push as best you can during your unnatural labor, working to nudge the large egg onwards, working to expel it from your anus. It is not nearly as painful as your first few were, your [bodytype of Player] body having become more adjusted to the process. After about twenty minutes of pushing and grunting, the egg is pushed free with a little discomfort and even some pleasure as your [if Player is male]male[else]neuter[end if] body feels a rush of pride at having [if ubpreggers is true]turned the captured [ubpreg] into your newest offspring[else]created a new life[end if]. You hold the big egg in your arms, cradling it as the shell starts to crack.";
 				increase morale of Player by 5;
 				increase mpregcount by 1;
 			else:					[After that, easy]
-				say "     Your well-practiced body has little trouble with the shifting and releasing of the egg within you. You recline and concentrate, feeling your [bodytype of Player] body easily working the large egg along your lower bowels, into your rectum before spreading your legs wide to pop it free of your anus. The egg pops free with some effort at the last step, but the process actually comes with considerable pleasure[if Player is male], and you can't help but stroke yourself into cumming as the firm shell grinds and presses against your prostate as it moves[end if]. As you pull the rocking, cracking egg into your arms, you [if ubpreggers is 1]know it contains the [ubpreg] you unbirthed and have now remade into your offspring[else if Player is male]can't help but feel considerable pride at what your male body has accomplished[else]can't help but feel considerable pride at what your neuter body has accomplished[end if].";
+				say "     Your well-practiced body has little trouble with the shifting and releasing of the egg within you. You recline and concentrate, feeling your [bodytype of Player] body easily working the large egg along your lower bowels, into your rectum before spreading your legs wide to pop it free of your anus. The egg pops free with some effort at the last step, but the process actually comes with considerable pleasure[if Player is male], and you can't help but stroke yourself into cumming as the firm shell grinds and presses against your prostate as it moves[end if]. As you pull the rocking, cracking egg into your arms, you [if ubpreggers is true]know it contains the [ubpreg] you unbirthed and have now remade into your offspring[else if Player is male]can't help but feel considerable pride at what your male body has accomplished[else]can't help but feel considerable pride at what your neuter body has accomplished[end if].";
 				increase morale of Player by 5;
 				increase mpregcount by 1;
 
@@ -459,7 +459,7 @@ To Birth:
 		if a random chance of 1 in 2 succeeds:
 			now PlayerRelationship is "wary";
 	else:
-		now PlayerRelationship is "[one of]loving[or]affectionate[purely at random]";
+		now PlayerRelationship is the substituted form of "[one of]loving[or]affectionate[purely at random]";
 	[genetic abnormalities]
 	let IsAlbino be false;
 	let HasMelanism be false;
@@ -506,7 +506,7 @@ To Birth:
 		else if HasMelanism is true:
 			say "     Their pigmentation is almost pure black. [bold type]They've got melanism![roman type][line break]";
 		say "[line break]     As you spend a little time with your 'offspring', you get the feeling that they have [a ChildPersonality] personality.";
-	else if "Chase's Breeder" is listed in feats of Player: [special NPC impregnation]
+	[else if "Chase's Breeder" is listed in feats of Player: [special NPC impregnation]
 		now IsFeral is false;
 		if Player is female and pregtype < 2:
 			say "     Vagina birth of the chosen one.";
@@ -520,7 +520,7 @@ To Birth:
 			say "twin2";
 		else:
 			say "regulars";
-		increase ChaseOffspring by 1;
+		increase ChaseOffspring by 1;]
 	else if "Chris's Breeder Slut" is listed in feats of Player: [Special Pregnancy from Warrior Chris]
 		now IsFeral is false;
 		if Player is female and pregtype < 2:
@@ -726,7 +726,7 @@ To Birth:
 	now gestation of Child is 0;
 	now ubpreg is "false";
 
-Chapter 3-1 - Impregnation and Ovi-Impreg Subroutines
+Section 1 - Impregnation and Ovi-Impreg Subroutines
 
 To impregnate with (x - text):
 	if child is born or gestation of child > 0 or "Sterile" is listed in feats of Player or larvaegg is 2 or ( Player is not female and player is not mpreg_ok ):
@@ -836,7 +836,7 @@ To impregnate with (x - text):
 		say "[line break]     You have an odd feeling, a palpable wave of contentment from within your lower belly.";
 		if pregtype is 0, now pregtype is 1; [fpreg]
 
-Chapter 3-2 - Impregchance and Ovichance Routines
+Section 2 - Impregchance and Ovichance Routines
 
 to say impregchance:		[General Pregnancy Routine]
 	impregchance;
@@ -1000,7 +1000,7 @@ to selfovichance:
 		now callovi is false;
 	selfimpregchance;
 
-Chapter 3-3 - Random Impreg Routines
+Section 3 - Random Impreg Routines
 
 to say randomimpreg:		[Use when either would work]
 	randomimpreg;

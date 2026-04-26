@@ -31,12 +31,12 @@ to say ResolveEvent Sugar Shack:
 		if SkinName of Player is "Sugar Glider" and BodyName of Player is "Sugar Glider":
 			say "     Moments later when the sugar glider pulls your hand back out of the cotton candy machine, you are delighted to find it covered in soft candy fluff and dig in with a cheer. Distracted by the delicious sugary treat, you hardly notice the sugar glider shifting to the other side of you, taking hold of your other arm and pulling it into the humming machine, this time all the way up to your shoulder.";
 		else:
-			say "     Moments later when the sugar glider pulls your hand back out of the cotton candy machine you are momentarily disappointed to find it lacking the large spool of sugar fluff you were expecting";
 			if SkinName of Player is not "Sugar Glider":
-				say ", but you discover it now matches the sugar glider's own paw exactly [if Player is male]except that the thick coat of cotton candy fur that reaches up to your elbow is bright blue[else]with a thick coat of bright pink cotton candy fur reaching up to your elbow[end if]";
-			say ". Entranced by watching the [if Player is not sugargliderskinned]thick fur[else]changes[end if] slowly creep up your arm, you hardly notice the sugar glider shifting to the other side of you, taking hold of your other arm and pulling it into the humming machine, this time all the way up to your shoulder.";
+				say "     Moments later when the sugar glider pulls your hand back out of the cotton candy machine you are momentarily disappointed to find it lacking the large spool of sugar fluff you were expecting, but you discover it now matches the sugar glider's own paw exactly [if Player is male]except that the thick coat of cotton candy fur that reaches up to your elbow is bright blue[else]with a thick coat of bright pink cotton candy fur reaching up to your elbow[end if]. Entranced by watching the thick fur slowly creep up your arm, you hardly notice the sugar glider shifting to the other side of you, taking hold of your other arm and pulling it into the humming machine, this time all the way up to your shoulder.";
+			else:
+				say "     Moments later when the sugar glider pulls your hand back out of the cotton candy machine you are momentarily disappointed to find it lacking the large spool of sugar fluff you were expecting. Entranced by watching the changes slowly creep up your arm, you hardly notice the sugar glider shifting to the other side of you, taking hold of your other arm and pulling it into the humming machine, this time all the way up to your shoulder.";
 		WaitLineBreak;
-		say "     With your face so close to the sweet-smelling candy, your sugar clouded mind struggles to find a reason to resist her advances, and when you feel the sugar glider's free hand at the back of your head you can only giggle in anticipation. [if Player is not sugargliderfaced]'You're going to be such a cute sugar glider,'[else]'This oughtta help you loosen up,'[end if] she whispers into your ear, placing another kiss on your cheek before plunging your head into the whirling candy filled drum. Fully focused on the cotton candy whirling around you, all you can do is open your mouth and try to catch all you can, giggling uncontrollably as the sugary fluff builds up on your face, ";
+		say "     With your face so close to the sweet-smelling candy, your sugar clouded mind struggles to find a reason to resist her advances, and when you feel the sugar glider's free hand at the back of your head you can only giggle in anticipation. '[if Player is not sugargliderfaced]You're going to be such a cute sugar glider[else]This oughtta help you loosen up[end if],' she whispers into your ear, placing another kiss on your cheek before plunging your head into the whirling candy filled drum. Fully focused on the cotton candy whirling around you, all you can do is open your mouth and try to catch all you can, giggling uncontrollably as the sugary fluff builds up on your face, ";
 		if FaceName of Player is not "Sugar Glider":
 			say "pressing against your flesh and forming a thick [if Player is male]blue[else]pink[end if] cotton candy hide on your shifting head. As the changes roll through you, ";
 		say "the fluff seems to press right into your mind, further clouding your thoughts and pushing any lingering resistance out.";
@@ -61,7 +61,11 @@ to say ResolveEvent Sugar Shack:
 			SanLoss 35;
 		else:
 			SanLoss 25;
-		say "[fullSugarGliderTF]";
+		turn the Player into a "Sugar Glider";
+		if hellHoundLevel is 0:
+			say "[run paragraph on]";
+			follow the sex change rule;
+			follow the sex change rule;
 		if humanity of Player < 10:
 			say "     As you bask in the afterglow of your orgasm, your attention is drawn back to the cotton candy machine, still humming away happily as it continues spinning that delicious candy fluff. Still craving yet more sugary treats, you go back to the machine for more cotton candy. As you're reaching in, swirling your arm around, the sugar glider comes over and starts lifting you into the machine. Rather than fight her, you giggle happily and let her boost you in. Tumbling around in the swirling vortex of sweet colors, you feel more and more cotton candy clinging to you, sinking into your body. When the machine's finally shut off and your dizzy self is helped out of the cotton candy machine, your mind has been spun and fluffed until it is filled with nothing but thoughts of sweets and sex, or sweet, sweet sex. Giggling happily, you collapse into the arms of the sugar glider, still quite dizzy, and give her a sugary kiss, eager for more fun.";
 			wait for any key;
@@ -90,13 +94,5 @@ to say ResolveEvent Sugar Shack:
 		now Resolution of Sugar Shack is 2; [sugar gliders refused]
 		ItemGain crushed candies by 1;
 	now Sugar Shack is resolved;
-
-to say fullSugarGliderTF:
-	setmonster "Sugar Glider" silently;
-	turn the Player into a "Sugar Glider";
-	if hellHoundLevel is 0:
-		say "[run paragraph on]";
-		follow the sex change rule;
-		follow the sex change rule;
 
 Sugar Feud ends here.

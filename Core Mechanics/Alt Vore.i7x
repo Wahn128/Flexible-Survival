@@ -48,6 +48,15 @@ to decide if the/-- Player can't/cannot UB/unbirth:
 
 Section 1 - Event
 
+a postimport rule: [bugfixing rules for players that import savegames]
+	if Inner Predator is resolved and Resolution of Inner Predator is 0:
+		if Player can vore:
+			now Resolution of Inner Predator is 1;
+		else if MaleList is banned and FemaleList is banned:
+			now Resolution of Inner Predator is 99;
+		else:
+			now Resolution of Inner Predator is 2;
+
 Table of GameEventIDs (continued)
 Object	Name
 Inner Predator	"Inner Predator"
@@ -60,15 +69,6 @@ Sarea of Inner Predator is "Allzones".
 when play begins:
 	add Inner Predator to BadSpots of FurryList;
 	add Inner Predator to BadSpots of VoreList;
-
-a postimport rule: [bugfixing rules for players that import savegames]
-	if Inner Predator is resolved and Resolution of Inner Predator is 0:
-		if Player can vore:
-			now Resolution of Inner Predator is 1;
-		else if MaleList is banned and FemaleList is banned:
-			now Resolution of Inner Predator is 99;
-		else:
-			now Resolution of Inner Predator is 2;
 
 to say ResolveEvent Inner Predator:
 	if MaleList is banned and FemaleList is banned:
@@ -135,7 +135,7 @@ to say ResolveEvent Inner Predator:
 		now Resolution of Inner Predator is 1; [player drank the vial]
 	else:
 		LineBreak;
-		say "     Deciding that ingesting anything found in a mysterious briefcase is probably a very bad idea you opt to instead try and figure out what it is that you're holding. After storing the vial safely in your pack and pocketing the candy bar you begin to scan over some of the documents. Most of it is beyond your understanding, mostly medical lingo, some test results and other foreign terms, but a warning in particular caught your eye: 'Warning: Do not test the effects of application to the vaginal region'. It would seem that one of the documents talks about some abnormal effects if applied in such a manner, but much of it refers to a lot of medical language and anatomical terms you do not understand. You decide after pondering for a moment that you should [if PlayerMet of Medea is true]check in with Doctor Medea and see if she[else]go find someone, perhaps a doctor or specialist in gynecology and see if they[end if] might be able to decipher the document.";
+		say "     Deciding that ingesting anything found in a mysterious briefcase is probably a very bad idea you opt to instead try and figure out what it is that you're holding. After storing the vial safely in your pack and pocketing the candy bar you begin to scan over some of the documents. Most of it is beyond your understanding, mostly medical lingo, some test results and other foreign terms, but a warning in particular caught your eye: 'Warning: Do not test the effects of application to the vaginal region'. It would seem that one of the documents talks about some abnormal effects if applied in such a manner, but much of it refers to a lot of medical language and anatomical terms you do not understand. You decide after pondering for a moment that you should [if PlayerMet of Doctor Medea is true]check in with Doctor Medea and see if she[else]go find someone, perhaps a doctor or specialist in gynecology and see if they[end if] might be able to decipher the document.";
 		ItemGain chips by 1;
 		increase score by 5;
 		now Resolution of Inner Predator is 2; [player didn't drink the vial]
@@ -346,12 +346,9 @@ to say vbp_messypig:		[written by Wolfwing, edited by Stripes]
 		say "     As the last of her goes into your mouth, you lick over her hooves and then gulp her down the last few times into your stomach. You're left with a [if scalevalue of Player is 3]hefty[else if scalevalue of Player is 4]large[else]minimal[end if] belly as you pat it. You savor feeling her struggles slowly begin to die down and then finally end as your nanites work to slowly digest her and break her down.";
 
 to say vbp_hermgryph:
-	if Player is male:
-		say "     With the gryphon herm sufficiently weakened, she cannot resist as you grab her and push her onto the ground. Pressing her beak to your loins, you order her to start licking. Her tongue slides across your manhood before she takes it into her warm mouth. You're hungry and look forward to consuming your meal, but you're not above playing with your food first. Especially when they do such a fine job at it. You rock your hips firmly, thrusting your [Cock of Player] cock into the gryphon's mouth. As you're nearing your peak, you pull out and stroke yourself to climax, spraying your messy load across her face and beak.";
-	else:
-		say "     With the gryphon herm sufficiently weakened, she cannot resist as you grab her and push her onto the ground. Pressing her beak to your loins, you order her to start licking. Her tongue brushes across your folds before sliding into your hot tunnel. She can't delve far because of her beak, but the rubbing of that hard nose against your clit more than makes up for it. You're hungry and look forward to consuming your meal, but you're not above playing with your food first. Especially when they do such a fine job at it. You rock your hips firmly, grinding your pussy against her beak and tongue. When you cum, it is a juicy orgasm that leaks your femcum across the gryphon's face and beak.";
-		CreatureSexAftermath "Blue Gryphon Herm" receives "OralPussy" from "Player";
+	say "     With the gryphon herm sufficiently weakened, she cannot resist as you grab her and push her onto the ground. Pressing her beak to your loins, you order her to start licking. Her tongue [if Player is male]slides across your manhood before she takes it into her warm mouth. You're hungry and look forward to consuming your meal, but you're not above playing with your food first. Especially when they do such a fine job at it. You rock your hips firmly, thrusting your [Cock of Player] cock into the gryphon's mouth. As you're nearing your peak, you pull out and stroke yourself to climax, spraying your messy load across her[else]brushes across your folds before sliding into your hot tunnel. She can't delve far because of her beak, but the rubbing of that hard nose against your clit more than makes up for it. You're hungry and look forward to consuming your meal, but you're not above playing with your food first. Especially when they do such a fine job at it. You rock your hips firmly, grinding your pussy against her beak and tongue. When you cum, it is a juicy orgasm that leaks your femcum across the gryphon's[end if] face and beak.";
 	say "     Having basted the bird with your [if Player is male]semen[else]juices[end if], your hunger rises anew. Leaning down towards her, she thinks you're coming in for a sloppy thank-you kiss and tilts her head up with her eyes closed. You grin and open your mouth wide, taking her beak and part of her head right into your gaping maw instead. By the time she realizes the extent of her mistake, it's too late and you're pushing her head into your throat.";
+	CreatureSexAftermath "Blue Gryphon Herm" receives "Oral[if Player is male]Cock[else]Pussy[end if]" from "Player";
 	WaitLineBreak;
 	say "     As you're licking at her blue breasts, she tries to resist, but you've got her wings pinned over her arms. With her struggling, it takes some effort to get your jaw and then your throat stretched over her shoulders, breasts and wings, but eventually you manage it. From then on, it is much easier going.";
 	say "     With the worst of the struggle with your meal over, you're better able to enjoy it. She proves to be quite tasty, having a mix of avian and animal flavors. There's something exotic and special to her taste that you can't quite pin down, like a spice you've never had before or a fruit you've never eaten. And those lingering traces of your sexual fluids further season her.";

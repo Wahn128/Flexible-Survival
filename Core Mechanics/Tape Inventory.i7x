@@ -8,7 +8,7 @@ understand "tinv" as TapeInventorying.
 understand "tape inventory/inv" as TapeInventorying.
 
 check TapeInventorying:
-	if number of entries in tapes of Player is 0, say "Your collection of video tapes is empty." instead;
+	if tapes of Player is empty, say "Your collection of video tapes is empty." instead;
 
 carry out TapeInventorying:
 	say "Your video tape collection consists of:[line break]";
@@ -33,15 +33,15 @@ carry out tapeing:
 	sort tapes of Player;
 	let t be the topic understood;
 	let target be text;
-	let found be 0;
+	let found be false;
 	let z be 0;
 	repeat with x running through tapes of Player:
 		increase z by 1;
 		if t exactly matches the text x, case insensitively:
 			now target is x;
-			now found is 1;
+			now found is true;
 			break;
-	if found is 0:
+	if found is false:
 		say "You don't seem to have any such tape.";
 		continue the action;
 	say "You dig out the tape from your backpack and get your camera ready, opening up its tape slot.[paragraph break]";
@@ -72,14 +72,14 @@ carry out tapeing:
 ]
 
 to deletetape (x - text):	[removes 1 tape of a given type from the player's inventory]
-	let found be 0;
+	let found be false;
 	let z be 0;
 	repeat with y running through tapes of Player:
 		increase z by 1;
 		if x exactly matches the text y, case insensitively:
-			now found is 1;
+			now found is true;
 			break;
-	if found is 0:
+	if found is false:
 		say "Error - [x] - Expected tape not found.";
 		stop the action;
 	say "You dig out the tape [entry z of tapes of Player] from your backpack and throw it away.";
@@ -90,14 +90,14 @@ understand "tapedrop [text]" as tapedropping.
 
 Carry out tapedropping:
 	let t be the topic understood;
-	let found be 0;
+	let found be false;
 	let z be 0;
 	repeat with x running through tapes of Player:
 		increase z by 1;
 		if t exactly matches the text x, case insensitively:
-			now found is 1;
+			now found is true;
 			break;
-	if found is 0:
+	if found is false:
 		say "You don't seem to have any such tape.";
 		continue the action;
 	say "You dig out the tape [entry z of tapes of Player] from your backpack and throw it away.";

@@ -4,6 +4,8 @@ Version 4 of Shrinking Shrooms by Defth begins here.
 
 Section 1 - Event
 
+MushroomCaveVisited is a number that varies. MushroomCaveVisited is usually 0
+
 Table of GameEventIDs (continued)
 Object	Name
 Mushroom Cave	"Mushroom Cave"
@@ -12,8 +14,6 @@ Mushroom Cave	"Mushroom cave"
 Mushroom Cave is a situation.
 ResolveFunction of Mushroom Cave is "[ResolveEvent Mushroom Cave]".
 Sarea of Mushroom Cave is "Outside".
-
-MushroomCaveVisited is a number that varies. MushroomCaveVisited is usually 0
 
 to say ResolveEvent Mushroom Cave:
 	if MushroomCaveVisited is 0: [first visit]
@@ -24,7 +24,7 @@ to say ResolveEvent Mushroom Cave:
 		if Player consents:
 			LineBreak;
 			say "     You carefully pick some of the mushrooms and put them into your backpack, sighing happily that you didn't shrink while doing so.";
-			ItemGain glowing mushroom by 3 silently;
+			ItemGain glowing mushroom by 3;
 			now Resolution of Mushroom Cave is 1; [picked shrooms #1]
 		else:
 			LineBreak;
@@ -39,7 +39,7 @@ to say ResolveEvent Mushroom Cave:
 		if Player consents:
 			LineBreak;
 			say "     You carefully pick some of the mushrooms and put them into your backpack, sighing happily that you didn't shrink while doing so.";
-			ItemGain Glowing mushroom by 3 silently;
+			ItemGain Glowing mushroom by 3;
 			now Resolution of Mushroom Cave is 3; [picked shrooms]
 		else:
 			LineBreak;
@@ -258,7 +258,7 @@ to say LittleExplorer:
 	else if fightoutcome >= 10 and fightoutcome <= 19: [won]
 		say "     Sending the husky running with a kick in the pants, you laugh as he flees with his tail tucked low. Still, it might not be a good idea to go back into the restaurant... There is at least one more member of his pack in there and who knows how many others. Leaving this place through the front door, you can finally go back to the bunker.";
 		now Resolution of Little Trouble is 1; [fought, won]
-	AttemptToWait;
+	WaitLineBreak;
 	move player to bunker;
 	now little trouble is resolved;
 
@@ -347,11 +347,11 @@ to say ChineseUB:
 	WaitLineBreak;
 	say "     With a final push, your shoulders penetrate her cervix, allowing the rest of your body into the snug cave of her womb as her muscles quake in orgasm, squishing you with its flexible walls. Bouncing and sliding around in her innermost sanctuary, this also pushes you to, and past, the limit of your endurance, [if Player is male]making your cock shoot heavy blasts of seed right into her womb and over yourself[else if Player is female]your love juices slicking the inside of her womb[else]trembling and twitching in orgasm[end if]. Afterwards, you stay in the fetal position for a time, just resting after your breathtaking climax. After all, this is such a nice place. Warm and welcoming, you could live here forever.";
 	say "     But despite what you may have wanted, at one point, the walls suddenly tremble and contract in a concerted way, sending you on a slippery slide towards her cervix, which opens just far enough to allow your exceptionally well-lubed body to slip through. Following the incline of her pussy, you arrive at the husky's folds a few heartbeats later and find yourself 'birthed', flopping wetly onto the mattress in the cruel outside world. Panting hard, you breathe in the fresh air of the room, and the all-encompassing aroma of her heat starts to leave you, not that you actually want that in this moment as you stagger to your feet and try to plunge into her depths once more.";
-	if Player is male:
-		CreatureSexAftermath "Husky Bitch" receives "PussyFuck" from "Player";
 	MultiInfect "Husky Bitch" repeats 3;
 	WaitLineBreak;
 	say "     But no, the satisfied husky blocks your path with her hand, nudging you away with a firm push. 'That was fun, but you gotta let mommy rest,' she sighs out in a somewhat sleepy tone, sinking back to lean against the wall once more. A moment later, you come back to your senses more or less and start to dash towards the entrance hole to get back to your normal life after this extraordinary experience. With one last glance over your shoulder, you see the husky waving her 'child' goodbye, then doze off again. Breathing a sigh of relief as you step outside of the building and see your pile of gear still undisturbed, you wait a while until you finally feel yourself growing. Quickly getting dressed again, you get ready for more adventures out in the city.";
+	if Player is male:
+		CreatureSexAftermath "Husky Bitch" receives "PussyFuck" from "Player";
 	now Resolution of Little Trouble is 5; [shrunk, UB'd]
 	now Little Trouble is resolved;
 
@@ -624,7 +624,7 @@ to say BitchDive:
 		now Resolution of Little Trouble is 10; [shrunk, eaten by bitch, anal way out]
 		now little trouble is resolved;
 
-Section 2 - More Events
+Section 4 - More Events
 
 [By Gherod]
 
@@ -657,35 +657,82 @@ to say ResolveEvent Ballsy Hung Horseman:
 			say "     During your stay at the Stables, you see no lack of fine equine-looking men, women, and even somewhere in between these binary designations of gender, doing their turns and awaiting eager partners to share hot and intimate moments with. You have to be especially wary of those tall and burly horsemen who could definitely pose a threat to your safety, as some of them seem to be guards. But in your mindful stroll across the whorehouse, someone catches your attention as they see you passing by. One none other than, exactly one of those you were trying to avoid, except he does not seem hostile towards you. He has you in his sight, an especially strong looking [bold type]horseman[roman type] with a [bold type]very expansive bulge[roman type] confined in a pair of tight black leather pants, so indiscreet that your eyes are drawn to it in an instinctive reflex.";
 			say "     'My eyes are up here, cute stuff,' he says, and that makes you alert of what you are doing. He gives you a very suggestive smirk, understanding that you were probably enthralled by the size of his equipment. 'Like what you see?' asks the horseman, his ridiculously large bulge bouncing before your gaze, an obscene sight that not even a pair of pants could attenuate. 'I do get a lot of attention anywhere I go, hence why I prefer a more... reclusive corner.' He crosses his arms and examines you once more, almost giving you the feeling he is taking measures of your form with his eyes. 'Tell you what... I'll sate your curiosity if you bring me some of those [bold type]glowing mushrooms[roman type] from that one [bold type]mushroom cave[roman type]... You'll know what I'm talking about, if you've ever been there.'";
 			WaitLineBreak;
-			BHHShrinkingShroom;
+			say "     Knowing that you happen to be carrying at least one of those mushrooms that he mentioned, you are left with a decision to make. You can either mention that you, indeed, have one and would like to proceed with the trade in exchange for what he offers, lie and say you don't have any so you can leave for now, or simply decide to ignore him forever and avoid any further encounters with him.";
+			say "     [link](1)[as]1[end link] - Let him know you have what he asks for.";
+			say "     [link](2)[as]2[end link] - Lie and be on your way, for now.";
+			say "     [link](3)[as]3[end link] - Lie and go away, forever avoiding him for the future.";
+			now calcnumber is 0;
+			while calcnumber < 1 or calcnumber > 3:
+				say "Choice? (1-3)> [run paragraph on]";
+				get a number;
+				if calcnumber < 1 or calcnumber > 3:
+					say "Invalid choice. Type [link]1[end link] to present the mushroom to him, [link]2[end link] to lie and make your leave or [link]3[end link] to simply go away and ignore him forever, for the future.";
+			LineBreak;
+			if calcnumber is 1:
+				say "     You nod, informing him that you, indeed, have glowing mushrooms with you. He then asks you to follow him into a more [']private['] spot...";
+				WaitLineBreak;
+				say "[BHHScene1]";
+			else if calcnumber is 2:
+				say "     You put up your saddest expression and inform him that, sadly, you have none of those special mushrooms with you. 'I see. What a pity... I'll have to look for someone else,' he replies, as you continue on your way, not minding the hung horseman for some time.";
+			else:
+				say "     You put up your saddest expression and inform him that, sadly, you have none of those special mushrooms with you. 'I see. What a pity... I'll have to look for someone else,' he replies, and perhaps, avoiding him would be the best move, you think. From now on, even if you see this horseman, you shall ignore him with the best of your abilities. If you can avoid this area in general, even better! You definitely will not see him again.";
+				now Ballsy Hung Horseman is resolved; [resolves the event, to never appear again]
 	else: [was CV'd by him at least once]
 		say "     During your stay at the Stables, you see no lack of fine equine-looking men, women, and even somewhere in between these binary designations of gender, doing their turns and awaiting eager partners to share hot and intimate moments with. You have to be especially wary of those tall and burly horsemen who could definitely pose a threat to your safety, as some of them seem to be guards. But in your mindful stroll across the whorehouse, someone catches your attention as they see you passing by. One none other than, exactly one of those you were trying to avoid, except he does not seem hostile towards you. He has you in his sight, an especially strong looking [bold type]horseman[roman type] with a [bold type]very expansive bulge[roman type] confined in a pair of tight black leather pants, so indiscreet that your eyes are drawn to it in an instinctive reflex.";
 		say "     'My eyes are up here, cute stuff,' he says, and that makes you alert of what you are doing. He gives you a very suggestive smirk, understanding that you were probably enthralled by the size of his equipment. 'Like what you see?' asks the horseman, his ridiculously large bulge bouncing before your gaze, an obscene sight that not even a pair of pants could attenuate. Though, to your surprise or not, the horseman seems to recognize you. 'Ah! Look who it is! Did you miss me? Or the hot and tight confines of my cum-flooded balls?' he asks, giving the area of his bulge respective to his massive nutsack a good rub as he talks. 'If you want another temporary go, just bring another one of those [bold type]glowing mushrooms[roman type] and I'll let you in again... Perhaps this time you'll want to stay longer...'";
 		WaitLineBreak;
 		say "     'But I suppose we could also do other things, now that we know each other better. We don't always need to use the mushrooms... or, at least, not right away.' The horseman smirks as you think about what to say.";
-		say "[BallsyHungHorsemanSexMenu]";
-
-to BHHShrinkingShroom:
-	say "     Knowing that you happen to be carrying at least one of those mushrooms that he mentioned, you are left with a decision to make. You can either mention that you, indeed, have one, and would like to proceed with the trade in exchange for what he offers, lie and say you don't have any so you can leave for now, or simply decide to ignore him forever and avoid any further encounters with him.";
-	say "     [link](1)[as]1[end link] - Let him know you have what he asks for.";
-	say "     [link](2)[as]2[end link] - Lie and be on your way, for now.";
-	say "     [link](3)[as]3[end link] - Lie and go away, forever avoiding him for the future.";
-	now calcnumber is 0;
-	while calcnumber < 1 or calcnumber > 3:
-		say "Choice? (1-3)> [run paragraph on]";
-		get a number;
-		if calcnumber < 1 or calcnumber > 3:
-			say "Invalid choice. Type [link]1[end link] to present the mushroom to him, [link]2[end link] to lie and make your leave or [link]3[end link] to simply go away and ignore him forever, for the future.";
-	LineBreak;
-	if calcnumber is 1:
-		say "     You nod, informing him that you, indeed, have glowing mushrooms with you. He then asks you to follow him into a more [']private['] spot...";
-		WaitLineBreak;
-		say "[BHHScene1]";
-	else if calcnumber is 2:
-		say "     You put up your saddest expression and inform him that, sadly, you have none of those special mushrooms with you. 'I see. What a pity... I'll have to look for someone else,' he replies, as you continue on your way, not minding the hung horseman for some time.";
-	else:
-		say "     You put up your saddest expression and inform him that, sadly, you have none of those special mushrooms with you. 'I see. What a pity... I'll have to look for someone else,' he replies, and perhaps, avoiding him would be the best move, you think. From now on, even if you see this horseman, you shall ignore him with the best of your abilities. If you can avoid this area in general, even better! You definitely will not see him again.";
-		now Ballsy Hung Horseman is resolved; [resolves the event, to never appear again]
+		say "[line break]     [bold type]How will you handle this situation? Is there anything you want to do with this well-endowed horseman?[roman type][line break]";
+		now sextablerun is 0;
+		blank out the whole of table of fucking options;
+		[]
+		if carried of glowing mushroom > 0:
+			choose a blank row in table of fucking options;
+			now title entry is "Eat a mushroom and get cock vored";
+			now sortorder entry is 1;
+			now description entry is "Just eat another shrinking shroom for his wicked pleasure";
+		[]
+		choose a blank row in table of fucking options;
+		now title entry is "Offer to fist his dick";
+		now sortorder entry is 2;
+		now description entry is "Your arm should be able to fit that urethra, propose him that";
+		[]
+		if Player is male:
+			choose a blank row in table of fucking options;
+			now title entry is "Offer to fuck his cock";
+			now sortorder entry is 3;
+			now description entry is "With a cock smaller than, at least, an arm, you should be able to fuck his, on the slit. Ask him that";
+		[]
+		sort the table of fucking options in sortorder order;
+		repeat with y running from 1 to number of filled rows in table of fucking options:
+			choose row y from the table of fucking options;
+			say "[link][y] - [title entry][as][y][end link][line break]";
+		say "[link]0 - Nevermind[as]0[end link][line break]";
+		while sextablerun is 0:
+			say "Pick the corresponding number> [run paragraph on]";
+			get a number;
+			if calcnumber > 0 and calcnumber <= the number of filled rows in table of fucking options:
+				now current menu selection is calcnumber;
+				choose row calcnumber in table of fucking options;
+				say "[title entry]: [description entry]?";
+				if Player consents:
+					LineBreak;
+					now sextablerun is 1;
+					if title entry is:
+						-- "Eat a mushroom and get cock vored":
+							say "[BHHScene1]";
+						-- "Offer to fist his dick":
+							say "[BHHFistCock]";
+						-- "Offer to fuck his cock":
+							say "[BHHFuckCock]";
+			else if calcnumber is 0:
+				LineBreak;
+				now sextablerun is 1;
+				say "     You have nothing to do with this horseman, so you shall only be on your way. He only shrugs, not stopping you from leaving.";
+			else:
+				say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
+		wait for any key;
+		clear the screen and hyperlink list;
 
 to say BHHScene1:
 	if Resolution of Ballsy Hung Horseman is 0: [first time]
@@ -715,11 +762,10 @@ to say BHHScene1:
 			WaitLineBreak;
 			say "     As for the horseman, he is ecstatic, not minding you at all as your whole existence sinks in deeper into his manhood. You find your entire legs disappearing into the throbbing shaft, followed by the rest of your torso, leaving your arms and head for last with each passing second. Inch by inch you slide deep down his cock until the very last bit of you fully sinks inside, the horseman's slit closing above you as the pulsing movements along his member continue to squeeze all over you, bringing your helpless body into a long journey down to the equine's balls. 'Ohhh fuck yes... You feel amazing in there, little [boygirl]... Mmmmh I wish I could keep you in there forever without churning you down for good...' he moans, enjoying your presence in his [one of]right[or]left[at random] nut, curled up within the tight confines of his cum-filled orb.";
 			say "     There is not enough space to move, even. You are utterly trapped in his ballsack, unable to fight back nor squeeze yourself out, stuck and at the horseman's mercy. The testicle you are in continues to fill, that creamy and almost scorching hot cum beginning to make you feel... joyful, a bliss you cannot explain as your entire body reacts with sparks of pure pleasure. This strange stimulation, which feels so overwhelmingly good at first, starts making your body feel numb, but you keep diving into that warm and welcoming pool of thick jizz that yearns you to lose yourself in it... You feel your entire surroundings move around lullingly, which seems to be the horseman cupping and caressing his balls, feeling you inside him as he strokes his huge equine dong...";
-			CreatureSexAftermath "Player" receives "Other" from "Horseman";
-			WaitLineBreak;
 			say "     You black out moments after as the creamy and thick pool of cum you are in takes you, submerging you completely.";
 			WaitLineBreak;
 			say "     ...But then, you feel your world spinning, that comfortable warmth suddenly disappearing from around you, replaced with a cold breeze and a hard surface. You feel completely exhausted as you open your eyes and glance around you. You are outside the horseman, and on a pile of dirt still near the Stables. All over your body, however, is his cum, already drying up. It looks like you have been here for a while since he came you out of his balls, and back to your original size, no less! That was some journey you have just experienced! Now you have to find yourself a way to clean yourself up. Fortunately, the hung equine had the decency to bring all of your stuff to you once he was done with his trickery.";
+			CreatureSexAftermath "Player" receives "Other" from "Horseman";
 			now Resolution of Ballsy Hung Horseman is 1;
 			LibidoBoost 30;
 			SanLoss 20;
@@ -773,59 +819,6 @@ to say BHHScene1:
 			LibidoBoost 40;
 			SanLoss 30;
 
-to say BallsyHungHorsemanSexMenu:
-	say "[line break]     [bold type]How will you handle this situation? Is there anything you want to do with this well-endowed horseman?[roman type][line break]";
-	now sextablerun is 0;
-	blank out the whole of table of fucking options;
-	[]
-	if carried of glowing mushroom > 0:
-		choose a blank row in table of fucking options;
-		now title entry is "Eat a mushroom and get cock vored";
-		now sortorder entry is 1;
-		now description entry is "Just eat another shrinking shroom for his wicked pleasure";
-	[]
-	choose a blank row in table of fucking options;
-	now title entry is "Offer to fist his dick";
-	now sortorder entry is 2;
-	now description entry is "Your arm should be able to fit that urethra, propose him that";
-	[]
-	if Player is male:
-		choose a blank row in table of fucking options;
-		now title entry is "Offer to fuck his cock";
-		now sortorder entry is 3;
-		now description entry is "With a cock smaller than, at least, an arm, you should be able to fuck his, on the slit. Ask him that";
-	[]
-	sort the table of fucking options in sortorder order;
-	repeat with y running from 1 to number of filled rows in table of fucking options:
-		choose row y from the table of fucking options;
-		say "[link][y] - [title entry][as][y][end link][line break]";
-	say "[link]0 - Nevermind[as]0[end link][line break]";
-	while sextablerun is 0:
-		say "Pick the corresponding number> [run paragraph on]";
-		get a number;
-		if calcnumber > 0 and calcnumber <= the number of filled rows in table of fucking options:
-			now current menu selection is calcnumber;
-			choose row calcnumber in table of fucking options;
-			say "[title entry]: [description entry]?";
-			if Player consents:
-				LineBreak;
-				now sextablerun is 1;
-				if title entry is:
-					-- "Eat a mushroom and get cock vored":
-						say "[BHHScene1]";
-					-- "Offer to fist his dick":
-						say "[BHHFistCock]";
-					-- "Offer to fuck his cock":
-						say "[BHHFuckCock]";
-		else if calcnumber is 0:
-			LineBreak;
-			now sextablerun is 1;
-			say "     You have nothing to do with this horseman, so you shall only be on your way. He only shrugs, not stopping you from leaving.";
-		else:
-			say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
-	wait for any key;
-	clear the screen and hyperlink list;
-
 to say BHHFistCock:
 	say "     Knowing that the horseman seems open to some other options, you ask him if, instead of going for a mushroom, he would be happy to try something else, perhaps using only your hands.";
 	if scalevalue of Player >= 4:
@@ -876,10 +869,10 @@ to say BHHFistCock:
 		else:
 			say "     You try your best to not fall asleep due to all this and resist with your very best efforts, still kicking at the horseman's balls and at every single one of his taunts. There is this particular kick that makes the horseman flinch unexpectedly... 'Whoa! Hey! S-stop doing that...!' he shouts, trying to block your blows, but the enormous size of his junk makes it difficult for him to find the right space to shield himself from you. Noticing this, you continue to hit that particular spot, the horseman's voice booming out from everywhere between grunts and heavy breathing. 'F-fuck, n-not there... C-come on! Let me enjoy you a little bit longer...! Fuuuck why does it feel so good...?!'";
 			say "     This causes your space to suddenly fill with a lot of cum, fully submerging you in it, but soon, your surroundings begin to retract and constrict you enough to force you back into the equine's shaft. It does not stop there, as the force of his cum pushes you further up while you hear him scream in bliss, naturally driving you outside with quite a massive blast. His cum follows you all the way until you hit the ground, further bathing you in it, and you have to roll away from the deluge he is causing with every spurt if you do not want to drown in it. As you are finally outside, you get a view of the horseman cumming a ridiculously huge load, completely helpless to all that overwhelming pleasure, but all as he grunts in frustration. A frustrating pleasure? Either way, he seems to be half-enjoying it.";
-			CreatureSexAftermath "Player" receives "Other" from "Horseman";
 			WaitLineBreak;
 			say "     While he is left cumming for an unforeseen amount of time, you grab your stuff back and try to get yourself as clean as you can. This ordeal left you exhausted, but you pity the poor horseman who just cannot stop his orgasm and cannot even walk away on his own due to the size of his endowments... You think he is about to curse at you, but only moans leave his mouth as he looks at you, extending his hand in your direction. 'You f-fucker...! I-I'll have you next time...!'";
 			say "     Those are the last words you hear from him as you begin to walk away. He is still cumming...";
+			CreatureSexAftermath "Player" receives "Other" from "Horseman";
 			LibidoBoost 40;
 			SanLoss 30;
 
@@ -964,10 +957,10 @@ to BBHFuckCockCV:
 		say "     You try your best to not fall back asleep due to all this and resist with your very best efforts, still kicking at the horseman's balls and at every single one of his taunts. There is this particular kick that makes the horseman flinch unexpectedly... 'Whoa! Hey! S-stop doing that...!' he shouts, trying to block your blows, but the enormous size of his junk makes it difficult for him to find the right space to shield himself from you. Noticing this, you continue to hit that particular spot, the horseman's voice booming out from everywhere among grunts and heavy breathing. 'F-fuck, n-not there... C-come on! Let me enjoy you a little bit longer...! Fuuuck why does it feel so good...?!'";
 		WaitLineBreak;
 		say "     This causes your space to suddenly fill with a lot of cum, fully submerging you in it, but soon, your surroundings begin to retract and constrict you enough to force you back into the equine's shaft. It does not stop there, as the force of his cum pushes you further up while you hear him scream in bliss, naturally driving you outside with quite a massive blast. His cum follows you all the way until you hit the ground, further bathing you in it, and you have to roll away from the deluge he is causing with every spurt if you do not want to drown in it. As you are finally outside, you get a view of the horseman cumming a ridiculously huge load, completely helpless to all that overwhelming pleasure, but all as he grunts in frustration. A frustrating pleasure? Either way, he seems to be half-enjoying it.";
-		CreatureSexAftermath "Player" receives "Other" from "Horseman";
 		WaitLineBreak;
 		say "     While he is left cumming for an unforeseen amount of time, you grab your stuff back and try to get yourself as clean as you can. This ordeal left you exhausted, but you pity the poor horseman who just cannot stop his orgasm and cannot even walk away on his own due to the size of his endowments... You think he is about to curse at you, but only moans leave his mouth as he looks at you, extending his hand in your direction. 'You f-fucker...! I-I'll have you next time...!'";
 		say "     Those are the last words you hear from him as you begin to walk away. He is still cumming...";
+		CreatureSexAftermath "Player" receives "Other" from "Horseman";
 		LibidoBoost 40;
 		SanLoss 30;
 

@@ -8,13 +8,7 @@ PetMuttColor is a text that varies.
 PetMuttDetailedlook is a text that varies.
 PetMuttName is a text that varies.
 
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 Section 1 - Events
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 
 [Update for WalkinEvents table]
 Table of WalkinEvents (continued)
@@ -43,13 +37,7 @@ to say ResolveEvent Pet_Mutt_Looting:
 	else: [5]
 		ItemGain medkit by 1;
 
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 Section 2 - NPC
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 
 Table of GameCharacterIDs (continued)
 object	name
@@ -119,13 +107,7 @@ an everyturn rule:
 		else if TimekeepingVar is 2 or TimekeepingVar is -6: [early night]
 ]
 
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 Section 3 - Conversation
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 
 instead of conversing the Pet Mutt:
 	say "     As you stride up to [PetMuttName], he perks up quickly and looks to you, his tail wagging and his head cocked to the side. Patiently waiting for what you say or do next.";
@@ -156,10 +138,11 @@ to say Pet MuttTalkMenu:
 	now sortorder entry is 4;
 	now description entry is "Have a Lassie moment with [PetMuttName]";
 	[]
-	choose a blank row in table of fucking options;
-	now title entry is "Kiss him";
-	now sortorder entry is 5;
-	now description entry is "Smooch with [PetMuttName]";
+	if lastfuck of Pet Mutt - turns >= 2:
+		choose a blank row in table of fucking options;
+		now title entry is "Kiss him";
+		now sortorder entry is 5;
+		now description entry is "Smooch with [PetMuttName]";
 	[]
 	sort the table of fucking options in sortorder order;
 	repeat with y running from 1 to number of filled rows in table of fucking options:
@@ -225,13 +208,7 @@ to say Pet MuttKiss:
 		say "     You stand up, wiping your face clean with your hand and brushing yourself off. Your cute mutt whines but backs down when you start to glare at him. He's the pet, and you're the [master] after all.";
 		wait for any key;
 
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 Section 4 - Sex
-[***********************************************************]
-[***********************************************************]
-[***********************************************************]
 
 instead of fucking the Pet Mutt:
 	if lastfuck of Pet Mutt - turns < 2: [he got fucked in the last 6 hours = 2 turns]

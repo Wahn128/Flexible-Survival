@@ -17,21 +17,18 @@ carry out VariableSaving:
 
 [
 SVText is an action applying to nothing.
-
 understand "SVText" as SVText.
 
 carry out SVText:
 	VariableSaveA;
 
 SVNumber is an action applying to nothing.
-
 understand "SVNumber" as SVNumber.
 
 carry out SVNumber:
 	VariableSaveB;
 
 SVTruth is an action applying to nothing.
-
 understand "SVTruth" as SVTruth.
 
 carry out SVTruth:
@@ -57,6 +54,14 @@ to VariableSave:
 		choose blank row in Table of GameNumbers;
 		now NumberVarName entry is "ColaVendingMachine_dispensed";
 		now NumberVarValue entry is dispensed of Cola Vending Machine;
+	if caffeinehigh of Player > 0: [storing player caffeine level]
+		choose blank row in Table of GameNumbers;
+		now NumberVarName entry is "Player_caffeinehigh";
+		now NumberVarValue entry is caffeinehigh of Player;
+	if CandyShop is resolved: [storing Sweet Tooth caffeine timer]
+		choose blank row in Table of GameNumbers;
+		now NumberVarName entry is "SweetTooth_lastcaffeine";
+		now NumberVarValue entry is lastcaffeine of Sweet Tooth;
 	if Cola Vending Machine is not in Mall Foodcourt: [storing mall vending machine state]
 		choose blank row in Table of GameTruths;
 		now TruthVarName entry is "ColaVendingMachine_dead";
@@ -65,23 +70,28 @@ to VariableSave:
 		choose blank row in Table of GameTruths;
 		now TruthVarName entry is "LibraryComputer_on";
 		now TruthVarValue entry is true;
+	if shownermine of phoenix egg is true: [storing phoenix egg Nermine interaction]
+		choose blank row in Table of GameTruths;
+		now TruthVarName entry is "PhoenixEgg_shownermine";
+		now TruthVarValue entry is true;
 	[continue with storing supported variables]
 	repeat through Table of GameVariableIDs:
 		now CurrentVariableName is Name entry;
 		[if debug is at level 10:
 			say "Stashing variable [CurrentVariableName].";]
-		if Type Entry is "text":
-			TextVariableSave;
-		else if Type Entry is "number":
-			NumberVariableSave;
-		else if Type Entry is "truth state":
-			TruthVariableSave;
-		else if Type Entry is "indexed text":
-			IndexedTextVariableSave;
-		else if Type Entry is "list of text":
-			TextListVariableSave;
-		else if Type Entry is "list of numbers":
-			NumberListVariableSave;
+		if Type Entry is:
+			-- "text":
+				TextVariableSave;
+			-- "number":
+				NumberVariableSave;
+			-- "truth state":
+				TruthVariableSave;
+			-- "indexed text":
+				IndexedTextVariableSave;
+			-- "list of text":
+				TextListVariableSave;
+			-- "list of numbers":
+				NumberListVariableSave;
 	write File of TextSave from the Table of GameTexts; [freshly made table gets saved to file]
 	if debug is at level 10:
 		say "TextSave File Written.";
@@ -401,13 +411,13 @@ to NumberVariableSave:
 		-- "centaurmate": now NumberVarValue entry is centaurmate;
 		-- "CenterVisits": now NumberVarValue entry is CenterVisits;
 		-- "centrallib": now NumberVarValue entry is centrallib;
-		-- "cerberusarousal": now NumberVarValue entry is cerberusarousal;
+		[-- "cerberusarousal": now NumberVarValue entry is cerberusarousal;]
 		-- "cerbmaulcount": now NumberVarValue entry is cerbmaulcount;
 		[-- "cfgmode": now NumberVarValue entry is cfgmode;]
 		-- "charcounter": now NumberVarValue entry is charcounter;
 		[-- "chargeup": now NumberVarValue entry is chargeup;]
 		-- "ChaseMarking": now NumberVarValue entry is ChaseMarking;
-		-- "ChaseOffspring": now NumberVarValue entry is ChaseOffspring;
+		[-- "ChaseOffspring": now NumberVarValue entry is ChaseOffspring;]
 		-- "ChasePetplay": now NumberVarValue entry is ChasePetplay;
 		[-- "ChasePetplayTraining": now NumberVarValue entry is ChasePetplayTraining;]
 		-- "ChaseSexCounter": now NumberVarValue entry is ChaseSexCounter;
@@ -470,7 +480,7 @@ to NumberVariableSave:
 		-- "DemonFoxInteractions": now NumberVarValue entry is DemonFoxInteractions;
 		[-- "DemonFoxStatus": now NumberVarValue entry is DemonFoxStatus;]
 		-- "dentedbikecount": now NumberVarValue entry is dentedbikecount;
-		-- "didsubmit": now NumberVarValue entry is didsubmit;
+		[-- "didsubmit": now NumberVarValue entry is didsubmit;]
 		-- "Diegobitched": now NumberVarValue entry is Diegobitched;
 		-- "DiegoButtSlut": now NumberVarValue entry is DiegoButtSlut;
 		-- "Diegochanged": now NumberVarValue entry is Diegochanged;
@@ -481,8 +491,8 @@ to NumberVariableSave:
 		-- "dobieresist": now NumberVarValue entry is dobieresist;
 		-- "DoctorMouseProgress": now NumberVarValue entry is DoctorMouseProgress;
 		-- "dogfoodcount": now NumberVarValue entry is dogfoodcount;
-		[-- "doggyboned": now NumberVarValue entry is doggyboned;]
-		-- "doggyness": now NumberVarValue entry is doggyness;
+		[-- "doggyboned": now NumberVarValue entry is doggyboned;
+		-- "doggyness": now NumberVarValue entry is doggyness;]
 		-- "dolinfloss": now NumberVarValue entry is dolinfloss;
 		-- "dollfound": now NumberVarValue entry is dollfound;
 		-- "dolphinbundle": now NumberVarValue entry is dolphinbundle;
@@ -526,7 +536,7 @@ to NumberVariableSave:
 		-- "dragonessfuck": now NumberVarValue entry is dragonessfuck;
 		-- "dragontaurcatch": now NumberVarValue entry is dragontaurcatch;
 		-- "dragontype": now NumberVarValue entry is dragontype;
-		-- "Drinkserved": now NumberVarValue entry is Drinkserved;
+		[-- "Drinkserved": now NumberVarValue entry is Drinkserved;]
 		-- "dronevict": now NumberVarValue entry is dronevict;
 		-- "DVtaurcatch": now NumberVarValue entry is DVtaurcatch;
 		-- "DylanFucked": now NumberVarValue entry is DylanFucked;
@@ -570,7 +580,7 @@ to NumberVariableSave:
 		-- "FangDashRel": now NumberVarValue entry is FangDashRel;
 		-- "FangSarahInteraction": now NumberVarValue entry is FangSarahInteraction;
 		-- "FangWS": now NumberVarValue entry is FangWS;
-		-- "fashionfight": now NumberVarValue entry is fashionfight;
+		[-- "fashionfight": now NumberVarValue entry is fashionfight;]
 		-- "Featqualified": now NumberVarValue entry is Featqualified;
 		-- "featunlock": now NumberVarValue entry is featunlock;
 		-- "Feline_attached": now NumberVarValue entry is Feline_attached;
@@ -795,8 +805,8 @@ to NumberVariableSave:
 		-- "KinksandFetishes": now NumberVarValue entry is KinksandFetishes;
 		-- "Kitsunearoused": now NumberVarValue entry is Kitsunearoused;
 		-- "Kitsunetalk": now NumberVarValue entry is Kitsunetalk;
-		-- "kittyness": now NumberVarValue entry is kittyness;
-		[-- "knightcrestnum": now NumberVarValue entry is knightcrestnum;]
+		[-- "kittyness": now NumberVarValue entry is kittyness;
+		-- "knightcrestnum": now NumberVarValue entry is knightcrestnum;]
 		-- "KoballoonLossCounter": now NumberVarValue entry is KoballoonLossCounter;
 		-- "KoballoonMet": now NumberVarValue entry is KoballoonMet;
 		-- "koboldgangmet": now NumberVarValue entry is koboldgangmet;
@@ -957,8 +967,8 @@ to NumberVariableSave:
 		-- "Leonardtimer": now NumberVarValue entry is Leonardtimer;
 		-- "leosupplies": now NumberVarValue entry is leosupplies;
 		-- "lessontime": now NumberVarValue entry is lessontime;
-		[-- "lgnumber": now NumberVarValue entry is lgnumber;]
-		-- "libidomemory": now NumberVarValue entry is libidomemory;
+		[-- "lgnumber": now NumberVarValue entry is lgnumber;
+		-- "libidomemory": now NumberVarValue entry is libidomemory;]
 		-- "libstealth": now NumberVarValue entry is libstealth;
 		-- "libsuppcount": now NumberVarValue entry is libsuppcount;
 		-- "libvis": now NumberVarValue entry is libvis;
@@ -1007,7 +1017,7 @@ to NumberVariableSave:
 		-- "mdrakeloss": now NumberVarValue entry is mdrakeloss;
 		-- "mdrakeoversized": now NumberVarValue entry is mdrakeoversized;
 		-- "medeaget": now NumberVarValue entry is medeaget;
-		-- "MenuRiddleNumber": now NumberVarValue entry is MenuRiddleNumber;
+		[-- "MenuRiddleNumber": now NumberVarValue entry is MenuRiddleNumber;]
 		-- "metalskin": now NumberVarValue entry is metalskin;
 		-- "micaela_bf": now NumberVarValue entry is micaela_bf;
 		-- "MichaelGholeMeetings": now NumberVarValue entry is MichaelGholeMeetings;
@@ -1590,7 +1600,7 @@ to TruthVariableSave:
 		-- "bcseenpunchingpillars": now TruthVarValue entry is bcseenpunchingpillars;
 		-- "bcseenthroneroom": now TruthVarValue entry is bcseenthroneroom;
 		-- "bcswordplay": now TruthVarValue entry is bcswordplay;
-		-- "beachrape": now TruthVarValue entry is beachrape;
+		[-- "beachrape": now TruthVarValue entry is beachrape;]
 		-- "beauceronmet": now TruthVarValue entry is beauceronmet;
 		[-- "birthedwhelp": now TruthVarValue entry is birthedwhelp;]
 		-- "blanchetalk1": now TruthVarValue entry is blanchetalk1;
@@ -1666,7 +1676,7 @@ to TruthVariableSave:
 		-- "flotmarked": now TruthVarValue entry is flotmarked;
 		[-- "Francoismixcleaned": now TruthVarValue entry is Francoismixcleaned;]
 		-- "Francoistalk1": now TruthVarValue entry is Francoistalk1;
-		-- "fsnakevalid": now TruthVarValue entry is fsnakevalid;
+		[-- "fsnakevalid": now TruthVarValue entry is fsnakevalid;]
 		-- "garrettinfo1": now TruthVarValue entry is garrettinfo1;
 		[-- "gobdem": now TruthVarValue entry is gobdem;]
 		-- "grhouse": now TruthVarValue entry is grhouse;
@@ -1749,7 +1759,7 @@ to TruthVariableSave:
 		-- "MoreauPaymentAccepted": now TruthVarValue entry is MoreauPaymentAccepted;
 		-- "mpreghijack": now TruthVarValue entry is mpreghijack;
 		-- "mre04": now TruthVarValue entry is mre04;
-		-- "msnakevalid": now TruthVarValue entry is msnakevalid;
+		[-- "msnakevalid": now TruthVarValue entry is msnakevalid;]
 		-- "muggerison": now TruthVarValue entry is muggerison;
 		-- "nagawarning": now TruthVarValue entry is nagawarning;
 		[-- "NavCheckReturn": now TruthVarValue entry is NavCheckReturn;]
@@ -1817,7 +1827,7 @@ to TruthVariableSave:
 		-- "TerminatorSleepActivated": now TruthVarValue entry is TerminatorSleepActivated;
 		-- "thmpregdetect": now TruthVarValue entry is thmpregdetect;
 		-- "TomeEventPending": now TruthVarValue entry is TomeEventPending;
-		-- "toystoreoverride": now TruthVarValue entry is toystoreoverride;
+		[-- "toystoreoverride": now TruthVarValue entry is toystoreoverride;]
 		-- "toystoreseen": now TruthVarValue entry is toystoreseen;
 		[-- "ts_warrior": now TruthVarValue entry is ts_warrior;
 		-- "tsw_victory": now TruthVarValue entry is tsw_victory;]
@@ -1859,55 +1869,55 @@ to IndexedTextVariableSave:
 to TextListVariableSave:
 	if CurrentVariableName is:
 		-- "Childrenbodies":
-			if the number of entries in Childrenbodies is not 0:
+			if Childrenbodies is not empty:
 				repeat with y running from 1 to the number of entries in Childrenbodies:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of Childrenbodies;
 		-- "Childrenfaces":
-			if the number of entries in Childrenfaces is not 0:
+			if Childrenfaces is not empty:
 				repeat with y running from 1 to the number of entries in Childrenfaces:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of Childrenfaces;
 		-- "Childrenskins":
-			if the number of entries in Childrenskins is not 0:
+			if Childrenskins is not empty:
 				repeat with y running from 1 to the number of entries in Childrenskins:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of Childrenskins;
 		-- "Dolphinlist":
-			if the number of entries in Dolphinlist is not 0:
+			if Dolphinlist is not empty:
 				repeat with y running from 1 to the number of entries in Dolphinlist:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of Dolphinlist;
 		-- "lbcomplist":
-			if the number of entries in lbcomplist is not 0:
+			if lbcomplist is not empty:
 				repeat with y running from 1 to the number of entries in lbcomplist:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of lbcompList;
 		-- "ndmlist":
-			if the number of entries in ndmlist is not 0:
+			if ndmlist is not empty:
 				repeat with y running from 1 to the number of entries in ndmlist:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of ndmList;
 		-- "StoredSluts_Female":
-			if the number of entries in StoredSluts_Female is not 0:
+			if StoredSluts_Female is not empty:
 				repeat with y running from 1 to the number of entries in StoredSluts_Female:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of StoredSluts_Female;
 		-- "StoredSluts_Male":
-			if the number of entries in StoredSluts_Male is not 0:
+			if StoredSluts_Male is not empty:
 				repeat with y running from 1 to the number of entries in StoredSluts_Male:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
 					now TextListVarValue entry is entry y of StoredSluts_Male;
 		-- "StoredSluts_Other":
-			if the number of entries in StoredSluts_Other is not 0:
+			if StoredSluts_Other is not empty:
 				repeat with y running from 1 to the number of entries in StoredSluts_Other:
 					choose a blank row in the table of GameTextLists;
 					now TextListVarName entry is CurrentVariableName;
@@ -1916,61 +1926,61 @@ to TextListVariableSave:
 to NumberListVariableSave:
 	if CurrentVariableName is:
 		-- "AlexandraNPC":
-			if the number of entries in AlexandraNPC is not 0:
+			if AlexandraNPC is not empty:
 				repeat with y running from 1 to the number of entries in AlexandraNPC:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of AlexandraNPC;
 		-- "bookcollection":
-			if the number of entries in bookcollection is not 0:
+			if bookcollection is not empty:
 				repeat with y running from 1 to the number of entries in bookcollection:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of bookcollection;
 		-- "campuswander":
-			if the number of entries in campuswander is not 0:
+			if campuswander is not empty:
 				repeat with y running from 1 to the number of entries in campuswander:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of campuswander;
 		-- "Francois_Discovered":
-			if the number of entries in Francois_Discovered is not 0:
+			if Francois_Discovered is not empty:
 				repeat with y running from 1 to the number of entries in Francois_Discovered:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of Francois_Discovered;
-		-- "Francois_Undiscovered":
-			if the number of entries in Francois_Undiscovered is not 0:
+		[-- "Francois_Undiscovered":
+			if Francois_Undiscovered is not empty:
 				repeat with y running from 1 to the number of entries in Francois_Undiscovered:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
-					now NumberListVarValue entry is entry y of Francois_Undiscovered;
+					now NumberListVarValue entry is entry y of Francois_Undiscovered;]
 		-- "leodenlist":
-			if the number of entries in leodenlist is not 0:
+			if leodenlist is not empty:
 				repeat with y running from 1 to the number of entries in leodenlist:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of leodenList;
 		-- "leoparklist":
-			if the number of entries in leoparklist is not 0:
+			if leoparklist is not empty:
 				repeat with y running from 1 to the number of entries in leoparklist:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of leoparkList;
 		-- "mrevents":
-			if the number of entries in mrevents is not 0:
+			if mrevents is not empty:
 				repeat with y running from 1 to the number of entries in mrevents:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of mrevents;
 		-- "pfpclist":
-			if the number of entries in pfpclist is not 0:
+			if pfpclist is not empty:
 				repeat with y running from 1 to the number of entries in pfpclist:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
 					now NumberListVarValue entry is entry y of pfpcList;
 		-- "velospostmusings":
-			if the number of entries in velospostmusings is not 0:
+			if velospostmusings is not empty:
 				repeat with y running from 1 to the number of entries in velospostmusings:
 					choose a blank row in the table of GameNumberLists;
 					now NumberListVarName entry is CurrentVariableName;
@@ -2253,6 +2263,10 @@ to VariableNumberLoad:
 			if NumberVarName entry is:
 				-- "ColaVendingMachine_dispensed":
 					if dispensed of Cola Vending Machine is not NumberVarValue entry, now dispensed of Cola Vending Machine is NumberVarValue entry;
+				-- "Player_caffeinehigh":
+					if caffeinehigh of Player is not NumberVarValue entry, now caffeinehigh of Player is NumberVarValue entry;
+				-- "SweetTooth_lastcaffeine":
+					if lastcaffeine of Sweet Tooth is not NumberVarValue entry, now lastcaffeine of Sweet Tooth is NumberVarValue entry;
 				-- "featgained":
 					if featgained of Player is not NumberVarValue entry, now featgained of Player is NumberVarValue entry;
 				[-- "absorb":
@@ -2587,8 +2601,8 @@ to VariableNumberLoad:
 					if CenterVisits is not NumberVarValue entry, now CenterVisits is NumberVarValue entry;
 				-- "centrallib":
 					if centrallib is not NumberVarValue entry, now centrallib is NumberVarValue entry;
-				-- "cerberusarousal":
-					if cerberusarousal is not NumberVarValue entry, now cerberusarousal is NumberVarValue entry;
+				[-- "cerberusarousal":
+					if cerberusarousal is not NumberVarValue entry, now cerberusarousal is NumberVarValue entry;]
 				-- "cerbmaulcount":
 					if cerbmaulcount is not NumberVarValue entry, now cerbmaulcount is NumberVarValue entry;
 				[-- "cfgmode":
@@ -2599,8 +2613,8 @@ to VariableNumberLoad:
 					if chargeup is not NumberVarValue entry, now chargeup is NumberVarValue entry;]
 				-- "ChaseMarking":
 					if ChaseMarking is not NumberVarValue entry, now ChaseMarking is NumberVarValue entry;
-				-- "ChaseOffspring":
-					if ChaseOffspring is not NumberVarValue entry, now ChaseOffspring is NumberVarValue entry;
+				[-- "ChaseOffspring":
+					if ChaseOffspring is not NumberVarValue entry, now ChaseOffspring is NumberVarValue entry;]
 				-- "ChasePetplay":
 					if ChasePetplay is not NumberVarValue entry, now ChasePetplay is NumberVarValue entry;
 				[-- "ChasePetplayTraining":
@@ -2725,8 +2739,8 @@ to VariableNumberLoad:
 					if DemonFoxStatus is not NumberVarValue entry, now DemonFoxStatus is NumberVarValue entry;]
 				-- "dentedbikecount":
 					if dentedbikecount is not NumberVarValue entry, now dentedbikecount is NumberVarValue entry;
-				-- "didsubmit":
-					if didsubmit is not NumberVarValue entry, now didsubmit is NumberVarValue entry;
+				[-- "didsubmit":
+					if didsubmit is not NumberVarValue entry, now didsubmit is NumberVarValue entry;]
 				-- "Diegobitched":
 					if Diegobitched is not NumberVarValue entry, now Diegobitched is NumberVarValue entry;
 				-- "DiegoButtSlut":
@@ -2748,9 +2762,9 @@ to VariableNumberLoad:
 				-- "dogfoodcount":
 					if dogfoodcount is not NumberVarValue entry, now dogfoodcount is NumberVarValue entry;
 				[-- "doggyboned":
-					if doggyboned is not NumberVarValue entry, now doggyboned is NumberVarValue entry;]
+					if doggyboned is not NumberVarValue entry, now doggyboned is NumberVarValue entry;
 				-- "doggyness":
-					if doggyness is not NumberVarValue entry, now doggyness is NumberVarValue entry;
+					if doggyness is not NumberVarValue entry, now doggyness is NumberVarValue entry;]
 				-- "dollfound":
 					if dollfound is not NumberVarValue entry, now dollfound is NumberVarValue entry;
 				-- "dolphinbundle":
@@ -2835,8 +2849,8 @@ to VariableNumberLoad:
 					if dragontaurcatch is not NumberVarValue entry, now dragontaurcatch is NumberVarValue entry;
 				-- "dragontype":
 					if dragontype is not NumberVarValue entry, now dragontype is NumberVarValue entry;
-				-- "Drinkserved":
-					if Drinkserved is not NumberVarValue entry, now Drinkserved is NumberVarValue entry;
+				[-- "Drinkserved":
+					if Drinkserved is not NumberVarValue entry, now Drinkserved is NumberVarValue entry;]
 				-- "dronevict":
 					if dronevict is not NumberVarValue entry, now dronevict is NumberVarValue entry;
 				-- "DVtaurcatch":
@@ -2925,8 +2939,8 @@ to VariableNumberLoad:
 					if FangSarahInteraction is not NumberVarValue entry, now FangSarahInteraction is NumberVarValue entry;
 				-- "FangWS":
 					if FangWS is not NumberVarValue entry, now FangWS is NumberVarValue entry;
-				-- "fashionfight":
-					if fashionfight is not NumberVarValue entry, now fashionfight is NumberVarValue entry;
+				[-- "fashionfight":
+					if fashionfight is not NumberVarValue entry, now fashionfight is NumberVarValue entry;]
 				-- "Featqualified":
 					if Featqualified is not NumberVarValue entry, now Featqualified is NumberVarValue entry;
 				-- "featunlock":
@@ -3377,9 +3391,9 @@ to VariableNumberLoad:
 					if Kitsunearoused is not NumberVarValue entry, now Kitsunearoused is NumberVarValue entry;
 				-- "Kitsunetalk":
 					if Kitsunetalk is not NumberVarValue entry, now Kitsunetalk is NumberVarValue entry;
-				-- "kittyness":
+				[-- "kittyness":
 					if kittyness is not NumberVarValue entry, now kittyness is NumberVarValue entry;
-				[-- "knightcrestnum":
+				-- "knightcrestnum":
 					if knightcrestnum is not NumberVarValue entry, now knightcrestnum is NumberVarValue entry;]
 				-- "KoballoonLossCounter":
 					if KoballoonLossCounter is not NumberVarValue entry, now KoballoonLossCounter is NumberVarValue entry;
@@ -3702,9 +3716,9 @@ to VariableNumberLoad:
 				-- "lessontime":
 					if lessontime is not NumberVarValue entry, now lessontime is NumberVarValue entry;
 				[-- "lgnumber":
-					if lgnumber is not NumberVarValue entry, now lgnumber is NumberVarValue entry;]
+					if lgnumber is not NumberVarValue entry, now lgnumber is NumberVarValue entry;
 				-- "libidomemory":
-					if libidomemory is not NumberVarValue entry, now libidomemory is NumberVarValue entry;
+					if libidomemory is not NumberVarValue entry, now libidomemory is NumberVarValue entry;]
 				-- "libstealth":
 					if libstealth is not NumberVarValue entry, now libstealth is NumberVarValue entry;
 				-- "libsuppcount":
@@ -3801,8 +3815,8 @@ to VariableNumberLoad:
 					if mdrakeoversized is not NumberVarValue entry, now mdrakeoversized is NumberVarValue entry;
 				-- "medeaget":
 					if medeaget is not NumberVarValue entry, now medeaget is NumberVarValue entry;
-				-- "MenuRiddleNumber":
-					if MenuRiddleNumber is not NumberVarValue entry, now MenuRiddleNumber is NumberVarValue entry;
+				[-- "MenuRiddleNumber":
+					if MenuRiddleNumber is not NumberVarValue entry, now MenuRiddleNumber is NumberVarValue entry;]
 				-- "metalskin":
 					if metalskin is not NumberVarValue entry, now metalskin is NumberVarValue entry;
 				-- "micaela_bf":
@@ -4866,6 +4880,8 @@ to VariableTruthLoad:
 					if Cola Vending Machine is in Mall Foodcourt, now Cola Vending Machine is nowhere;
 				-- "LibraryComputer_on":
 					if library computer is not on, now library computer is on;
+				-- "PhoenixEgg_shownermine":
+					if shownermine of phoenix egg is not TruthVarValue entry, now shownermine of phoenix egg is TruthVarValue entry;
 				-- "A_Candy":
 					if A_Candy is not TruthVarValue entry, now A_Candy is TruthVarValue entry;
 				-- "A_Colleen":
@@ -4984,8 +5000,8 @@ to VariableTruthLoad:
 					if bcseenthroneroom is not TruthVarValue entry, now bcseenthroneroom is TruthVarValue entry;
 				-- "bcswordplay":
 					if bcswordplay is not TruthVarValue entry, now bcswordplay is TruthVarValue entry;
-				-- "beachrape":
-					if beachrape is not TruthVarValue entry, now beachrape is TruthVarValue entry;
+				[-- "beachrape":
+					if beachrape is not TruthVarValue entry, now beachrape is TruthVarValue entry;]
 				-- "beauceronmet":
 					if beauceronmet is not TruthVarValue entry, now beauceronmet is TruthVarValue entry;
 				[-- "birthedwhelp":
@@ -5134,8 +5150,8 @@ to VariableTruthLoad:
 					if Francoismixcleaned is not TruthVarValue entry, now Francoismixcleaned is TruthVarValue entry;]
 				-- "Francoistalk1":
 					if Francoistalk1 is not TruthVarValue entry, now Francoistalk1 is TruthVarValue entry;
-				-- "fsnakevalid":
-					if fsnakevalid is not TruthVarValue entry, now fsnakevalid is TruthVarValue entry;
+				[-- "fsnakevalid":
+					if fsnakevalid is not TruthVarValue entry, now fsnakevalid is TruthVarValue entry;]
 				-- "garrettinfo1":
 					if garrettinfo1 is not TruthVarValue entry, now garrettinfo1 is TruthVarValue entry;
 				[-- "gobdem":
@@ -5302,8 +5318,8 @@ to VariableTruthLoad:
 					if mpreghijack is not TruthVarValue entry, now mpreghijack is TruthVarValue entry;
 				-- "mre04":
 					if mre04 is not TruthVarValue entry, now mre04 is TruthVarValue entry;
-				-- "msnakevalid":
-					if msnakevalid is not TruthVarValue entry, now msnakevalid is TruthVarValue entry;
+				[-- "msnakevalid":
+					if msnakevalid is not TruthVarValue entry, now msnakevalid is TruthVarValue entry;]
 				-- "muggerison":
 					if muggerison is not TruthVarValue entry, now muggerison is TruthVarValue entry;
 				-- "nagawarning":
@@ -5440,8 +5456,8 @@ to VariableTruthLoad:
 					if thmpregdetect is not TruthVarValue entry, now thmpregdetect is TruthVarValue entry;
 				-- "TomeEventPending":
 					if TomeEventPending is not TruthVarValue entry, now TomeEventPending is TruthVarValue entry;
-				-- "toystoreoverride":
-					if toystoreoverride is not TruthVarValue entry, now toystoreoverride is TruthVarValue entry;
+				[-- "toystoreoverride":
+					if toystoreoverride is not TruthVarValue entry, now toystoreoverride is TruthVarValue entry;]
 				-- "toystoreseen":
 					if toystoreseen is not TruthVarValue entry, now toystoreseen is TruthVarValue entry;
 				[-- "ts_warrior":
@@ -5573,7 +5589,7 @@ to VariableNumberListLoad:
 		truncate bookcollection to 0 entries; [cleaning out the old data]
 		truncate campuswander to 0 entries; [cleaning out the old data]
 		truncate Francois_Discovered to 0 entries; [cleaning out the old data]
-		truncate Francois_Undiscovered to 0 entries; [cleaning out the old data]
+		[truncate Francois_Undiscovered to 0 entries; [cleaning out the old data]]
 		truncate leodenlist to 0 entries; [cleaning out the old data]
 		truncate leoparklist to 0 entries; [cleaning out the old data]
 		truncate mrevents to 0 entries; [cleaning out the old data]
@@ -5587,7 +5603,7 @@ to VariableNumberListLoad:
 				-- "bookcollection": add NumberListVarValue entry to bookcollection;
 				-- "campuswander": add NumberListVarValue entry to campuswander;
 				-- "Francois_Discovered": add NumberListVarValue entry to Francois_Discovered;
-				-- "Francois_Undiscovered": add NumberListVarValue entry to Francois_Undiscovered;
+				[-- "Francois_Undiscovered": add NumberListVarValue entry to Francois_Undiscovered;]
 				-- "leodenlist": add NumberListVarValue entry to leodenList;
 				-- "leoparklist": add NumberListVarValue entry to leoparkList;
 				-- "mrevents": add NumberListVarValue entry to mrevents;

@@ -3,6 +3,9 @@ Control Pills by Hellerhound begins here.
 fertiletime is a number that varies.
 wasfertilef is a number that varies.
 wassterilef is a number that varies.
+steriletime is a number that varies.
+wasfertile is a number that varies.
+wassterile is a number that varies.
 
 Table of Game Objects (continued)
 name	desc	weight	object
@@ -18,7 +21,7 @@ to say fertilepilluse:
 		say "[line break]     Your pregnant belly feels odd as it expands quickly. Looks like the child will be coming a little sooner.";
 	if inheat is true: [extend heat]
 		decrease turns in heat by 8;
-		say "[line break]     Your [if heatform is 0]cunt[else]anus[end if] seems to be getting even [if heatform is 0]wetter[else]looser[end if], and the heat more intense. Looks like it'll last a bit longer now.";
+		say "[line break]     Your [if heatform is 0]cunt seems to be getting even wetter[else]anus seems to be getting even looser[end if], and the heat more intense. Looks like it'll last a bit longer now.";
 	if fertiletime is 0:
 		if "Fertile" is listed in the feats of Player:
 			now wasfertilef is 1;
@@ -33,10 +36,6 @@ to say fertilepilluse:
 	remove "Sterile" from the feats of Player, if present;
 	add "Fertile" to the feats of Player, if absent;
 	now Sterile of Player is false;
-
-steriletime is a number that varies.
-wasfertile is a number that varies.
-wassterile is a number that varies.
 
 Table of Game Objects (continued)
 name	desc	weight	object
@@ -81,7 +80,7 @@ an everyturn rule:
 				now Sterile of Player is false;
 			else:
 				now wassterile is 0;
-			if wasfertile is 1:
+			if wasfertile is 1 or fertiletime > 0: [if player had fertile feat or fertile pill still active]
 				add "Fertile" to the feats of Player, if absent;
 				now wasfertile is 0;
 			now steriletime is 0;
@@ -96,7 +95,7 @@ an everyturn rule:
 				remove "Fertile" from the feats of Player;
 			else:
 				now wasfertilef is 0;
-			if wassterilef is 1:
+			if wassterilef is 1 or steriletime > 0: [if player had sterile feat or birth control pill still active]
 				add "Sterile" to the feats of Player, if absent;
 				now Sterile of Player is true;
 				now wassterilef is 0;

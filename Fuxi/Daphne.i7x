@@ -51,9 +51,7 @@ to say ResolveEvent Spartan Intimidation:
 			say "     'Basil, Belen, you take the whore's mouth. Her pussy is mine. Maybe when I've finished, you can have a go at her.' The Spartan in the middle turns and addresses his two undermen, the swordsman to the right you know now as Basil and the tall black spearmen to the left you know now as Belen, who both immediately agree to his demands. 'Yes, sir Cyril!' they enthusiastically respond while stripping themselves. You can't help but think it's only right for their commander to take Daphne's cunt first, especially when the armor starts to come off. Cyril would be the perfect Spartan were it not for his canine features. Muscled, tall, broad, with a long, slightly curled tail, short floppy ears, and fluffy white fur with black splotches across it. Notably, the sides of his face are black but not his snout or the middle of his face, his ears a tipped black, and two splashes of black fur on his inner thighs spread across his supple ass and taint to create a cute, almost heart-shaped mark contrasting with the Spartan's supreme masculinity. You can't stop yourself from ogling every inch of his body, from his bulging pectorals to his perfectly sculpted ass and the crown jewel of this hulking stud, his long thick, knotted dog cock, and heavy balls. You almost feel a little pity for Daphne, knowing it will not be easy for her to take something that big; however, your arousal from admiring the head warrior's body far outweighs your conscience. You take a moment to admire Cyril's goons as well. They're certainly not hard on the eyes either, well muscled and packing quite a respectable amount of meat but they both pale in comparison to their boss.";
 			WaitLineBreak;
 			say "     'On your hands and knees, harlot, the proper position for someone of your sex and class.' Cyril growls, evidently enjoying his power over Daphne as he tugs her into doggy-style position while yanking on the beaten lady's hair, forcing her to cry out in pain and look up at Basil and Belen stroking themselves. 'Open your mouth, and if you dare to bite my men, you'll be losing your teeth, got it?' Cyril says smugly as he lines himself up with Daphne's slit and, with one hard thrust, sinks himself balls deep inside his unwilling partner. The initial penetration is enough to break both of their masks, and Cyril lets out a long moan grinding deep up until the knot into the water spirit's depths, savoring her tightly clenching cunny, while Daphne's reaction is the exact opposite. Her bravery and strength fail her as she sobs and lets out an anguished wail, unfortunately leaving her mouth open for her two other attackers with Basil being the first to claim her mouth, gripping her head tightly and rolling his hips to plunder her throat, mercilessly face-fucking the helpless woman. Cyril and his men have a distinct style to their fucking; Cyril is much slower and more methodical, slowly withdrawing until nothing but the head of his manhood lies inside Daphne before spearing himself back into her pussy with a firm thrust, his knot slapping against her pussy. His men, however, are more frenzied, pistoning rapidly into the weak maiden's mouth, their balls slapping against her chin and making the entire affair rather messy, and Daphne slobbers around their cocks with her drool dribbling down her face and down Basil and Belen's sacks, not that the two men mind as they take turns plundering the young woman's throat.";
-			say "     'Fuck you're wet. Are you enjoying this, you slut? You like my dick ruining your tight little pussy?' Cyril taunts Daphne while keeping up his harsh pounding with each slap of his hips, forcing the weeping water spirit to take whoever has current claim over her throat even deeper, and on closer inspection, it's clear the cruel male's words may not be baseless. Even from where you stand beating your dick you can see Daphne's fem-cum dripping down Cyril's nuts and faintly hear a wet squish with his every thrust, undeniable proof of her arousal. 'I'm gonna cum soon, bitch. If my seed takes I'll be back to claim my kid. He belongs to Sparta!' Cyril shouts, jackhammering into his victim and at last pushing his frightfully large knot in as his lackeys start to climax, one forcing Daphne to swallow his seed. At the same time, the other paints her face with his; their commander keeps his promise soon after letting out a guttural groan as he stabs deep into Daphne, pressing his cockhead right against her womb to ensure a higher chance of conception. While all this is happening, you're stroking yourself feverishly, bucking desperately into your hands as you imagine yourself ravishing Daphne, fantasizing about the way her soft lips might feel wrapped around your cock-tip or the way her pussy wound squeeze around you; the only thing you can hope for is that maybe the Spartans will leave their prey behind so you might take a bite out of her yourself. So you quickly reach orgasm alongside the warriors, spraying your hand in cum. For a moment, it's all peaceful. You and the warriors take a moment to enjoy the afterglow with Daphne lying quietly on the ground, spirit crushed. Cyril quickly breaks that peace.";
-			CreatureSexAftermath "Daphne" receives "OralCock" from "Spartan Warrior";
-			CreatureSexAftermath "Daphne" receives "PussyFuck" from "Spartan Warrior";
+			say "     'Fuck you're wet. Are you enjoying this, you slut? You like my dick ruining your tight little pussy?' Cyril taunts Daphne while keeping up his harsh pounding with each slap of his hips, forcing the weeping water spirit to take whoever has current claim over her throat even deeper, and on closer inspection, it's clear the cruel male's words may not be baseless. Even from where you stand beating your dick you can see Daphne's fem-cum dripping down Cyril's nuts and faintly hear a wet squish with his every thrust, undeniable proof of her arousal. 'I'm gonna cum soon, bitch. If my seed takes I'll be back to claim my kid. He belongs to Sparta!' Cyril shouts, jackhammering into his victim and at last pushing his frightfully large knot in as his lackeys start to climax, one forcing Daphne to swallow his seed. At the same time, the other paints her face with his; their commander keeps his promise soon after letting out a guttural groan as he stabs deep into Daphne, pressing his cockhead right against her womb to ensure a higher chance of conception. While all this is happening, you're stroking yourself feverishly, bucking desperately into your hands as you imagine yourself ravishing Daphne, fantasizing about the way her soft lips might feel wrapped around your cocktip or the way her pussy wound squeeze around you; the only thing you can hope for is that maybe the Spartans will leave their prey behind so you might take a bite out of her yourself. So you quickly reach orgasm alongside the warriors, spraying your hand in cum. For a moment, it's all peaceful. You and the warriors take a moment to enjoy the afterglow with Daphne lying quietly on the ground, spirit crushed. Cyril quickly breaks that peace.";
 			WaitLineBreak;
 			say "     'Alright, now we switch places,' the victorious fighter says unceremoniously and uncomfortably popping his knot out and withdrawing from Daphne then moving to her mouth with Basil and Belen eagerly swapping to her pussy, ready to share that too. 'I want my dick spotless. Do you hear me trollop?' Cyril says, shoving himself back into Daphne and forcing her to clean him. Just as before, he's slower than his men. Rather than just face-fucking Daphne and moving on, Cyril forces her to give him a proper blowjob chiding the naiad whenever her technique gets sloppy or feels lazy and pulling her hair as punishment for the slightest hint of teeth felt. Occasionally Cyril also moves Daphne to his balls or knot to ensure every part of him is paid the proper attention and respect it deserves, eventually working himself up into another orgasm, making the spirit drink some of his spunk while shooting the rest of his load across her face with his men following close after, the both of them making sure to cum outside Daphne to ensure less competition for their boss's seed. 'Basil, Belen, pick her up. I think we've found our newest concubine. Besides, the last thing I need is Pericles on my ass if this heretic decides to complain. Now let's get going!' Cyril commands his men, who certainly aren't complaining about free access to Daphne whenever they want, no matter the ethics. So speedily, the spirit is spirited away by the Spartan trio, with you quickly fleeing now that there's no show to watch and due to the fact the men would have to pass by you now that they're going.";
 			CreatureSexAftermath "Daphne" receives "OralCock" from "Spartan Warrior";
@@ -64,7 +62,7 @@ to say ResolveEvent Spartan Intimidation:
 			now Resolution of Spartan Intimidation is 3;
 	now Spartan Intimidation is resolved;
 
-Section 2  -  Campus Pool Area
+Section 2 - Campus Pool Area
 
 Table of GameRoomIDs (continued)
 Object	Name
@@ -117,6 +115,7 @@ Sterile of Daphne is false. [steriles can't knock people up]
 MainInfection of Daphne is "Naiad".
 Description of Daphne is "     Daphne is an absolutely stunning naiad woman currently [one of]sitting on the edge of the pool[or]swimming laps inside the pool[or]practicing her diving inside the pool[at random]. She's a blonde bombshell with bright blue eyes, a perfect hourglass figure, and muscles that show the swimmer's dedication to her sport. Currently, the water spirit is wearing a one-piece swimsuit cutting off at her upper arm and thigh while tightly framing Daphne's body, leaving nothing to the imagination. The red and white sides and short sleeves of her outfit accentuate her curves and nicely complement her mesmerizing eyes while also pleasantly contrasting the rest of the piece's blue coloring. There's also a zipper at the chest of the one-piece area for more easy removal. Noticing your staring, Daphne calls out to you. 'Are ya just gonna stare all day, or are you gonna come over?!' she questions playfully.[line break]".
 [Conversation of Daphne is { "Hmph." }.]
+fuckscene of Daphne is "[DaphneSexMenu]".
 icon of Daphne is Figure of Daphne_clothed_icon.
 The scent of Daphne is "     Daphne smells like chlorinated water and flowers, an odd but certainly not unpleasant combination of scents.".
 
@@ -183,13 +182,15 @@ to say DaphneTalkMenu:
 						say "[DaphneTalk2]";
 					-- "Sex With Daphne":
 						say "[DaphneTalk3]";
+				wait for any key;
+				say "[DaphneTalkMenu]";
 		else if calcnumber is 0:
 			LineBreak;
 			now sextablerun is 1;
 			say "     You step back, indicating an end to the conversation. Daphne looks about to say something before shaking her head and stepping back too.";
+			wait for any key;
 		else:
 			say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
-	wait for any key;
 	clear the screen and hyperlink list;
 
 to say DaphneTalk1:
@@ -205,57 +206,54 @@ to say DaphneTalk3:
 
 Section 5 - Sex
 
-instead of fucking Daphne:
+to say DaphneSexMenu:
 	if lastfuck of Daphne - turns < 6: [she got fucked in the last 18 hours = 6 turns]
 		project Figure of Daphne_clothed_icon;
 		say "     'Slow down there, tiger. Not all of us have the time or the energy to fuck around all day. You're just going to have to find somebody else for now,' Daphne says sternly.";
 	else if Daphne & Alyssa Tentacle Fun is not resolved:
 		project Figure of Daphne_clothed_icon;
 		say "     'Look, you seem like a chill guy, but I'm still getting over the incident with the Spartans,' Daphne says, shivering, disgust evident on her face.";
-	else if Daphne & Alyssa Tentacle Fun is resolved and HP of Daphne is 2:
+	else if HP of Daphne is 2:
 		project Figure of Daphne_clothed_icon;
 		say "     'Well, look what the cat dragged in. Come back to spy on me some more? Shoot your cum on the wall, then run away?' Daphne says loudly. Having just exited the pool, she's wet and wearing her swimsuit. The naiad crosses her arms, looking at you expectantly, and you're ashamed to say that before you can even say anything in your defense, your eyes dart down to stare at Daphne's breasts, which she immediately notices. 'Oh, you like looking at those? I bet you got a nice peep at them a while ago, perv!' Daphne yells and glares out at you. Having completely botched your meeting, you're left stammering excuses, blushing and stuttering apologies, which Daphne quickly shuts down. 'Save it, voyeur. I don't wanna hear anything from you!' she shouts, and you're left silent, staring at the ground guiltily as she continues to lambaste you. 'Good. Now ordinarily, I'd beat a bastard like you black and blue for something like that. Ordinarily, that is,' Daphne says, her voice softening, and you allow yourself a bit of hope and look up at her and find that instead of glare, you see her grinning slightly. 'Loosen up. I'm not going to hit you. We're cool, okay? Normally I'd be pissed if someone spied on me like that, but you're not a bad person, I think. You helped me with those Spartans before, and anybody with the balls to do that for a stranger is good in my book.'";
 		say "     Sighing in relief, you meet Daphne's eyes again and let her resume her speech. 'Don't get me wrong, it was shitty of you to spy on me, but I get it, the nanites mess with your head. I mean, that's why I needed Alyssa's help after the Spartan incident. I was in my head a lot and couldn't fuck anybody. It was driving me crazy! So I went to her for help,' the water spirit explains calmly and continues with a lusty smile. 'Besides wouldn't be the first time somebody's watched me, and from the amount you left on the wall, you certainly loved it! I'm flattered. Just ask next time you want to see me in action or maybe get some action,' Daphne ends, whispering flirtatiously and winking at you before going back to the pool to sharpen her skills some more.";
 		now HP of Daphne is 3;
 	else: [ready for sex]
-		say "[DaphneSexMenu]";
-
-to say DaphneSexMenu:
-	project Figure of Daphne_naked_icon;
-	now sextablerun is 0;
-	blank out the whole of table of fucking options;
-	[]
-	if Player is Male:
-		choose a blank row in table of fucking options;
-		now title entry is "Blowjob";
-		now sortorder entry is 1;
-		now description entry is "Ask the beautiful Naiad to wrap her lips around your dick";
-	[]
-	sort the table of fucking options in sortorder order;
-	repeat with y running from 1 to number of filled rows in table of fucking options:
-		choose row y from the table of fucking options;
-		say "[link][y] - [title entry][as][y][end link][line break]";
-	say "[link]0 - Nevermind[as]0[end link][line break]";
-	while sextablerun is 0:
-		say "Pick the corresponding number> [run paragraph on]";
-		get a number;
-		if calcnumber > 0 and calcnumber <= the number of filled rows in table of fucking options:
-			now current menu selection is calcnumber;
-			choose row calcnumber in table of fucking options;
-			say "[title entry]: [description entry]?";
-			if Player consents:
+		project Figure of Daphne_naked_icon;
+		now sextablerun is 0;
+		blank out the whole of table of fucking options;
+		[]
+		if Player is Male:
+			choose a blank row in table of fucking options;
+			now title entry is "Blowjob";
+			now sortorder entry is 1;
+			now description entry is "Ask the beautiful Naiad to wrap her lips around your dick";
+		[]
+		sort the table of fucking options in sortorder order;
+		repeat with y running from 1 to number of filled rows in table of fucking options:
+			choose row y from the table of fucking options;
+			say "[link][y] - [title entry][as][y][end link][line break]";
+		say "[link]0 - Nevermind[as]0[end link][line break]";
+		while sextablerun is 0:
+			say "Pick the corresponding number> [run paragraph on]";
+			get a number;
+			if calcnumber > 0 and calcnumber <= the number of filled rows in table of fucking options:
+				now current menu selection is calcnumber;
+				choose row calcnumber in table of fucking options;
+				say "[title entry]: [description entry]?";
+				if Player consents:
+					LineBreak;
+					now sextablerun is 1;
+					if title entry is "Blowjob":
+						say "[DaphneSex1]";
+			else if calcnumber is 0:
 				LineBreak;
 				now sextablerun is 1;
-				if title entry is "Blowjob":
-					say "[DaphneSex1]";
-		else if calcnumber is 0:
-			LineBreak;
-			now sextablerun is 1;
-			say "     You step back from the naiad, shaking your head slightly as she gives a questioning look.";
-		else:
-			say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
-	wait for any key;
-	clear the screen and hyperlink list;
+				say "     You step back from the naiad, shaking your head slightly as she gives a questioning look.";
+			else:
+				say "Invalid Option. Pick between 1 and [the number of filled rows in the table of fucking options], or 0 to exit.";
+		wait for any key;
+		clear the screen and hyperlink list;
 
 to say DaphneSex1:
 	say "     Before you can even make your request to Daphne, she's seen through you. 'Spit it out already. You've been eye-fucking me for a minute now,' she says, flipping her hair behind her back. Well, there's no point in subtlety now, so you ask the athlete candidly if she'd like to give you a blowjob. Daphne pretends to think briefly, crossing her arms and pushing her boobs to tempt you. 'Okay, we can have some fun on one condition. We have to do it here in the pool room. Okay?' she agrees, mischievously smiling and waiting to see if you'll accept her conditions which doesn't take long. Whatever hang-ups you may have over fooling around in public with the water spirit are drowned out by your libido, and with Daphne actively showing off her body and all you stand to gain, it's clear to you that the benefit far outweighs the negatives. When Daphne starts stripping, you feel more than assured that you've made the correct choice as she unzips her swimsuit and pulls it down, revealing her flawless body, her boobs in particular drawing most of your attention as always. Every part of the nymph feels designed to tempt you. The stories certainly weren't exaggerating when they described the naiads, as you can see now.";
@@ -264,7 +262,7 @@ to say DaphneSex1:
 	say "     At first, you are extremely disappointed to have your fun redirected, but as your hands snake down to squeeze at Daphne's fun, that quickly fades away. Everything seems to fade away as you continue to play with the swimmer's butt, your worries, fears, and obligations melted away by the blissful feeling of Daphne's bubbly rump between your fingers. Each cheek fits perfectly in your hands, and your mind is consumed by fantasies of everything you could do with this wonderful ass, dreams that make you spurt pre against Daphne's stomach as you wonder if it's too late to ask for something more from the beautiful woman. 'Alright, no more touching, let's get this show on the road. Sit on the edge of the pool,' Daphne directs you, and you follow her as if in a trance led by your dick. Dipping into the pool clears your mind, the cold water snapping you out of the haze Daphne's body held you in. You forget yourself all over again, though, when the athlete enters the pool and swims right between your legs. Everything seems alright in the world while you stare into her stunning blue eyes.";
 	say "     Daphne gently grips your cock and starts to stroke you slowly. It shouldn't affect you as much, but it sends a shiver throughout your body, and you can already feel your balls churning with the need to cum. Did her body get you worked up that much? You whine needily, begging the water spirit to answer your prayers and sate your lusts, but it seems you'll have to suffer a little longer as Daphne keeps up her painfully slow pace but at least sees it fit to use more than her hand as she leans down to slowly kiss and lick your balls. Every wet smooch along your sack makes it feel heavier and heavier with pent-up cum, and every drag of her tongue along your tortured orbs has you squirming where you sit on the edge of the pool. Stifling a laugh at your desperation, Daphne starts to suck only your nuts a little, noisily slurping and popping your testicles in and out of her mouth before she finally moves on, satisfied with her attention to your balls.";
 	WaitLineBreak;
-	say "     Slowly licking up from the base of your shaft to the tip, Daphne plants a lot of little kisses on your cock-tip. You stifle a frustrated groan thinking you're in for the same slow teasing as before, only to instead let out a loud, surprised, and euphoric moan as the fickle nymph engulfs your shaft all in one go taking you right down to the balls, her nose pressed right against your pubes. If it wasn't already clear from the fact that Daphne throated your meat all in one go, she's experienced at sucking dick, and it shows as she bobs her head quickly up and down your shaft, her tongue twirling around your head and tracing your cum vein, also occasionally tickling against your balls when the naiad takes in all of you. You can't help but thrash a little from the pleasure, kicking your feet in the water and splashing Daphne, who seems to enjoy the moisture. Her throat feels amazing, so right, and each time she swallows down around you, you can feel it clench around your dick, milking you for more pre to gulp, not to mention the spirit's dexterous tongue. You know you won't be lasting long. As much as you try to deny the inevitable, you can feel your climax rising, and when the dam finally breaks in a spurt of excitement, you hold Daphne's head down, forcing her to drink all of your cum.";
+	say "     Slowly licking up from the base of your shaft to the tip, Daphne plants a lot of little kisses on your cocktip. You stifle a frustrated groan thinking you're in for the same slow teasing as before, only to instead let out a loud, surprised, and euphoric moan as the fickle nymph engulfs your shaft all in one go taking you right down to the balls, her nose pressed right against your pubes. If it wasn't already clear from the fact that Daphne throated your meat all in one go, she's experienced at sucking dick, and it shows as she bobs her head quickly up and down your shaft, her tongue twirling around your head and tracing your cum vein, also occasionally tickling against your balls when the naiad takes in all of you. You can't help but thrash a little from the pleasure, kicking your feet in the water and splashing Daphne, who seems to enjoy the moisture. Her throat feels amazing, so right, and each time she swallows down around you, you can feel it clench around your dick, milking you for more pre to gulp, not to mention the spirit's dexterous tongue. You know you won't be lasting long. As much as you try to deny the inevitable, you can feel your climax rising, and when the dam finally breaks in a spurt of excitement, you hold Daphne's head down, forcing her to drink all of your cum.";
 	say "     When the post-nut clarity hits and when Daphne hits your leg to tell you she needs air, you immediately let go of the young woman, panting slightly, and apologize for your forcefulness but are stunned when, instead of opening her mouth to scold you, the swimmer instead shows off a puddle of your cum sitting on her tongue and then swallows, opening up again to show you her actions, making you spew one last string of jizz on her body. 'Heh, knew you'd get a kick out of that, perv,' Daphne says playfully and leans in to give you a peck on the lips. 'I'm gonna go freshen up now. Don't want my breath smelling like sperm.' With those last words, Daphne leaves you to recover and goes to clean herself up.";
 	NPCSexAftermath Daphne receives "OralCock" from Player;
 

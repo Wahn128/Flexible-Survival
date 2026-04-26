@@ -41,7 +41,7 @@ understand "hunt [text]" as HuntAction.
 check HuntAction:
 	if BlindMode is true:
 		say "You're playing in blind-mode, so hunting is not allowed. You'll have to try exploring to find what you seek." instead;
-	else if there is a dangerous door in the Location of Player: [danger door]
+	if there is a dangerous door in the Location of Player: [danger door]
 		let y be a random dangerous door in the Location of Player;
 		now battleground is the marea of y;
 	else if earea of location of Player is not "void": [explore/hunt anywhere]
@@ -74,8 +74,7 @@ carry out HuntAction:
 					if larvacounter > 3:
 						repeat with x running from 1 to ( larvacounter / 3 ):
 							add "Black Wasp" to PossibleEncounters;
-	if there is a name of HuntId in the Table of GameRoomIDs:
-		choose a row with name of HuntId in the Table of GameRoomIDs;
+	if HuntId is a Name listed in Table of GameRoomIDs:
 		if debugactive is 1:
 			say "DEBUG -> Target Room: [Name entry] found by exact match with: [HuntId][line break]";
 		if object entry is private:
@@ -110,8 +109,7 @@ carry out HuntAction:
 				move player to object entry;
 				AddNavPoint object entry;
 				now Found is 20; [room found]
-	else if there is a name of HuntId in the Table of GameEventIDs: [exact situation name match]
-		choose a row with name of HuntId in the Table of GameEventIDs;
+	else if HuntId is a Name listed in Table of GameEventIDs: [exact situation name match]
 		if debugactive is 1:
 			say "DEBUG -> Situation found: [Name entry] by matching with [HuntId] (EXACT MATCH).[line break]";
 		if object entry is resolved:
@@ -161,8 +159,7 @@ carry out HuntAction:
 				say "[ResolveFunction of object entry]";
 				now CreatureArtworkOverride is false;
 				now inasituation is false;
-	else if there is a name of HuntId in the Table of Random Critters: [exact creature match]
-		choose a row with name of HuntId in the Table of Random Critters;
+	else if HuntId is a Name listed in Table of Random Critters: [exact creature match]
 		if debugactive is 1:
 			say "DEBUG -> Target Creature: [Name entry] found by exact match with: [HuntId][line break]";
 		if there is an area entry:
@@ -249,9 +246,9 @@ carry out HuntAction:
 				if Found is not 10 and (Name entry matches the text HuntId, case insensitively or enemy title entry matches the text HuntId, case insensitively or enemy Name entry matches the text HuntId, case insensitively): [no target creature found yet]
 					if debugactive is 1:
 						say "DEBUG -> Found creature: [Name entry].[line break]";
-					let CreatureUnavailable be 0;
+					let CreatureUnavailable be false;
 					[right area for the creature?]
-					if area entry exactly matches the text battleground or area entry is "Everywhere":
+					if area entry exactly matches the text battleground or area entry in lower case is "everywhere":
 						now Found is 10; [creature found, right area and time]
 						if Enemy Type entry is 2: [named and name known]
 							say "You are almost certain you saw some of [Enemy Name entry]'s tracks...";
@@ -263,21 +260,21 @@ carry out HuntAction:
 							say "DEBUG -> Found: [Found], Area '[Area Entry]' matches Battleground '[Battleground]'.[line break]";
 					else:
 						now Found is 12; [creature found, wrong area]
-						now CreatureUnavailable is 1;
+						now CreatureUnavailable is true;
 						if debugactive is 1:
 							say "DEBUG -> Found: [Found], Area '[Area Entry]' <> Battleground '[Battleground]' mismatch.[line break]";
 					[right time to find this creature?]
 					if (DayCycle entry is 2 and daytimer is day) or (DayCycle entry is 1 and daytimer is night):
 						now Found is 11; [wrong time of day for that creature]
-						now CreatureUnavailable is 1;
+						now CreatureUnavailable is true;
 						if debugactive is 1:
 							say "DEBUG -> Found: [Found], but wrong time of day.[line break]";
 					if BannedStatus entry is true:
 						now Found is 14; [banned creatures]
-						now CreatureUnavailable is 1;
+						now CreatureUnavailable is true;
 						if debugactive is 1:
 							say "DEBUG -> The creature has been banned from the game![line break]";
-					if CreatureUnavailable is 0: [adding the creature only if it is available]
+					if CreatureUnavailable is false: [adding the creature only if it is available]
 						add Name entry to PossibleEncounters; [basic chance to find the creature]
 						[extra encounter chances]
 						let zed be perception of Player / 3;
@@ -293,21 +290,21 @@ carry out HuntAction:
 						if "Master Baiter" is listed in feats of Player:
 							repeat with N running from 1 to ( perception of Player / 3 ):
 								add Name entry to PossibleEncounters;
-				if "Unerring Hunter" is not listed in feats of Player and (area entry exactly matches the text battleground, case insensitively or area entry is "Everywhere"): [only adds random monsters if the player isn't an unerring hunter, and the area matches]
+				if "Unerring Hunter" is not listed in feats of Player and (area entry exactly matches the text battleground, case insensitively or area entry in lower case is "everywhere"): [only adds random monsters if the player isn't an unerring hunter, and the area matches]
 					if there is no lev entry or lev entry > level of Player + 1, next;
 					if (DayCycle entry is 1 and daytimer is day) or (DayCycle entry is 2 and daytimer is night), next; [wrong time of day for that creature]
 					if "Expert Hunter" is listed in feats of Player and a random chance of 1 in 3 succeeds: [chance to avoid random critters]
 						next;
-					let skipit be 0;
+					let skipit be false;
 					repeat with s running through warded flags:
 						if Name entry is listed in infections of s:
-							now skipit is 1;
+							now skipit is true;
 							break;
-					if skipit is 1, next;
+					if skipit is true, next;
 					add Name entry to PossibleEncounters;
 					if debugactive is 1:
 						say "DEBUG -> Other creature [Name entry] found for the battleground: [battleground].[line break]";
-				if "Like Attracts Like" is listed in the feats of Player and "Unerring Hunter" is not listed in feats of Player and (area entry exactly matches the text battleground, case insensitively or area entry is "Everywhere"): [only adds player fav infection if they're not an unerring hunter]
+				if "Like Attracts Like" is listed in the feats of Player and "Unerring Hunter" is not listed in feats of Player and (area entry exactly matches the text battleground, case insensitively or area entry in lower case is "everywhere"): [only adds player fav infection if they're not an unerring hunter]
 					if BodyName of Player is Name entry and a random chance of 1 in 2 succeeds, add Name entry to PossibleEncounters;
 					if FaceName of Player is Name entry and a random chance of 1 in 2 succeeds, add Name entry to PossibleEncounters;
 					if SkinName of Player is Name entry and a random chance of 1 in 2 succeeds, add Name entry to PossibleEncounters;
@@ -366,7 +363,7 @@ carry out HuntAction:
 							now CreatureArtworkOverride is false;
 							now inasituation is false;
 						break;
-	if the number of entries in PossibleEncounters is not 0 and Found is 10: [got list of creatures in the area & found the target creature]
+	if PossibleEncounters is not empty and Found is 10: [got list of creatures in the area & found the target creature]
 		sort PossibleEncounters in random order; [the one who gets put on #1 is the winner]
 		if debugactive is 1:
 			say "DEBUG -> Random sorted PossibleEncounters: [PossibleEncounters][line break]";
@@ -443,12 +440,9 @@ carry out huntinglisting:
 	now battleground is the earea of location of Player;
 	let huntinglist be a list of text;
 	repeat through Table of Random Critters:
-		if there is no Name entry, next;
 		if there is a area entry and area entry exactly matches the text battleground, case insensitively:
-			if enemy title entry is empty:
+			if there is a Name entry:
 				add Name Entry to huntinglist, if absent;
-			else:
-				add Enemy Title Entry to huntinglist, if absent;
 	sort huntinglist;
 	repeat with target running through huntinglist:
 		linkfind "hunt [target]";
@@ -494,45 +488,45 @@ carry out exploring:
 	follow the explore rule;
 
 This is the explore rule:
-	let something be 0;
-	let roomfirst be 1;
+	let something be false;
+	let roomfirst be true;
 	let the bonus be ( Perception of Player minus 10 ) divided by 2;
 	if "Curious" is listed in feats of Player, increase bonus by 3;
 	if BlindMode is true, increase bonus by 3; [increased odds of finding something interesting]
-	if a random chance of 2 in 5 succeeds, now roomfirst is 0; [Will it check for a room or situation first?]
+	if a random chance of 2 in 5 succeeds, now roomfirst is false; [Will it check for a room or situation first?]
 	let MonsterAttraction be 0;
 	if "Stealthy" is listed in feats of Player, decrease MonsterAttraction by 2;
 	if "Bad Luck" is listed in feats of Player, increase MonsterAttraction by 2;
 	[Initial 20% chance of a random encounter; 10% for Stealthy people, 30% for those with Bad Luck]
-	if something is 0 and a random chance of (4 + MonsterAttraction) in 20 succeeds and battleground is not "void" and battleground is not "Smith Haven":
+	if something is false and a random chance of (4 + MonsterAttraction) in 20 succeeds and battleground is not "void" and battleground is not "Smith Haven":
 		if there is a area of Battleground in the Table of Random Critters:
 			say "Setting out to explore your surroundings, you encounter another inhabitant of the city.";
-			now something is 1;
+			now something is true;
 			Fight;
 			[extra fight for hardcore players]
 			if ( ( HardMode is true and a random chance of 1 in 8 succeeds ) or ( "Bad Luck" is listed in feats of Player and a random chance of 1 in 8 succeeds ) ) and battleground is not "void":
 				say "As you are trying to recover from your last encounter, another roving creature finds you.";
 				Fight;
 	[Chance for new locations - increased by perception]
-	if something is 0 and a random number from 1 to 20 < ( bonus + 7 ) and there is an unknown fasttravel room and battleground is "Outside" and roomfirst is 1:
+	if something is false and a random number from 1 to 20 < ( bonus + 7 ) and there is an unknown fasttravel room and battleground is "Outside" and roomfirst is true:
 		let L be a random unknown fasttravel not private room;
 		if L is not nothing:
 			randomfightchance;
 			say "[one of]After wandering aimlessly for hours, you happen across[or]Following your faint memories, you manage to find[or]Following movement, you end up at[or]Going off towards a previously unexplored part of the city, you find yourself at[at random] [bold type][L][roman type].";
 			move player to L;
-			now something is 1;
+			now something is true;
 			plot;
 			now battleground is "void";
 			wait for any key;
 	[Chance for new events - increased by perception]
-	if something is 0 and a random number from 1 to 20 < ( bonus + 8 ) and there is an active unresolved situation:
+	if something is false and a random number from 1 to 20 < ( bonus + 8 ) and there is an active unresolved situation:
 		let L be a random available situation;
-		If L is not nothing and Level of Player + 2 > Level of L:
+		if L is not nothing and Level of Player + 2 > Level of L:
 			if battleground is "Smith Haven":
 				say "Wandering around a bit, you find [bold type][L][roman type].";
 			else:
 				say "[one of]After wandering aimlessly for hours, you happen across[or]Following your faint memories, you manage to find[or]Following movement, you end up at[at random] [bold type][L][roman type].";
-			now something is 1;
+			now something is true;
 			now inasituation is true;
 			say "[ResolveFunction of L]";
 			now CreatureArtworkOverride is false;
@@ -542,17 +536,17 @@ This is the explore rule:
 	now CreatureArtworkOverride is false;
 	now inasituation is false;
 	[Chance for new locations - increased by perception]
-	if something is 0 and a random number from 1 to 20 < ( bonus + 7 ) and there is an unknown fasttravel room and battleground is "Outside" and roomfirst is 0:
+	if something is false and a random number from 1 to 20 < ( bonus + 7 ) and there is an unknown fasttravel room and battleground is "Outside" and roomfirst is false:
 		let L be a random unknown fasttravel not private room;
 		if L is not nothing:
 			randomfightchance;
 			say "[one of]After wandering aimlessly for hours, you happen across[or]Following your faint memories, you manage to find[or]Following movement, you end up at[or]Going off towards a previously unexplored part of the city, you find yourself at[at random] [bold type][L][roman type].";
 			move player to L;
-			now something is 1;
+			now something is true;
 			plot;
 			now battleground is "void";
 			wait for any key;
-	if something is 0:
+	if something is false:
 		if battleground is "Smith Haven": [populated, crowded haven]
 			say "     Wandering around a bit, you stroll through the overfilled Smith Haven Mall and ";
 			if a random number from 1 to 10 is:
