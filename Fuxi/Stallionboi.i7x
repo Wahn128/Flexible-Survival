@@ -73,7 +73,7 @@ To say Stallionboi loses:
 			Stallionboi_fuck_slit_classic;
 		-- "(classic) Fuck his ass.":
 			LineBreak;
-			Stallionboi_fuck_ass;
+			Stallionboi_fuck_ass_classic;
 		-- "(new) Use that bratty mouth by plugging it with your cock.":
 			LineBreak;
 			Stallionboi_oral_cock_new;
@@ -156,7 +156,7 @@ to Stallionboi_spank_creampie:
 	say "     You let out a low chuckle, fully understanding the game he's playing. Delivering one final, light swat to his sticky rear, you give him a firm push to send him on his way. You reply that he better be a sweet happy slut from now on, playing along with his established dynamic. He adjusts his pale blue thong with a dramatic sigh, giving you one last, lingering, slutty grin before prancing down the hallway, the click of his hooves echoing in the quiet corridor. Watching his slender, furred hips sway as he retreats, you have absolutely no doubt that if you cross paths again, he will be just as bratty, teasing, and desperate for a firm hand. And as you adjust your own clothes, you have to admit that the prospect of putting him in his place a second time is incredibly hot.";
 	CreatureSexAftermath "Stallionboi" receives "AssFuck" from "Player";
 
-to say Stallionboi_ride_anal:
+to Stallionboi_ride_anal:
 	say "     Grabbing the black leather collar around his neck, you apply a firm downward pressure that forces the stallion to his knees, before easily pushing him over onto his back. He hits the floor with a soft thud, his sheer black stockings contrasting starkly against his dark chocolate fur as his digitigrade legs sprawl open. As you step over him and [if Player is not naked]strip away your lower garments to [end if]reveal your own male anatomy, a sly, thoroughly satisfied smirk spreads across his feminine muzzle. 'Mmm, now we're talking,' he purrs, his voice dripping with a breathy, performative arrogance. His hands move to the pale blue silk of his thong, pulling the skimpy fabric aside to completely free his massive, dark equine manhood, which springs upright and begins to weep copious amounts of clear pre-cum.";
 	say "     Ignoring his strutting tone, you reach down and gather a handful of the slick, pre-cum dripping from his flared crown, using it to thoroughly prep your own tight entrance. The stallion watches your meticulous preparation with a smug, heavy-lidded gaze, clearly believing he has successfully manipulated the encounter to serve his own dominant fantasy. He shifts his hips, presenting the thick, foot-long pillar of meat with a cocky tilt of his head. He expects you to eagerly impale yourself, waiting for the moment you surrender to the overwhelming size of his weapon. Instead of mounting him, however, your hand shoots past his throbbing shaft, your fingers closing in a sudden, vice-like grip around the heavy, lap-filling mass of his testicles.";
 	WaitLineBreak;
