@@ -53,11 +53,11 @@ To say Stallionboi loses:
 	let StallionboiWin_Choices be a list of text;
 	if Player is male:
 		add "(classic) Make use of his long equine muzzle and plug it with your cock." to StallionboiWin_Choices;
-		add "(new) Use that bratty mouth by plugging it with your cock." to StallionboiWin_Choices;
-		add "(classic) Fuck his cock slit." to StallionboiWin_Choices;
-		add "(new) Give him a light spanking, followed by a creamy anal filling." to StallionboiWin_Choices;
+		add "(classic) Fuck his ass." to StallionboiWin_Choices;
 		if Cock Length of Player < 8:
 			add "(classic) Fuck his cock slit." to StallionboiWin_Choices;
+		add "(new) Use that bratty mouth by plugging it with your cock." to StallionboiWin_Choices;
+		add "(new) Give him a light spanking, followed by a creamy anal filling." to StallionboiWin_Choices;
 	if Player is female:
 		add "(new) Use that bratty mouth by putting it to work on your pussy." to StallionboiWin_Choices;
 		add "(new) Ride that big equine cock with your pussy." to StallionboiWin_Choices;
